@@ -1,28 +1,38 @@
-== README
+# CiderSpot
+[CiderSpot](http://www.ciderspot.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Minimum Viable Product
 
-Things you may want to cover:
+CiderSpot is a web application inspired by [BeerAdvocate](http://www.beeradvocate.com/) built using Ruby on Rails and React.js. CiderSpot allows users to:
 
-* Ruby version
+Website to aggregate cider reviews for both cider enthusiasts and regulars alike. While the main content and driver of traffic to the site is its crowdsourced reviews there will also be a main page with blog/news posts.
 
-* System dependencies
+- [ ] Create an account
+- [ ] Log in / Log out
+- [ ] Create, read, edit and delete reviews
+- [ ] Can like other reviews
+- [ ] Keep track of ciders they have had
+- [ ] Maintain a wish list
+- [ ] Admins can post to blog
+- [ ] Admins can delete reviews
 
-* Configuration
+* (Potentially) Utilize brewery DB for database, alternatively use own database.
 
-* Database creation
+## Design Docs
+* [View Wireframes][view]
+* [DB schema][schema]
 
-* Database initialization
+[view]: ./docs/views.md
+[schema]: ./docs/schema.md
 
-* How to run the test suite
+## Implementation Timeline
 
-* Services (job queues, cache servers, search engines, etc.)
+### Phase 1: User Authentication, Cider and Review Model, Cider Seed Data and JSON API (2 Days)
 
-* Deployment instructions
+In Phase 1, I will begin by implementing the user signup and authentication process (using BCrypt). There will be a basic landing page after signing up which will have container for the application's root react component. Before working on the front end I will be setting up a JSON API for the reviews and the ciders themselves.
 
-* ...
+[Details][phase-one]
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+[phase-one]: ./docs/phases/phase1.md
