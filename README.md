@@ -33,6 +33,7 @@ In Phase 1, I will begin by implementing the user signup and authentication proc
 
 [Details][phase-one]
 
+### Phase 2: 
 
 
 [phase-one]: ./docs/phases/phase1.md
