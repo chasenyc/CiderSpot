@@ -1,4 +1,4 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 2: Flux Architecture and Cider CRUD
 
 ## Rails
 ### Models
