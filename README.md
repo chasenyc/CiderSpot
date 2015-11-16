@@ -57,6 +57,15 @@ Phase 5 will mainly be a day adding features for admin users who can both post e
 
 [Details][phase-five]
 
+### Phase 6: Styling Cleanup and Seeding (1 day)
+Phase six will be devoted to styling the site and tying up any loose ends.
+
+### Bonus Features (TBD)
+- [ ] Add profile information including avatar
+- [ ] Use other services to log in (Google, FB, Twitter)
+- [ ] Ability to message other users
+- [ ] Notifications on liked posts
+
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
