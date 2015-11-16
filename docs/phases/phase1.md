@@ -3,18 +3,25 @@
 ## Rails
 ### Models
 * User
-* Note
+* Cider
+* Review
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::CidersController (index, show)
+* Api::ReviewsController (create, destroy, index, show, update)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* ciders/index.json.jbuilder
+* ciders/show.json.jbuilder
+* reviews/show.json.jbuilder
+* reviews/index.json.jbuilder
+
+### Database
+* Seed Cider table of database with BreweryDB
 
 ## Flux
 ### Views (React Components)
@@ -24,6 +31,5 @@
 ### Actions
 
 ### ApiUtil
-
 ## Gems/Libraries
 * BCrypt

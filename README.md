@@ -33,7 +33,8 @@ In Phase 1, I will begin by implementing the user signup and authentication proc
 
 [Details][phase-one]
 
-### Phase 2: 
+### Phase 2: Flux Architecture and Cider CRUD (2 Days)
 
+Phase 2 is focused on setting up Flux, the React Router, and the React view structure for the main application. After the basic flux structure has been set up, a Cider store will be implemented and a set of actions corresponding to the CRUD functionality needed. Once that is done I will create the react views Ciders `Index`, `IndexItem` and `IndexDetailView`. At the end of Phase 2 Ciders can be viewed and sorted. I will be using basic CSS styling at the phase in the project to ensure the overall design
 
-[phase-one]: ./docs/phases/phase1.md
+[phase-two]: ./docs/phases/phase2.md
