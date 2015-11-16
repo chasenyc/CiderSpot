@@ -17,7 +17,7 @@
 
 ### Actions
 * ApiActions.receiveAllReviews
-* ApiActions.deleteReview
+* ApiActions.destroyReview
 
 ### ApiUtil
 * ApiUtil.fetchAllReviews

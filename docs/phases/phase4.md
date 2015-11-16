@@ -1,4 +1,4 @@
-# Phase 3: Reviews with Flux and CRUD
+# Phase 4: Implement Wants, Gots and Likes
 
 ## Rails
 ### Models
@@ -29,9 +29,9 @@
 ### Actions
 * ApiActions.receiveAllWants
 * ApiActions.receiveAllGots
-* ApiActions.deleteWant
-* ApiActions.deleteGot
-* ApiActions.deleteLike
+* ApiActions.destroyWant
+* ApiActions.destroyGot
+* ApiActions.destroyLike
 
 ### ApiUtil
 * ApiUtil.fetchAllWants
