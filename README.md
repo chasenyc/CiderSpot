@@ -37,12 +37,25 @@ In Phase 1, I will begin by implementing the user signup and authentication proc
 
 Phase 2 is focused on setting up Flux, the React Router, and the React view structure for the main application. After the basic flux structure has been set up, a Cider store will be implemented and a set of actions corresponding to the CRUD functionality needed. Once that is done I will create the react views Ciders `Index`, `IndexItem` and `IndexDetailView`. At the end of Phase 2 Ciders can be viewed and sorted. I will be using basic CSS styling at the phase in the project to ensure the overall design
 
-[phase-two]: ./docs/phases/phase2.md
+[Details][phase-two]
 
-### Phase 3: Reviews with Flux and CRUD (1 Day)
+### Phase 3: Reviews with Flux and CRUD (1.5 Days)
 
 Phase 3 is composed of implementing more FLUX, a Review Store, Actions and more views. The `ReviewIndex` and  `ReviewForm` React views will be created in this phase. At the end of phase three a user will be able to review a cider, edit their review, delete their review. Ciders will display an index of reviews
 
-[phase-three]: ./docs/phases/phase3.md
+[Details][phase-three]
 
-### Phase 4
+### Phase 4: Implement Wants, Gots and Likes (1.5 Days)
+
+Phase 4 will be a day to committed to implementing Wants, Gots and Likes, all three of these are joining tables between users and ciders. I will be implementing the models, JSON APIs, Actions, Stores and necessary views. By the end of phase four users will be able to like reviews and put ciders in their wants/gots or delete them from them respectively.
+
+[Details][phase-four]
+
+
+
+
+[phase-one]: ./docs/phases/phase1.md
+[phase-two]: ./docs/phases/phase2.md
+[phase-three]: ./docs/phases/phase3.md
+[phase-four]: ./docs/phases/phase4.md
+[phase-five]: ./docs/phases/phase5.md

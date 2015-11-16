@@ -20,9 +20,6 @@
 * reviews/show.json.jbuilder
 * reviews/index.json.jbuilder
 
-### Database
-* Seed Cider table of database with BreweryDB
-
 ## Flux
 ### Views (React Components)
 

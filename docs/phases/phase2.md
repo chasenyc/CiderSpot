@@ -7,8 +7,6 @@
 
 ### Views
 
-### Database
-
 ## Flux
 ### Views (React Components)
 * CiderIndex
