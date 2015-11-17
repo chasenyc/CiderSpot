@@ -32,6 +32,7 @@ look_rating  | float     | not null
 smell_rating | float     | not null
 taste_rating | float     | not null
 feel_rating  | float     | not null
+overall_ratin| float     | not null
 
 ## likes
 column name  | data type | details
