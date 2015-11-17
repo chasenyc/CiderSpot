@@ -11,7 +11,7 @@ class Api::CidersController < ApplicationController
 
   def show
     @cider = Cider.find(params[:id])
-    render json: @cider.to_json
+    render 'show'
   end
 
   private
