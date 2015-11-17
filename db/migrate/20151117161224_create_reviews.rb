@@ -15,6 +15,6 @@ class CreateReviews < ActiveRecord::Migration
     add_index :reviews, :user_id
     add_index :reviews, :cider_id
     add_foreign_key :reviews, :users, column: :user_id
-    add_foreign_key :reviews, :ciderss, column: :cider_id
+    add_foreign_key :reviews, :ciders, column: :cider_id
   end
 end
