@@ -14,6 +14,16 @@ class Api::CidersController < ApplicationController
     end
   end
 
+  def update
+    @cider = Cider.find(params[:id])
+    @cider.update(cider_params)
+    if @cider.save
+      render 'show'
+    else
+      render json: @cider.errors.full_messages
+    end
+  end
+
   def show
     @cider = Cider.find(params[:id])
     render 'show'
