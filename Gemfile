@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'jbuilder', '~> 2.0'
+gem 'react-rails', '~> 1.3.0'
+gem 'flux-rails-assets', '~> 2.1.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
