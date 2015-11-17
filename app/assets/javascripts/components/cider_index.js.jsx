@@ -12,6 +12,10 @@ var CiderIndex = React.createClass({
     this.setState({ciders: CiderStore.all()});
   },
 
+  handleItemClick: function (cider) {
+    this.props.history.pushState(null, "ciders/" + cider.id );
+  },
+
   render: function () {
 
     return (
@@ -19,8 +23,12 @@ var CiderIndex = React.createClass({
         <ul>
           {
             this.state.ciders.map(function (cider) {
-              return <CiderIndexItem cider={cider} key={cider.id} />
-            })
+              var boundClick = this.handleItemClick.bind(this, cider);
+              return <CiderIndexItem
+                cider={cider}
+                onClick={boundClick}
+                key={cider.id} />
+            }.bind(this))
           }
         </ul>
       </div>

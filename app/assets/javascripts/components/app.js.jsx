@@ -3,7 +3,6 @@ var App = React.createClass({
     return (
       <div>
         Welcome to the app yo!
-        <CiderIndex />
       </div>
     );
   },
