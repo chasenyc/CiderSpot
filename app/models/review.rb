@@ -7,5 +7,8 @@ class Review < ActiveRecord::Base
 
   belongs_to :cider
 
+  def average
+    (look_rating + smell_rating + taste_rating + feel_rating + overall_rating) / 5
+  end
 
 end

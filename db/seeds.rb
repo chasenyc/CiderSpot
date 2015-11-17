@@ -9,7 +9,7 @@ User.create!(username: "admin", password: "password", email: "admin@admin.com", 
 
 cider_names = %w(apple banana orange maple fruit coal filthy sriracha)
 cider_names.each do |name|
-  Cider.create!(name: "#{name} cider", description: "wonderful #{name}, its a great cider.", brewery_id: Random.rand(11), style: Random.rand(11), abv: Random.rand(100), organic: 'Y')
+  Cider.create!(name: "#{name} cider", description: "wonderful #{name}, its a great cider.", brewery_id: Random.rand(11), style: Random.rand(11), abv: Random.rand(100), organic: 'Y', image_url: "http://i.huffpost.com/gadgets/slideshows/255534/slide_255534_1616796_sq50.jpg")
 end
 
 titles = %w(wonderful terrible lovely dirty filthy smelly neveragain! horrid bestthingtoentermymouthallday)

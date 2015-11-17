@@ -4,4 +4,10 @@ class Cider < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  def average
+    sum = 0
+    reviews.each { |review| sum += review.average }
+    sum / reviews.count
+  end
+
 end
