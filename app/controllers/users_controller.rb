@@ -7,12 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.admin = false
-    byebug
     if @user.save
-      redirect_to user_url(@user)
+      redirect_to root_url
       session[:session_token] = @user.session_token
     else
-      byebug
       render :new
     end
   end
