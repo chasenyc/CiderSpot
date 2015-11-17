@@ -9,7 +9,7 @@
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::CidersController (index, show)
+* Api::CidersController (index, create, show)
 * Api::ReviewsController (create, destroy, index, show, update)
 
 ### Views

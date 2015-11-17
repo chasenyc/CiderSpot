@@ -1,1 +1,1 @@
-json.cider @cider
+json.extract! @cider, :id
