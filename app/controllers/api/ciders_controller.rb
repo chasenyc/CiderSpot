@@ -6,7 +6,12 @@ class Api::CidersController < ApplicationController
   end
 
   def create
-
+    @cider = Cider.new(cider_params)
+    if @cider.save
+      render 'show'
+    else
+      render json: @cider.errors.full_messages
+    end
   end
 
   def show
