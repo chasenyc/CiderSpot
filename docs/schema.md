@@ -8,7 +8,7 @@ id           | integer   | not null, primary key, indexed
 name         | string    | not null
 description  | text      | not null
 abv          | float     |
-brewery_id   | string    | not null, foreign key (references breweries), indexed
+brewery_id   | integer   | not null, foreign key (references breweries), indexed
 style        | integer   | not null
 organic      | string    | not null
 image_url    | string    |
