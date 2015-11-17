@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+cider_names = %w(apple banana orange maple fruit coal filthy sriracha)
+cider_names.each do |name|
+  Cider.create!(name: "#{name} cider", description: "wonderful #{name}, its a great cider.", brewery_id: Random.rand(11), style: Random.rand(11), abv: Random.rand(100), organic: 'Y')
+end
