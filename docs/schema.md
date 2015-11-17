@@ -28,10 +28,10 @@ user_id      | integer   | not null, foreign key (references users), indexed
 cider_id     | integer   | not null, foreign key (references ciders), indexed
 title        | string    |
 content      | text      |
-look_rating  | integer   | not null
-smell_rating | integer   | not null
-taste_rating | integer   | not null
-feel_rating  | integer   | not null
+look_rating  | float     | not null
+smell_rating | float     | not null
+taste_rating | float     | not null
+feel_rating  | float     | not null
 
 ## likes
 column name  | data type | details
