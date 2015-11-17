@@ -1,0 +1,21 @@
+<form class="signup-form" method="POST" action=<%= url %>>
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="<%= method %>">
+  <label>Username:
+    <input type="text" name="user[username]" value="<%= user.username %>"/>
+  </label>
+
+  <label>Email:
+    <input type="text" name="user[email]" value="<%= user.email %>"/>
+  </label>
+
+  <label>Password:
+    <input type="password" name="user[password]" />
+  </label>
+
+  <label>Birthdate:
+    <input type="date" name="user[birthdate]" value="<%= user.birthdate %>"/>
+  </label>
+
+  <button>Sign Up</button>
+</form>
