@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
 
   def self.find_by_credentials(username, password)
