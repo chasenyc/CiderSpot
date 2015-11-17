@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_reader :password
+
   validates :username, :email, :password_digest, :session_token, :birthdate,
             presence: true
   validates :email, :username, :session_token, uniqueness: true
@@ -18,6 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

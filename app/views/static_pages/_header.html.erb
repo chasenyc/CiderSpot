@@ -1,0 +1,11 @@
+<% if logged_in? %>
+  welcome, <%= current_user.username %>!
+  <form action="<%= session_url %>" method="POST">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="DELETE">
+    <button value="submit">log out</button>
+  </form>
+<% else %>
+  <a href="<%= new_session_url %>">Log in</a> |
+  <a href="<%= new_user_url %>">Sign up</a>
+<% end %>
