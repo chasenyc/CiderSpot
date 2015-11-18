@@ -28,6 +28,7 @@
 
 body {
   font-family: sans-serif;
+  background: #f2f3ef;
 }
 
 .nav {
@@ -78,17 +79,21 @@ button:focus {
 }
 
 .cider-index li {
+  text-align: center;
+  background: white;
   display: block;
   float: left;
   width: 150px;
   height: 150px;
   margin: 40px;
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid #aaa;
   overflow: hidden;
 }
 
 .cider-index li:hover {
-  background: #eee;
   cursor: pointer;
+  -moz-box-shadow: 0px 0px 5px #999;
+  -webkit-box-shadow: 0px 0px 5px #999;
+  box-shadow: 0px 0px 5px #999;
 }

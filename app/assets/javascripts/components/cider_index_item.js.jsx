@@ -1,6 +1,7 @@
 var CiderIndexItem = React.createClass ({
 
   render: function () {
+      debugger;
     return (
       <li onClick={this.props.onClick} className="cider-index-item">
         <img src={this.props.cider.image_url}></img>
