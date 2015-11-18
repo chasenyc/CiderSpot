@@ -7,8 +7,8 @@ var CiderDetailView = React.createClass({
   },
 
   componentDidMount: function () {
-    CiderStore.addChangeListener(this.changed);
-    ApiUtil.fetchCiders();
+    CiderStore.addSingleChangeListener(this.changed);
+    ApiUtil.fetchCider(this.props.params.ciderId);
   },
 
   changed: function () {
@@ -35,6 +35,12 @@ var CiderDetailView = React.createClass({
         <h1 className="Name">Name: {this.state.cider.name}</h1>
         <h2 className="Brewery">Brewery: {this.state.cider.brewery_id}</h2>
         <h3 className="Style">Style: {this.state.cider.style}</h3>
+        <div className="cider-detail-description">
+          Description: {this.state.cider.description}
+        </div>
+        <div className="cider-detail-average">
+          Average Rating: {this.state.cider.average}
+        </div>
 
       </div>
     );
