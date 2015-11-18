@@ -4,7 +4,10 @@ class Cider < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  belongs_to :brewery
+
   def average
+    return 0 if reviews.count == 0
     sum = 0
     reviews.each { |review| sum += review.average }
     (sum / reviews.count).round(1)

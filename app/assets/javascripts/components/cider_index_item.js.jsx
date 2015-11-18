@@ -5,16 +5,17 @@ var CiderIndexItem = React.createClass ({
     return (
       <article onClick={this.props.onClick} className="cider-index-item">
         <img className="fixed-height" src={this.props.cider.image_url}></img>
-        <div className="cider-index-item-name">
-          Name: {this.props.cider.name}
+        <div className="cider-index-info">
+          <div className="cider-index-item-name">
+            {this.props.cider.name}
+          </div>
+          <div className="cider-index-item-brewery">
+            {this.props.cider.brewery.name}
+          </div>
+          <div className="cider-index-item-average">
+            Average Rating: {this.props.cider.average}
+          </div>
         </div>
-        <div className="cider-index-item-brewery">
-          Brewery ID: {this.props.cider.brewery_id}
-        </div>
-        <div className="cider-index-item-average">
-          Average Rating: {this.props.cider.average}
-        </div>
-
       </article>
     );
   }
