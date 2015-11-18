@@ -34,7 +34,7 @@ var CiderDetailView = React.createClass({
       <div className="cider-detail">
         <article>
           <img className="cider-thumb" src={this.state.cider.image_url}></img>
-          <h1 className="Name">{this.state.cider.name}</h1>
+          <h1 className="cider-head">{this.state.cider.name}</h1>
           <div className="cider-subhead">
             <h2 className="brewery-subhead">{this.state.cider.brewery.name}</h2>
             <h3 className="style-subhead">Style: {this.state.cider.style}</h3>

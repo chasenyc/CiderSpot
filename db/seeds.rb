@@ -9,7 +9,7 @@ User.create!(username: "admin", password: "password", email: "admin@admin.com", 
 
 images = %w(http://www.ashridgecider.co.uk/wp-content/uploads/2012/04/Ashridge-Organic-Vintage-Cider4-e1335201238139.jpg http://www.acupuncturebrooklyn.com/wp-content/uploads/2014/01/Fire-Cider-by-Twefontaine.jpg http://edibledoor.com/files/2013/08/discoveryCider.jpg  http://urbanbohemian.com/wordpress/wp-content/uploads/2015/07/John-Wrights-mulled-cider-007.jpg http://static1.squarespace.com/static/56385064e4b0a7e4ee4d9de1/56385f6fe4b0936ed2c48cf0/5639a446e4b032ee6d40ffbd/1446618378042/cider+barn.jpg http://d1ynl4hb5mx7r8.cloudfront.net/wp-content/uploads/2015/06/square_mile.jpg)
 
-brewery_names = ['Fruitiest Fruits', 'Get Crunk', 'Hipstar', 'Pacestter', 'Japan', 'Queens', 'Jiggle']
+brewery_names = ['Fruitiest Fruits', 'Get Crunk', 'Hipstar', 'Pacesetter', 'Japan', 'Queens', 'Jiggle']
 
 locations = ['New York', 'Cleveland', 'Chicago', 'Backyard', 'Bathtub']
 

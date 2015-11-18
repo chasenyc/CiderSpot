@@ -195,6 +195,10 @@ label {
   margin: 0 auto 20px;
 }
 
+h1.cider-head {
+  text-transform: none;
+}
+
 img.cider-thumb {
   height: 300px;
   width: 100%;
