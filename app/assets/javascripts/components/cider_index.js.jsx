@@ -20,6 +20,7 @@ var CiderIndex = React.createClass({
 
     return (
       <div className="cider-index">
+        <h1>All Ciders</h1>
         <ul>
           {
             this.state.ciders.map(function (cider) {

@@ -8,7 +8,6 @@ $(function(){
     render: function(){
       return (
           <div>
-            <header><h1>Cider Spot</h1></header>
             {this.props.children}
           </div>
       );

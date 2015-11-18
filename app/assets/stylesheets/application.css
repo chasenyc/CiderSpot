@@ -31,13 +31,33 @@ body {
   background: #f2f3ef;
 }
 
+input {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input:focus {
+  outline:0;
+}
+
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: #e33d26;
   font-size: 1.08em;
   font-weight: 700;
   color: #fff;
   height: 42px;
-  position: relative;
 }
 
 button:focus {
@@ -67,6 +87,38 @@ button:focus {
 .user-info.button:hover {
   cursor: pointer;
   border-bottom: 3px solid white;
+}
+
+.content {
+  width: 800px;
+  margin: 42px auto 20px auto;
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+.content button {
+  margin: auto;
+  font-weight: 700;
+  border: 1px solid #aaa;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+}
+
+.content button:hover {
+  cursor: pointer;
+  border: 1px solid black;
+  background: black;
+  color: white;
+  padding: 10px;
+}
+
+#content {
+  margin-top: 42px;
 }
 
 .cider-index {
