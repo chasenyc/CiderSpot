@@ -5,8 +5,21 @@ $(function(){
   var Route = ReactRouter.Route;
   var IndexRoute = ReactRouter.IndexRoute;
   var App = React.createClass({
+    componentDidMount: function () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+
+    handleScroll: function (){
+      if (window.scrollY > 50) {
+        document.getElementsByClassName('nav')[0].className = 'nav top';
+      } else {
+        document.getElementsByClassName('nav')[0].className = 'nav';
+      }
+    },
+
     render: function(){
       return (
+
           <div>
             {this.props.children}
           </div>

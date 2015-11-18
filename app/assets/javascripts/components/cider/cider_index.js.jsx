@@ -17,7 +17,6 @@ var CiderIndex = React.createClass({
   },
 
   render: function () {
-
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>

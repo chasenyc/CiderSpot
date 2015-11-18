@@ -69,6 +69,13 @@ input:focus {
   font-weight: 700;
   color: #fff;
   height: 42px;
+  opacity: 1;
+  -webkit-transition: background 0.5s, opacity 0.5s;
+}
+
+.nav.top {
+  background: #000;
+  opacity: .9;
 }
 
 .logo {
@@ -112,6 +119,7 @@ button:focus {
 .content {
   width: 800px;
   margin: 42px auto 20px auto;
+  padding-top: 80px;
 }
 
 label {
@@ -138,7 +146,7 @@ label {
 }
 
 #content {
-  margin-top: 42px;
+  margin-top: 55px;
 }
 
 .cider-index {
@@ -182,6 +190,7 @@ label {
 
 
 .cider-detail {
+  background: #fff;
   width: 800px;
   margin: 0 auto 20px;
 }
@@ -190,6 +199,26 @@ img.cider-thumb {
   height: 300px;
   width: 100%;
   object-fit: cover;
+}
+
+.brewery-subhead {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 12px 2px 0;
+  border-right: 1px solid #ccc;
+  margin-right: 7px;
+}
+
+.cider-subhead {
+  text-align: center;
+  margin: auto;
+}
+
+.style-subhead {
+  margin-left: 5px;
+  display: inline-block;
 }
 
 .review-index-item {
