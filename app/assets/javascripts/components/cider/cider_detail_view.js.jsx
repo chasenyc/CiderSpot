@@ -45,7 +45,8 @@ var CiderDetailView = React.createClass({
           <div className="cider-detail-average">
             Average Rating: {this.state.cider.average}
           </div>
-          <ReviewIndex reviews={this.state.cider.reviews} />
+          <ReviewForm ciderId={this.state.cider.id} />
+          <ReviewIndex  reviews={this.state.cider.reviews} />
         </article>
       </div>
     );

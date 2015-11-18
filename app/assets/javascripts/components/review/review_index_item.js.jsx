@@ -7,10 +7,10 @@ var ReviewIndexItem = React.createClass({
           ></img>
         <div className="review-info">
           <div className="review-title">
-            {this.props.review.title}
+            {this.props.review.title}&nbsp;
           </div>
           <div className="review-content">
-            {this.props.review.content}
+            {this.props.review.content}&nbsp;
           </div>
           <div className="review-ratings">
             <div className="review-ratings overall">

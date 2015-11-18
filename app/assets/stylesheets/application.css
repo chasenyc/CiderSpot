@@ -42,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-input {
+input, textarea {
   background: white;
   border: 1px solid #ccc;
 }
@@ -55,7 +55,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-input:focus {
+input:focus, textarea:focus {
   outline:0;
 }
 
@@ -70,7 +70,7 @@ input:focus {
   color: #fff;
   height: 42px;
   opacity: 1;
-  -webkit-transition: background 0.5s, opacity 0.5s;
+  -webkit-transition: background 1s, opacity 0.5s;
 }
 
 .nav.top {
@@ -124,7 +124,7 @@ button:focus {
 
 label {
   display: block;
-  margin: 10px;
+  margin: 0px;
 }
 
 .content button {
@@ -246,5 +246,33 @@ img.author-thumb {
   position: relative;
   float: right;
   top: -20px;
-  margin-left: 10px;
+  margin-left: 5px;
+}
+
+.review-box {
+  text-align: right;
+}
+
+.rating-sub {
+  display: inline-block;
+}
+
+.rating-button {
+  color: #e33d26;
+}
+
+.rating-button:hover {
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+}
+
+.text-submit {
+
+}
+
+.text-submit.hidden {
+  display: none;
 }

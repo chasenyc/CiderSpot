@@ -3,9 +3,10 @@ class Api::ReviewsController < ApplicationController
   before_action  :ensure_current_user_is_author, only: [:update, :destroy]
 
   def create
-    @review = Cider.find(params[:cider_id]).reviews.new(review_params)
+    @review = Review.new(review_params)
+    @review.cider_id = params[:cider_id]
     @review.user_id = current_user.id
-    if @cider.save
+    if @review.save
       render json: @review.to_json
     else
       render json: @review.errors.full_messages.to_json
