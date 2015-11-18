@@ -1,11 +1,14 @@
 <% if logged_in? %>
+<div class="user-info">
   welcome, <%= current_user.username %>!
+</div>
   <form action="<%= session_url %>" method="POST">
     <%= auth_token %>
     <input type="hidden" name="_method" value="DELETE">
-    <button value="submit">log out</button>
+    <button class="user-info button" value="submit">log out</button>
   </form>
 <% else %>
-  <a href="<%= new_session_url %>">Log in</a> |
-  <a href="<%= new_user_url %>">Sign up</a>
+  <a class="user-info button" href="<%= new_session_url %>">Log in</a>
+  <a class="user-info button" href="<%= new_user_url %>">Sign up</a>
 <% end %>
+<a class="nav-item" href="<%= root_url %>">All Ciders</a>
