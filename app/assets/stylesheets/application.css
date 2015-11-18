@@ -71,6 +71,15 @@ input:focus {
   height: 42px;
 }
 
+.logo {
+  display: block;
+  margin: 2px auto 0 auto;
+  position: fixed;
+  z-index: 100;
+  left: calc(50% - 125px);
+  width: 250px;
+}
+
 button:focus {
   outline:0;
 }
