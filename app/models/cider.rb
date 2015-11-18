@@ -7,7 +7,7 @@ class Cider < ActiveRecord::Base
   def average
     sum = 0
     reviews.each { |review| sum += review.average }
-    sum / reviews.count
+    (sum / reviews.count).round(1)
   end
 
 end

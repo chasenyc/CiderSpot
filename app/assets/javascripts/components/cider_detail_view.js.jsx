@@ -28,20 +28,22 @@ var CiderDetailView = React.createClass({
   },
 
   render: function () {
-    console.log(this.state.cider);
+    if (this.state.cider === undefined) { return <div></div>; }
     return (
       <div className="cider-detail">
-        <img className="cider-thumb" src={this.state.cider.image_url}></img>
-        <h1 className="Name">Name: {this.state.cider.name}</h1>
-        <h2 className="Brewery">Brewery: {this.state.cider.brewery_id}</h2>
-        <h3 className="Style">Style: {this.state.cider.style}</h3>
-        <div className="cider-detail-description">
-          Description: {this.state.cider.description}
-        </div>
-        <div className="cider-detail-average">
-          Average Rating: {this.state.cider.average}
-        </div>
-
+        <article>
+          <img className="cider-thumb" src={this.state.cider.image_url}></img>
+          <h1 className="Name">Name: {this.state.cider.name}</h1>
+          <h2 className="Brewery">Brewery: {this.state.cider.brewery_id}</h2>
+          <h3 className="Style">Style: {this.state.cider.style}</h3>
+          <div className="cider-detail-description">
+            Description: {this.state.cider.description}
+          </div>
+          <div className="cider-detail-average">
+            Average Rating: {this.state.cider.average}
+          </div>
+          <ReviewIndex reviews={this.state.cider.reviews} />
+        </article>
       </div>
     );
   }

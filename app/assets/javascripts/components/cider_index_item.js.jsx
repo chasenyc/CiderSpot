@@ -3,8 +3,8 @@ var CiderIndexItem = React.createClass ({
   render: function () {
 
     return (
-      <li onClick={this.props.onClick} className="cider-index-item">
-        <img src={this.props.cider.image_url}></img>
+      <article onClick={this.props.onClick} className="cider-index-item">
+        <img className="fixed-height" src={this.props.cider.image_url}></img>
         <div className="cider-index-item-name">
           Name: {this.props.cider.name}
         </div>
@@ -15,7 +15,7 @@ var CiderIndexItem = React.createClass ({
           Average Rating: {this.props.cider.average}
         </div>
 
-      </li>
+      </article>
     );
   }
 });

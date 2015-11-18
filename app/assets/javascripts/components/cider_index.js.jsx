@@ -21,7 +21,6 @@ var CiderIndex = React.createClass({
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>
-        <ul>
           {
             this.state.ciders.map(function (cider) {
               var boundClick = this.handleItemClick.bind(this, cider);
@@ -31,7 +30,6 @@ var CiderIndex = React.createClass({
                 key={cider.id} />
             }.bind(this))
           }
-        </ul>
       </div>
     );
   }
