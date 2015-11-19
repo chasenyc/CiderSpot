@@ -8,6 +8,10 @@ var CiderIndex = React.createClass({
     ApiUtil.fetchCiders();
   },
 
+  componentWillUnmount: function () {
+    CiderStore.removeChangeListener(this.changed);
+  },
+
   changed: function () {
     this.setState({ciders: CiderStore.all()});
   },

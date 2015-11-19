@@ -14,6 +14,11 @@ $(function(){
       ErrorStore.addChangeListener(this.changed);
     },
 
+    componentWillUnmount: function () {
+      window.removeEventListener('scroll', this.handleScroll);
+      ErrorStore.removeChangeListener(this.changed);
+    },
+
     handleScroll: function (){
       if (window.scrollY > 50) {
         document.getElementsByClassName('nav')[0].className = 'nav top';
@@ -25,12 +30,12 @@ $(function(){
 
     changed: function () {
       this.setState({errors: ErrorStore.all()});
-    },
-
-    render: function(){
       window.setTimeout(function () {
         this.setState({errors: []});
       }.bind(this), 6000);
+    },
+
+    render: function(){
       if (this.state.errors.length > 0) {
         return (
           <div className="top">

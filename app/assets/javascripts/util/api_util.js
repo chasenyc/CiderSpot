@@ -29,6 +29,9 @@ var ApiUtil = window.ApiUtil = {
       type: 'POST',
       success: function (data) {
 
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },
@@ -39,6 +42,9 @@ var ApiUtil = window.ApiUtil = {
       type: 'POST',
       success: function (data) {
 
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },
@@ -49,6 +55,9 @@ var ApiUtil = window.ApiUtil = {
       type: 'POST',
       success: function (data) {
 
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },

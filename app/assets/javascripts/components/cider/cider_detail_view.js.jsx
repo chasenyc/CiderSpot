@@ -11,6 +11,10 @@ var CiderDetailView = React.createClass({
     ApiUtil.fetchCider(this.props.params.ciderId);
   },
 
+  componentWillUnmount: function () {
+    CiderStore.removeSingleChangeListener(this.changed);
+  },
+
   changed: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
