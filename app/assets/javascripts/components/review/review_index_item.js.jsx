@@ -2,11 +2,27 @@ var ReviewIndexItem = React.createClass({
 
   handleLike: function (e) {
     e.stopPropagation();
-    debugger;
     ApiUtil.createLike(this.props.review.id);
   },
 
   render: function () {
+
+    var updated = new Date(this.props.review.updated_at);
+    var now = new Date();
+    var elapsedStr = "Posted ";
+    var elapsed = now.getTime() - updated.getTime();
+    var h = Math.floor(elapsed / 3600000);
+    var m = Math.floor((elapsed % 3600000) / 60000)
+    if (h > 0) {
+      elapsedStr += h + " hours ago. ";
+    }
+    else if (m > 0) {
+      elapsedStr += h + " minutes ago. ";
+    }
+    else {
+      elapsedStr += "just a few seconds ago. ";
+    }
+
     return (
       <li className="review-index-item group">
         <img className="author-thumb" src={this.props.review.author.avatar_url}
@@ -28,6 +44,7 @@ var ReviewIndexItem = React.createClass({
             {this.props.review.content}&nbsp;
           </div>
           <div className="review-footer">
+            {elapsedStr}
             <span onClick={this.handleLike} className="review-like-button">Like this review</span>
           </div>
         </div>
