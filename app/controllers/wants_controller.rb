@@ -1,0 +1,2 @@
+class WantsController < ApplicationController
+end

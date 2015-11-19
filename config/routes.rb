@@ -5,7 +5,16 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :ciders, only: [:index, :create, :show, :update] do
-      resources :reviews, only: [:create, :update, :destroy]      
+      resources :wants, only: [:create]
+      resources :gots, only: [:create]
+      resources :reviews, only: [:create, :update, :destroy]
     end
+    post 'reviews/:review_id/likes', to: 'likes#create'
+    resources :likes, only: [:destroy]
+    resources :wants, only: [:destroy]
+    resources :gots, only: [:destroy]
   end
+
+
+
 end

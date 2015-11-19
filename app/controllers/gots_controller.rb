@@ -1,0 +1,2 @@
+class GotsController < ApplicationController
+end

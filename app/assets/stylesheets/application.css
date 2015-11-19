@@ -238,7 +238,7 @@ img.cider-thumb {
 .review-index-item {
   background: #fff;
   padding: 10px;
-  border-top: 3px solid #f2f3ef;
+  border-top: 1px solid #ccc;
 }
 
 .review-index:nth-child(1) {
@@ -263,7 +263,6 @@ img.author-thumb {
 .review-ratings {
   position: relative;
   float: right;
-  top: -5px;
   margin-left: 5px;
 }
 
