@@ -26,7 +26,7 @@ cider_names.each do |name|
   Cider.create!(name: "#{name} Cider", description: "Wonderful #{name}, its a great cider. It was brewed by some of the finest brewers, some consumers have noticed similarities in the brewing style to #{brewery_names.sample}. It is an excellent choice with food or without.", brewery_id: Random.rand(9)+1, style: Random.rand(11), abv: Random.rand(100), organic: 'Y', image_url: images.sample)
 end
 
-adjectives = %w(best worst amazeballiest loveliest tastiest smelliest odoroust ugliest fattest skinniest grossest orgasmicist)
+adjectives = %w(best worst silliest loveliest tastiest smelliest odoroust ugliest fattest skinniest grossest lousiest)
 
 times = %w(day week minute year month hour second)
 
