@@ -313,12 +313,18 @@ img.author-thumb {
 }
 
 .text-submit {
-
+  max-height: 200px;
+  -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s;
 }
 
 .text-submit.hidden {
-  display: none;
+  max-height: 0px;
+  overflow: hidden;
+
 }
+
 
 .signup-form {
   width: 800px;

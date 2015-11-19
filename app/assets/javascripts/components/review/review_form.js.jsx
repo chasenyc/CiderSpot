@@ -44,7 +44,7 @@ var ReviewForm = React.createClass({
     e.preventDefault();
     window.setTimeout(function () {
       this.setState({hidden: true});
-    }.bind(this), 40);
+    }.bind(this), 1);
   },
 
   handleContent: function (e) {
