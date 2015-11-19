@@ -2,6 +2,7 @@ var ReviewIndexItem = React.createClass({
 
   handleLike: function (e) {
     e.stopPropagation();
+    debugger;
     ApiUtil.createLike(this.props.review.id);
   },
 

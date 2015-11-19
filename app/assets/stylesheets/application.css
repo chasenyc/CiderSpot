@@ -231,8 +231,8 @@ img.cider-thumb {
   display: inline-block;
 }
 
-.review-index {
-  padding: 10px;
+.cider-details {
+  padding: 24px;
 }
 
 .review-index-header {
@@ -254,6 +254,10 @@ img.author-thumb {
   border-radius: 60px;
   width: 40px;
   height: 40px;
+}
+
+.review-form {
+  margin: 1em 0 1em 0;
 }
 
 .review-info {

@@ -45,21 +45,23 @@ var CiderDetailView = React.createClass({
             <h2 className="brewery-subhead">{this.state.cider.brewery.name}</h2>
             <h3 className="style-subhead">Style: {this.state.cider.style}</h3>
           </div>
-          <div className="cider-detail-ratings">
-            Average Total Rating: {this.state.cider.average}
-          </div>
-          <div className="cider-detail-abv">
-            Alcohol By Volume: {this.state.cider.abv}%
-          </div>
-          <div className="cider-detail-organic">
-            Organic: {organic}
-          </div>
+          <div className="cider-details">
+            <div className="cider-detail-ratings">
+              Average Total Rating: {this.state.cider.average}
+            </div>
+            <div className="cider-detail-abv">
+              Alcohol By Volume: {this.state.cider.abv}%
+            </div>
+            <div className="cider-detail-organic">
+              Organic: {organic}
+            </div>
 
-          <div className="cider-detail-description">
-            {this.state.cider.description}
-          </div>
+            <div className="cider-detail-description">
+              {this.state.cider.description}
+            </div>
           <ReviewForm ciderId={this.state.cider.id} />
           <ReviewIndex  reviews={this.state.cider.reviews} />
+          </div>
         </article>
       </div>
     );
