@@ -249,7 +249,6 @@ img.author-thumb {
 .review-ratings {
   position: relative;
   float: right;
-  top: -20px;
   margin-left: 5px;
 }
 
@@ -279,4 +278,14 @@ img.author-thumb {
 
 .text-submit.hidden {
   display: none;
+}
+
+.signup-form {
+  width: 800px;
+  margin: 20px;
+  position: relative;
+}
+
+.signup-form > label {
+  margin: auto;
 }

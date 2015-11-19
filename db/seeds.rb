@@ -29,9 +29,9 @@ adjectives = %w(best worst amazeballiest loveliest tastiest smelliest odoroust u
 times = %w(day week minute year month hour second)
 
 8.times do |i|
-  Review.create!(user_id: 1, cider_id: i+1, title: titles.sample, look_rating: Random.rand(4)+1, smell_rating: Random.rand(4)+1, taste_rating: Random.rand(4)+1, feel_rating: Random.rand(4)+1, overall_rating: Random.rand(4)+1,
+  Review.create!(user_id: 1, cider_id: i+1, look_rating: Random.rand(4)+1, smell_rating: Random.rand(4)+1, taste_rating: Random.rand(4)+1, feel_rating: Random.rand(4)+1, overall_rating: Random.rand(4)+1,
   content: "This cider is the #{adjectives.sample} cider I have had in the last #{times.sample}.")
 
-  Review.create!(user_id: 1, cider_id: i+1, title: titles.sample, look_rating: Random.rand(4)+1, smell_rating: Random.rand(4)+1, taste_rating: Random.rand(4)+1, feel_rating: Random.rand(4)+1, overall_rating: Random.rand(4)+1,
+  Review.create!(user_id: 1, cider_id: i+1, look_rating: Random.rand(4)+1, smell_rating: Random.rand(4)+1, taste_rating: Random.rand(4)+1, feel_rating: Random.rand(4)+1, overall_rating: Random.rand(4)+1,
   content: "This cider is the #{adjectives.sample} cider I have had in the last #{times.sample}.")
 end

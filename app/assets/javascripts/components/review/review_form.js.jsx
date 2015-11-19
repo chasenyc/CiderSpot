@@ -14,7 +14,21 @@ var ReviewForm = React.createClass({
     newForm.append("review[feel_rating]", this.state.feel_rating);
     newForm.append("review[overall_rating]", this.state.overall_rating);
     newForm.append("review[content]", this.state.content);
+    this.resetStates();
     ApiUtil.createReview(newForm, this.props.ciderId);
+    ApiUtil.fetchCider(this.props.ciderId);
+  },
+
+  resetStates: function () {
+    this.setState({
+      look_rating: 3,
+      smell_rating: 3,
+      taste_rating: 3,
+      feel_rating: 3,
+      overall_rating: 3,
+      content: "",
+      hidden: true
+    });
   },
 
   handleRate: function (e) {
@@ -28,7 +42,7 @@ var ReviewForm = React.createClass({
   },
 
   handleContent: function (e) {
-    this.setState({content: e.target.value})
+    this.setState({content: e.target.value});
   },
 
   render: function () {

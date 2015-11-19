@@ -6,12 +6,7 @@ var ReviewIndexItem = React.createClass({
         <img className="author-thumb" src={this.props.review.author.avatar_url}
           ></img>
         <div className="review-info">
-          <div className="review-title">
-            {this.props.review.title}&nbsp;
-          </div>
-          <div className="review-content">
-            {this.props.review.content}&nbsp;
-          </div>
+            &nbsp;
           <div className="review-ratings">
             <div className="review-ratings overall">
               Overall: {this.props.review.overall_rating}
@@ -28,6 +23,9 @@ var ReviewIndexItem = React.createClass({
             <div className="review-ratings look">
               Look: {this.props.review.look_rating}
             </div>
+          </div>
+          <div className="review-content">
+            {this.props.review.content}&nbsp;
           </div>
         </div>
       </li>

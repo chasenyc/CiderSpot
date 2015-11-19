@@ -15,7 +15,7 @@ var ApiUtil = window.ApiUtil = {
       contentType: false,   // tell jQuery not to set contentType
       data: formData,
       success: function (data) {
-       debugger;
+
       }
     });
   },
