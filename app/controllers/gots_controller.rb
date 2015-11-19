@@ -1,2 +1,0 @@
-class GotsController < ApplicationController
-end

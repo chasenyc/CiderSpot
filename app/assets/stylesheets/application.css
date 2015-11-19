@@ -235,14 +235,14 @@ img.cider-thumb {
   padding: 10px;
 }
 
+.review-index-header {
+  margin-bottom: .33em;
+}
+
 .review-index-item {
   background: #fff;
   padding: 10px;
   border-top: 1px solid #ccc;
-}
-
-.review-index:nth-child(1) {
-  border-top: 1px solid #black;
 }
 
 .review-title {
@@ -260,10 +260,32 @@ img.author-thumb {
   margin-left: 50px;
 }
 
-.review-ratings {
-  position: relative;
-  float: right;
+.review-meta-user {
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 12px 2px 0;
+  border-right: 1px solid #ccc;
+  margin-right: 7px;
+}
+
+.review-meta-ratings {
+  display: inline-block;
   margin-left: 5px;
+}
+
+.review-content {
+  margin-top: .33em;
+}
+
+.review-footer {
+  color: #777;
+  font-size: .8em;
+  margin-top: .33em;
+}
+
+.review-like-button {
+  cursor: pointer;
 }
 
 .review-box {

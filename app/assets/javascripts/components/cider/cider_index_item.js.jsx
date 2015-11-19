@@ -16,6 +16,9 @@ var CiderIndexItem = React.createClass ({
             Average Rating: {this.props.cider.average}
           </div>
         </div>
+        <div>
+          <CiderIndexWantGot ciderId={this.props.cider.id} />
+        </div>
       </article>
     );
   }

@@ -14,7 +14,4 @@ Rails.application.routes.draw do
     resources :wants, only: [:destroy]
     resources :gots, only: [:destroy]
   end
-
-
-
 end

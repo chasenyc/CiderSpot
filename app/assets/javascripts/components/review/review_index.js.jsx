@@ -7,7 +7,7 @@ var ReviewIndex = React.createClass({
     return(
       <div className="review-index">
         <ul>
-        <h3>Reviews</h3>
+        <h3 className="review-index-header">Reviews</h3>
           {
             this.props.reviews.map(function(review) {
               return <ReviewIndexItem key={review.id} review={review} />;

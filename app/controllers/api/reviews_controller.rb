@@ -10,7 +10,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render json: @review.to_json
     else
-      render json: @review.errors.full_messages.to_json
+      render json: @review.errors.full_messages.to_json, status: :forbidden
     end
   end
 
@@ -20,7 +20,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render json: @review.to_json
     else
-      render json: @review.errors.full_messages.to_json
+      render json: @review.errors.full_messages.to_json, status: :forbidden
     end
   end
 

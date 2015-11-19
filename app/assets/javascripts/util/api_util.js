@@ -15,6 +15,36 @@ var ApiUtil = window.ApiUtil = {
       contentType: false,   // tell jQuery not to set contentType
       data: formData,
       success: function (data) {
+        ApiUtil.fetchCider(id);
+      }
+    });
+  },
+
+  createGot: function (id) {
+    $.ajax({
+      url: 'api/ciders/' + id + '/gots',
+      type: 'POST',
+      success: function (data) {
+
+      }
+    });
+  },
+
+  createWant: function (id) {
+    $.ajax({
+      url: 'api/ciders/' + id + '/wants',
+      type: 'POST',
+      success: function (data) {
+
+      }
+    });
+  },
+
+  createLike: function (id) {
+    $.ajax({
+      url: 'api/reviews/' + id + '/likes',
+      type: 'POST',
+      success: function (data) {
 
       }
     });

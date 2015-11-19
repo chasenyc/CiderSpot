@@ -16,7 +16,6 @@ var ReviewForm = React.createClass({
     newForm.append("review[content]", this.state.content);
     this.resetStates();
     ApiUtil.createReview(newForm, this.props.ciderId);
-    ApiUtil.fetchCider(this.props.ciderId);
   },
 
   resetStates: function () {
@@ -45,7 +44,7 @@ var ReviewForm = React.createClass({
     e.preventDefault();
     window.setTimeout(function () {
       this.setState({hidden: true});
-    }.bind(this), 40); 
+    }.bind(this), 40);
   },
 
   handleContent: function (e) {
