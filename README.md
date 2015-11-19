@@ -47,7 +47,7 @@ Phase 3 is composed of implementing more FLUX, a Review Store, Actions and more 
 
 ### Phase 4: Implement Wants, Gots and Likes (1.5 days)
 
-Phase 4 will be a day to committed to implementing Wants, Gots and Likes, all three of these are joining tables between users and ciders. I will be implementing the models, JSON APIs, Actions, Stores and necessary views. By the end of phase four users will be able to like reviews and put ciders in their wants/gots or delete them from them respectively.
+Phase 4 will be a day to committed to implementing Wants, Gots and Likes, all three of these are joining tables between users and ciders and users and reviews respectively. I will be implementing the models, JSON APIs, Actions, Stores and necessary views. By the end of phase four users will be able to like reviews and put ciders in their wants/gots or delete them from them respectively.
 
 [Details][phase-four]
 

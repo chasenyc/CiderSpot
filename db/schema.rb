@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119152033) do
+ActiveRecord::Schema.define(version: 20151119153857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20151119152033) do
 
   add_index "gots", ["cider_id"], name: "index_gots_on_cider_id", using: :btree
   add_index "gots", ["user_id"], name: "index_gots_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "review_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["review_id"], name: "index_likes_on_review_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id",                      null: false
@@ -91,6 +101,8 @@ ActiveRecord::Schema.define(version: 20151119152033) do
 
   add_foreign_key "gots", "ciders"
   add_foreign_key "gots", "users"
+  add_foreign_key "likes", "reviews"
+  add_foreign_key "likes", "users"
   add_foreign_key "wants", "ciders"
   add_foreign_key "wants", "users"
 end
