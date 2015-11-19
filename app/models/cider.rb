@@ -4,6 +4,7 @@ class Cider < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
   has_many :wants, dependent: :destroy
+  has_many :gots, dependent: :destroy
 
   belongs_to :brewery
 

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
   has_many :wants, dependent: :destroy
+  has_many :gots, dependent: :destroy
 
 
   def self.find_by_credentials(username, password)
