@@ -45,8 +45,8 @@ var CiderDetailView = React.createClass({
             <h2 className="brewery-subhead">{this.state.cider.brewery.name}</h2>
             <h3 className="style-subhead">Style: {this.state.cider.style}</h3>
           </div>
-          <div className="cider-detail-average">
-            Average Rating: {this.state.cider.average}
+          <div className="cider-detail-ratings">
+            Average Total Rating: {this.state.cider.average}
           </div>
           <div className="cider-detail-abv">
             Alcohol By Volume: {this.state.cider.abv}%

@@ -13,4 +13,28 @@ class Cider < ActiveRecord::Base
     (sum / reviews.count).round(1)
   end
 
+  def average_look
+    reviews.average(:look_rating).to_f
+  end
+
+  def average_smell
+    reviews.average(:smell_rating).to_f
+  end
+
+  def average_taste
+    reviews.average(:taste_rating).to_f
+  end
+
+  def average_feel
+    reviews.average(:feel_rating).to_f
+  end
+
+  def average_overall
+    reviews.average(:overall_rating).to_f
+  end
+
+  def review_count
+    reviews.count
+  end
+
 end
