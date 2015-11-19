@@ -11,5 +11,12 @@ var ApiActions = window.ApiActions = {
       actionType: CiderConstants.CIDER_RECEIVED,
       cider: cider
     });
+  },
+
+  receiveError: function (error) {
+    AppDispatcher.dispatch({
+      actionType: CiderConstants.ERROR_RECEIVED,
+      error: error
+    });
   }
 };

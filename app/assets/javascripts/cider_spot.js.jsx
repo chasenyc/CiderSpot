@@ -5,8 +5,13 @@ $(function(){
   var Route = ReactRouter.Route;
   var IndexRoute = ReactRouter.IndexRoute;
   var App = React.createClass({
+    getInitialState: function () {
+      return ({errors: []});
+    },
+
     componentDidMount: function () {
       window.addEventListener('scroll', this.handleScroll);
+      ErrorStore.addChangeListener(this.changed);
     },
 
     handleScroll: function (){
@@ -17,10 +22,28 @@ $(function(){
       }
     },
 
+
+    changed: function () {
+      this.setState({errors: ErrorStore.all()});
+    },
+
     render: function(){
+      window.setTimeout(function () {
+        this.setState({errors: []});
+      }.bind(this), 6000);
+      if (this.state.errors.length > 0) {
+        return (
+          <div className="top">
+            <div className="flash-errors">
+              {this.state.errors[0].responseText}
+            </div>
+            {this.props.children}
+          </div>
+        );
+      }
       return (
 
-          <div>
+          <div className="top">
             {this.props.children}
           </div>
       );

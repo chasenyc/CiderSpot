@@ -16,6 +16,9 @@ var ApiUtil = window.ApiUtil = {
       data: formData,
       success: function (data) {
         ApiUtil.fetchCider(id);
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },
