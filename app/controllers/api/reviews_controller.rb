@@ -1,6 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
-  before_action  :ensure_current_user_is_author, only: [:update, :destroy]
+  before_action :ensure_logged_in, only: [:create]
+  before_action :ensure_current_user_is_author, only: [:update, :destroy]
 
   def create
     @review = Review.new(review_params)
@@ -38,5 +39,10 @@ class Api::ReviewsController < ApplicationController
   def ensure_current_user_is_author
     return if Review.find(params[:id]).user_id == current_user.id
     render json: "Forbidden", status: :forbidden
+  end
+
+  def ensure_logged_in
+    return if logged_in?
+    render json: "Forbidden, must be logged in to create review", status: :forbidden
   end
 end

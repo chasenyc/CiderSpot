@@ -55,7 +55,13 @@ h1 {
   letter-spacing: 1px;
 }
 
-input:focus, textarea:focus {
+h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input:focus, textarea:focus, select:focus {
   outline:0;
 }
 
@@ -225,10 +231,18 @@ img.cider-thumb {
   display: inline-block;
 }
 
+.review-index {
+  padding: 10px;
+}
+
 .review-index-item {
   background: #fff;
   padding: 10px;
-  border-bottom: 1px solid #f2f3ef;
+  border-top: 3px solid #f2f3ef;
+}
+
+.review-index:nth-child(1) {
+  border-top: 1px solid #black;
 }
 
 .review-title {
@@ -249,6 +263,7 @@ img.author-thumb {
 .review-ratings {
   position: relative;
   float: right;
+  top: -5px;
   margin-left: 5px;
 }
 

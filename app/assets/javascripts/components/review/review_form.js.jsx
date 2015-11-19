@@ -31,14 +31,21 @@ var ReviewForm = React.createClass({
     });
   },
 
+  expandForm: function () {
+    this.setState({hidden: false});
+  },
+
   handleRate: function (e) {
     var obj = {hidden: false};
     obj[e.target.name] = e.target.value;
     this.setState(obj);
   },
 
-  handleCancel: function () {
-    this.setState({hidden: true});
+  handleCancel: function (e) {
+    e.preventDefault();
+    window.setTimeout(function () {
+      this.setState({hidden: true});
+    }.bind(this), 40); 
   },
 
   handleContent: function (e) {
@@ -52,7 +59,7 @@ var ReviewForm = React.createClass({
     }
 
     return (
-      <div onClick={this.handleClick} className="review-box">
+      <div onClick={this.expandForm} className="review-box">
         <form onSubmit={this.handleSubmit} className="review-form">
           <label className="rating-sub" >Look:
             <select onChange={this.handleRate} value={this.state.look_rating} name="look_rating">
