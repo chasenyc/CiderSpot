@@ -7,8 +7,8 @@ CiderSpot is a web application inspired by [BeerAdvocate](http://www.beeradvocat
 
 Website to aggregate cider reviews for both cider enthusiasts and regulars alike. While the main content and driver of traffic to the site is its crowdsourced reviews there will also be a main page with blog/news posts.
 
-- [ ] Create an account
-- [ ] Log in / Log out
+- [x] Create an account
+- [x] Log in / Log out
 - [ ] Create, read, edit and delete reviews
 - [ ] Can like other reviews
 - [ ] Keep track of ciders they have had
