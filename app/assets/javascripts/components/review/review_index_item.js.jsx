@@ -11,13 +11,17 @@ var ReviewIndexItem = React.createClass({
     var now = new Date();
     var elapsedStr = "Posted ";
     var elapsed = now.getTime() - updated.getTime();
+    var d = Math.floor(elapsed / (1000*60*60*24));
     var h = Math.floor(elapsed / 3600000);
-    var m = Math.floor((elapsed % 3600000) / 60000)
-    if (h > 0) {
+    var m = Math.floor((elapsed % 3600000) / 60000);
+    if (d > 0) {
+      elapsedStr += d + " days ago. ";
+    }
+    else if (h > 0) {
       elapsedStr += h + " hours ago. ";
     }
     else if (m > 0) {
-      elapsedStr += h + " minutes ago. ";
+      elapsedStr += m + " minutes ago. ";
     }
     else {
       elapsedStr += "just a few seconds ago. ";
