@@ -3,6 +3,7 @@ class Cider < ActiveRecord::Base
             presence: true
 
   has_many :reviews, dependent: :destroy
+  has_many :wants, dependent: :destroy
 
   belongs_to :brewery
 
