@@ -4,34 +4,39 @@
 
     submit: function (e) {
       e.preventDefault();
-
       var credentials = $(e.currentTarget).serializeJSON();
       SessionsApiUtil.login(credentials, function () {
-        this.history.pushState(null, "/");
+        this.history.pushState({location: this.props.location}, "/");
       }.bind(this));
     },
 
-
+    componentWillMount: function () {
+      if (CurrentUserStore.isLoggedIn()) {
+        this.history.pushState(null, "/");
+      }
+    },
 
     render: function() {
 
       return (
-        <form onSubmit={ this.submit }>
+        <div className="log-in-form">
+          <h1>Login</h1>
+          <form onSubmit={ this.submit }>
 
-          <h1>Logn In!</h1>
 
-          <label>
-            Username
-            <input type="text" name="username" />
-          </label>
+            <label>
+              Username
+              <input type="text" name="username" />
+            </label>
 
-          <label>
-            Password
-            <input type="password" name="password" />
-          </label>
+            <label>
+              Password
+              <input type="password" name="password" />
+            </label>
 
-          <button>Log In!</button>
-        </form>
+            <button>Log In!</button>
+          </form>
+        </div>
       );
     },
 

@@ -42,6 +42,7 @@ $(function(){
             <div className="flash-errors">
               {this.state.errors[0].responseText}
             </div>
+            <Header />
             {this.props.children}
           </div>
         );
@@ -49,6 +50,7 @@ $(function(){
       return (
 
           <div className="top">
+            <Header />
             {this.props.children}
           </div>
       );

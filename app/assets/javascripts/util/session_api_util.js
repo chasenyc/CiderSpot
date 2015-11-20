@@ -8,17 +8,23 @@ var SessionsApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },
 
-  logout: function (  ) {
+  logout: function () {
     $.ajax({
       url: '/api/session',
       type: 'DELETE',
       dataType: 'json',
       success: function () {
         CurrentUserActions.receiveCurrentUser({});
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   },
@@ -30,6 +36,9 @@ var SessionsApiUtil = {
       dataType: 'json',
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
       }
     });
   }

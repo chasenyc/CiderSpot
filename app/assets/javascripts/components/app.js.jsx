@@ -1,9 +1,16 @@
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>
+(function(root) {
+  var App = root.App = React.createClass({
 
-      </div>
-    );
-  },
-});
+    componentDidMount: function () {
+      debugger;
+    },
+
+    render: function () {
+      return (
+        <div>
+          BOOO
+        </div>
+      );
+    }
+  })
+})(this);
