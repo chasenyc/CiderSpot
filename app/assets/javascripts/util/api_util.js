@@ -23,6 +23,19 @@ var ApiUtil = window.ApiUtil = {
     });
   },
 
+  destroyReview: function (id, ciderId) {
+    $.ajax({
+      url: 'api/reviews/' + id,
+      type: 'DELETE',
+      success: function (data) {
+        ApiUtil.fetchCider(ciderId);
+      },
+      error: function (error) {
+
+      }
+    });
+  },
+
   createGot: function (id) {
     $.ajax({
       url: 'api/ciders/' + id + '/gots',

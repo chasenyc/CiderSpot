@@ -1,11 +1,13 @@
 var ReviewIndexItem = React.createClass({
 
   getInitialState: function () {
-    return {user: CurrentUserStore.currentUser()};
+    return {currentUser: CurrentUserStore.currentUser()};
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.setState({currentUser: newProps.currentUser});
+    if (newProps.currentUser) {
+      this.setState({currentUser: newProps.currentUser});
+    }
   },
 
   handleLike: function (e) {
@@ -13,12 +15,34 @@ var ReviewIndexItem = React.createClass({
     ApiUtil.createLike(this.props.review.id);
   },
 
+  handleDelete: function (e) {
+    ApiUtil.destroyReview(this.props.review.id, this.props.review.cider_id);
+  },
+
   render: function () {
     var likeButton;
+    var editButton;
+    var deleteButton;
     var updated = new Date(this.props.review.updated_at);
     var elapsedStr = this._getPostedTimeDiff(updated);
     if (CurrentUserStore.isLoggedIn()) {
-      likeButton = (<span onClick={this.handleLike} className="review-like-button">Like this review</span>);
+      if (this.props.review.author.id === this.state.currentUser.id) {
+        editButton = (
+          <button onClick={this.handleEdit}
+                className="review-edit-button">Edit
+          </button>
+        )
+        deleteButton = (
+          <button onClick={this.handleDelete}
+                className="review-delete-button">Delete
+          </button>
+        )
+      } else {
+        likeButton = (
+          <button onClick={this.handleLike}
+                className="review-like-button">Like this review
+          </button>);
+      }
     }
 
     return (
@@ -44,6 +68,8 @@ var ReviewIndexItem = React.createClass({
           <div className="review-footer">
             {elapsedStr}
             {likeButton}
+            {deleteButton}
+            {editButton}
           </div>
         </div>
       </li>

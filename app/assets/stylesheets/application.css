@@ -346,9 +346,25 @@ img.author-thumb {
   margin-top: .33em;
 }
 
-.review-like-button {
-  cursor: pointer;
+.review-edit-button:hover {
+  color: #e33d26;
 }
+
+.review-delete-button:hover {
+  color: #e33d26;
+}
+
+.review-edit-button {
+  margin-right: 5px;
+  float: right;
+}
+
+.review-delete-button {
+  margin-right: 5px;
+  float: right;
+}
+
+
 
 .review-form > .author-thumb {
   display: inline-block;

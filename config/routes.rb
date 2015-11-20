@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     resources :ciders, only: [:index, :create, :show, :update] do
       resources :wants, only: [:create]
       resources :gots, only: [:create]
-      resources :reviews, only: [:create, :update, :destroy]
+      resources :reviews, only: [:create]
     end
+    resources :reviews, only: [:update, :destroy]
     post 'reviews/:review_id/likes', to: 'likes#create'
     resources :likes, only: [:destroy]
     resources :wants, only: [:destroy]
