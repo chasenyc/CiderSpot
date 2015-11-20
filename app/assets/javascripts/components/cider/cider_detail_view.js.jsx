@@ -50,7 +50,6 @@ var CiderDetailView = React.createClass({
     }
 
     if (CurrentUserStore.isLoggedIn()) {
-      debugger;
       reviewForm = (<ReviewForm ciderId={this.state.cider.id} />);
     }
 

@@ -93,6 +93,10 @@ input:focus, textarea:focus, select:focus {
   width: 250px;
 }
 
+button {
+  cursor: pointer;
+}
+
 button:focus {
   outline:0;
 }
@@ -184,7 +188,7 @@ label {
   width: 226px;
   height: 226px;
   margin: 10px;
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
   overflow: hidden;
 }
 
@@ -196,9 +200,7 @@ label {
 
 .cider-index article:hover {
   cursor: pointer;
-  -moz-box-shadow: 0px 0px 5px #999;
-  -webkit-box-shadow: 0px 0px 5px #999;
-  box-shadow: 0px 0px 5px #999;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .cider-index-info {
@@ -339,12 +341,17 @@ img.author-thumb {
   cursor: pointer;
 }
 
-.review-box {
-
+.review-form > .author-thumb {
+  display: inline-block;
+  margin-right: 7px;
 }
 
 .rating-sub {
   display: inline-block;
+}
+
+.rating-bar {
+  margin-bottom: .33em;
 }
 
 .rating-button {
@@ -359,7 +366,7 @@ img.author-thumb {
   cursor: pointer;
 }
 
-.text-submit {
+.review-box {
   max-height: 200px;
   -webkit-transition: max-height 0.8s;
   -moz-transition: max-height 0.8s;
@@ -369,7 +376,6 @@ img.author-thumb {
 .review-box.hidden {
   max-height: 0px;
   overflow: hidden;
-
 }
 
 

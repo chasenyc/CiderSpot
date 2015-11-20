@@ -4,21 +4,13 @@ var ReviewIndexItem = React.createClass({
     return {user: CurrentUserStore.currentUser()};
   },
 
-  componentDidMount: function () {
-    CurrentUserStore.addChangeHandler(this.changed);
-  },
-
-  componentWillUnmount: function () {
-    CurrentUserStore.removeChangeHandler(this.changed);
+  componentWillReceiveProps: function (newProps) {
+    this.setState({currentUser: newProps.currentUser});
   },
 
   handleLike: function (e) {
     e.stopPropagation();
     ApiUtil.createLike(this.props.review.id);
-  },
-
-  changed: function () {
-    this.setState({user: CurrentUserStore.currentUser()});
   },
 
   render: function () {
