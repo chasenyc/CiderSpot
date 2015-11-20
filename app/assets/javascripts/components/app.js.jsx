@@ -1,16 +1,69 @@
-(function(root) {
-  var App = root.App = React.createClass({
+var App = React.createClass({
+  getInitialState: function () {
+    return ({
+      errors: [],
+      currentUser: CurrentUserStore.currentUser()
+    });
+  },
 
-    componentDidMount: function () {
+  componentDidMount: function () {
+    window.addEventListener('scroll', this.handleScroll);
+    ErrorStore.addChangeListener(this.changed);
+    CurrentUserStore.addChangeHandler(this.userChanged);
+  },
 
-    },
+  componentWillUnmount: function () {
+    window.removeEventListener('scroll', this.handleScroll);
+    ErrorStore.removeChangeListener(this.changed);
+    CurrentUserStore.removeChangeHandler(this.userChanged);
+  },
 
-    render: function () {
+  handleScroll: function (){
+    if (window.scrollY > 50) {
+      document.getElementsByClassName('nav')[0].className = 'nav top';
+    } else {
+      document.getElementsByClassName('nav')[0].className = 'nav';
+    }
+  },
+
+  userChanged: function () {
+    this.setState({currentUser: CurrentUserStore.currentUser()});
+  },
+
+  changed: function () {
+    this.setState({
+      errors: ErrorStore.all()
+    });
+    window.setTimeout(function () {
+      this.setState({errors: []});
+    }.bind(this), 6000);
+  },
+
+  render: function(){
+    var renderedChildren = React.Children.map(this.props.children,
+      function (child) {
+        return React.cloneElement(
+        child, { currentUser: this.state.currentUser }
+        );
+      }.bind(this)
+    );
+    if (this.state.errors.length > 0) {
       return (
-        <div>
-          TEST
+        <div className="top">
+          <div className="flash-errors">
+            {this.state.errors[0].responseText}
+          </div>
+          <Header />
+          {renderedChildren}
         </div>
       );
     }
-  })
-})(this);
+    return (
+
+        <div className="top">
+          <Header />
+          {renderedChildren}
+        </div>
+    );
+  }
+});

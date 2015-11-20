@@ -4,16 +4,8 @@ var CiderIndexItem = React.createClass ({
     return {user: CurrentUserStore.currentUser()};
   },
 
-  componentDidMount: function () {
-    CurrentUserStore.addChangeHandler(this.changed);
-  },
-
-  componentWillUnmount: function () {
-    CurrentUserStore.removeChangeHandler(this.changed);
-  },
-
-  changed: function () {
-    this.setState({user: CurrentUserStore.currentUser()});
+  componentWillReceiveProps: function (newProps) {
+    this.setState({currentUser: newProps.currentUser});
   },
 
   render: function () {

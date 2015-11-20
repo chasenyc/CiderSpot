@@ -5,29 +5,28 @@ var CiderDetailView = React.createClass({
     var cider = this._findCiderById(ciderId) || {} ;
     return {
       cider: cider,
-      user: CurrentUserStore.currentUser()
+      currentUser: CurrentUserStore.currentUser()
      };
+
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    this.setState({currentUser: newProps.currentUser});
   },
 
   componentDidMount: function () {
     CiderStore.addSingleChangeListener(this.changed);
-    CurrentUserStore.addChangeHandler(this.userChanged);
     ApiUtil.fetchCider(this.props.params.ciderId);
   },
 
   componentWillUnmount: function () {
     CiderStore.removeSingleChangeListener(this.changed);
-    CurrentUserStore.removeChangeHandler(this.userChanged);
   },
 
   changed: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
     this.setState({cider: cider});
-  },
-
-  userChanged: function () {
-    this.setState({user: CurrentUserStore.currentUser()});
   },
 
   _findCiderById: function (ciderId) {
@@ -51,6 +50,7 @@ var CiderDetailView = React.createClass({
     }
 
     if (CurrentUserStore.isLoggedIn()) {
+      debugger;
       reviewForm = (<ReviewForm ciderId={this.state.cider.id} />);
     }
 
@@ -79,7 +79,7 @@ var CiderDetailView = React.createClass({
               {this.state.cider.description}
             </div>
           {reviewForm}
-          <ReviewIndex  reviews={this.state.cider.reviews} />
+          <ReviewIndex currentUser={this.props.currentUser} reviews={this.state.cider.reviews} />
           </div>
         </article>
       </div>
