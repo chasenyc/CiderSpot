@@ -1,8 +1,16 @@
 var ReviewForm = React.createClass({
 
   getInitialState: function () {
-    return {look_rating: 3, smell_rating: 3, taste_rating: 3, feel_rating: 3,
-       overall_rating: 3, content: "", hidden: true};
+    return {
+      look_rating: 3,
+      smell_rating: 3,
+      taste_rating: 3,
+      feel_rating: 3,
+      overall_rating: 3,
+      content: "",
+      hidden: true,
+      currentUser: CurrentUserStore.currentUser()
+    };
   },
 
   handleSubmit: function (e) {
@@ -52,13 +60,15 @@ var ReviewForm = React.createClass({
   },
 
   render: function () {
-    var klassName = "text-submit";
+    var klassName = "review-box";
     if (this.state.hidden === true) {
       klassName += " hidden";
     }
 
     return (
-      <div onClick={this.expandForm} className="review-box">
+      <div onClick={this.expandForm} className={klassName}>
+        <img className="author-thumb" src={this.state.currentUser.avatar_url}
+          alt={this.state.currentUser.username}></img>
         <form onSubmit={this.handleSubmit} className="review-form">
           <label className="rating-sub" >Look:
             <select onChange={this.handleRate} value={this.state.look_rating} name="look_rating">
@@ -105,7 +115,7 @@ var ReviewForm = React.createClass({
               <option value={5}>5</option>
             </select>
           </label>
-          <div className={klassName}>
+          <div className="text-submit">
             <textarea onChange={this.handleContent} className="rating-sub" name="review[content]" value={this.state.content}></textarea>
             <button onClick={this.handleCancel} className="cancel-button rating-sub">Cancel</button>
             <button className="rating-button rating-sub">Submit Rating</button>

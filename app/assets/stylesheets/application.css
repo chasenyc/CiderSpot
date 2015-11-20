@@ -340,7 +340,7 @@ img.author-thumb {
 }
 
 .review-box {
-  text-align: right;
+
 }
 
 .rating-sub {
@@ -366,7 +366,7 @@ img.author-thumb {
   transition: max-height 0.8s;
 }
 
-.text-submit.hidden {
+.review-box.hidden {
   max-height: 0px;
   overflow: hidden;
 
