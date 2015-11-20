@@ -1,5 +1,5 @@
 class Cider < ActiveRecord::Base
-  validates :name, :description, :brewery_id, :style, :organic, :abv,
+  validates :name, :description, :brewery_id, :style_id, :organic, :abv,
             presence: true
 
   has_many :reviews, dependent: :destroy
@@ -7,6 +7,7 @@ class Cider < ActiveRecord::Base
   has_many :gots, dependent: :destroy
 
   belongs_to :brewery
+  belongs_to :style
 
   def average
     return 0 if reviews.count == 0

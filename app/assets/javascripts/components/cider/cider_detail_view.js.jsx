@@ -61,7 +61,7 @@ var CiderDetailView = React.createClass({
           <h1 className="cider-head">{this.state.cider.name}</h1>
           <div className="cider-subhead">
             <h2 className="brewery-subhead">{this.state.cider.brewery.name}</h2>
-            <h3 className="style-subhead">Style: {this.state.cider.style}</h3>
+            <h3 className="style-subhead">Style:&nbsp; </h3>{this.state.cider.style.name}
           </div>
           <div className="cider-details">
           {reviewForm}
