@@ -286,6 +286,9 @@ img.cider-thumb {
 
 .review-index-header {
   margin-bottom: .33em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: .66em;
 }
 
 .review-index-item {
@@ -307,6 +310,12 @@ img.author-thumb {
 
 .review-form {
   margin: 1em 0 1em 0;
+}
+
+.rate-toggle-button {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .review-info {
@@ -346,8 +355,17 @@ img.author-thumb {
   margin-right: 7px;
 }
 
+.text-submit {
+  max-width: 700px;
+}
+
 .rating-sub {
   display: inline-block;
+}
+
+textarea.rating-sub {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .rating-bar {
@@ -356,6 +374,14 @@ img.author-thumb {
 
 .rating-button {
   color: #e33d26;
+  float: right;
+}
+
+.cancel-button {
+  float: right;
+  margin-right: 7px;
+  border-right: 1px solid #ccc;
+  padding-right: 7px;
 }
 
 .rating-button:hover {

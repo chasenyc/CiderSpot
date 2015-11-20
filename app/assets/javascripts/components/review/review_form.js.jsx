@@ -15,6 +15,7 @@ var ReviewForm = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
+    debugger;
     var newForm = new FormData ();
     newForm.append("review[look_rating]", this.state.look_rating);
     newForm.append("review[smell_rating]", this.state.smell_rating);
@@ -23,6 +24,7 @@ var ReviewForm = React.createClass({
     newForm.append("review[overall_rating]", this.state.overall_rating);
     newForm.append("review[content]", this.state.content);
     this.resetStates();
+
     ApiUtil.createReview(newForm, this.props.ciderId);
   },
 
@@ -39,7 +41,7 @@ var ReviewForm = React.createClass({
   },
 
   toggleForm: function (e) {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({hidden: !this.state.hidden});
   },
 
@@ -67,8 +69,8 @@ var ReviewForm = React.createClass({
     }
 
     return (
-      <div onClick={this.toggleForm} className="toggle-rate">
-        <button className>Rate</button>
+      <div className="toggle-rate">
+        <button onClick={this.toggleForm} className="rate-toggle-button">Rate This Cider</button>
         <div className={klassName}>
           <form onSubmit={this.handleSubmit} className="review-form">
             <img className="author-thumb" src={this.state.currentUser.avatar_url}
@@ -123,8 +125,8 @@ var ReviewForm = React.createClass({
               </div>
               <div className="text-submit">
                 <textarea onChange={this.handleContent} className="rating-sub" name="review[content]" value={this.state.content}></textarea>
+                <button className="rating-button rating-sub" value="submit">Submit Rating</button>
                 <button onClick={this.handleCancel} className="cancel-button rating-sub">Cancel</button>
-                <button className="rating-button rating-sub">Submit Rating</button>
               </div>
             </div>
           </form>

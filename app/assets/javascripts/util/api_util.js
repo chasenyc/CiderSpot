@@ -57,6 +57,9 @@ var ApiUtil = window.ApiUtil = {
 
       },
       error: function (error) {
+        if (error.responseText === "[\"User has already been taken\"]") {
+          error.responseText = "You can only like a review once";
+        }
         ApiActions.receiveError(error);
       }
     });
