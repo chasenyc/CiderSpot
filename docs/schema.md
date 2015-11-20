@@ -20,6 +20,13 @@ id          | integer   | not null, primary key
 name        | string    | not null
 location    | string    | not null
 
+## styles
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+name        | string    | not null
+description | string    | not null
+
 ## reviews
 column name  | data type | details
 -------------|-----------|----------------------
