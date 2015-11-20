@@ -15,7 +15,6 @@ var ReviewForm = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
-    debugger;
     var newForm = new FormData ();
     newForm.append("review[look_rating]", this.state.look_rating);
     newForm.append("review[smell_rating]", this.state.smell_rating);
@@ -70,7 +69,7 @@ var ReviewForm = React.createClass({
 
     return (
       <div className="toggle-rate">
-        <button onClick={this.toggleForm} className="rate-toggle-button">Rate This Cider</button>
+        <button onClick={this.toggleForm} className="rate-toggle-button">Review This Cider</button>
         <div className={klassName}>
           <form onSubmit={this.handleSubmit} className="review-form">
             <img className="author-thumb" src={this.state.currentUser.avatar_url}

@@ -252,6 +252,7 @@ label {
 
 h1.cider-head {
   text-transform: none;
+  margin-top: 24px;
 }
 
 img.cider-thumb {
@@ -316,6 +317,7 @@ img.author-thumb {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
+  margin-bottom: .33em;
 }
 
 .review-info {

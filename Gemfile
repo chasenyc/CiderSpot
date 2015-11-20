@@ -29,7 +29,8 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets', '~> 2.1.0'
-
+gem 'paperclip'
+gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
