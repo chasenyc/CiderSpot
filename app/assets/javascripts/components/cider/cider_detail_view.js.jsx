@@ -3,22 +3,31 @@ var CiderDetailView = React.createClass({
   getInitialState: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
-    return { cider: cider };
+    return {
+      cider: cider,
+      user: CurrentUserStore.currentUser()
+     };
   },
 
   componentDidMount: function () {
     CiderStore.addSingleChangeListener(this.changed);
+    CurrentUserStore.addChangeHandler(this.userChanged);
     ApiUtil.fetchCider(this.props.params.ciderId);
   },
 
   componentWillUnmount: function () {
     CiderStore.removeSingleChangeListener(this.changed);
+    CurrentUserStore.removeChangeHandler(this.userChanged);
   },
 
   changed: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
     this.setState({cider: cider});
+  },
+
+  userChanged: function () {
+    this.setState({user: CurrentUserStore.currentUser()});
   },
 
   _findCiderById: function (ciderId) {
@@ -34,11 +43,17 @@ var CiderDetailView = React.createClass({
   render: function () {
     var breweryName;
     var organic;
+    var reviewForm;
     if (this.state.cider.organic === "Y") {
       organic = "Yes";
     } else {
       organic = "No";
     }
+
+    if (CurrentUserStore.isLoggedIn()) {
+      reviewForm = (<ReviewForm ciderId={this.state.cider.id} />);
+    }
+
     if (this.state.cider.brewery === undefined) { return <div></div>; };
     return (
       <div className="cider-detail">
@@ -63,7 +78,7 @@ var CiderDetailView = React.createClass({
             <div className="cider-detail-description">
               {this.state.cider.description}
             </div>
-          <ReviewForm ciderId={this.state.cider.id} />
+          {reviewForm}
           <ReviewIndex  reviews={this.state.cider.reviews} />
           </div>
         </article>

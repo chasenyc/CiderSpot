@@ -1,7 +1,26 @@
 var CiderIndexItem = React.createClass ({
 
-  render: function () {
+  getInitialState: function () {
+    return {user: CurrentUserStore.currentUser()};
+  },
 
+  componentDidMount: function () {
+    CurrentUserStore.addChangeHandler(this.changed);
+  },
+
+  componentWillUnmount: function () {
+    CurrentUserStore.removeChangeHandler(this.changed);
+  },
+
+  changed: function () {
+    this.setState({user: CurrentUserStore.currentUser()});
+  },
+
+  render: function () {
+    var wantGot;
+    if (CurrentUserStore.isLoggedIn()) {
+      wantGot = (<CiderIndexWantGot ciderId={this.props.cider.id} />);
+    }
     return (
       <article onClick={this.props.onClick} className="cider-index-item">
         <img className="fixed-height" src={this.props.cider.image_url}></img>
@@ -17,7 +36,7 @@ var CiderIndexItem = React.createClass ({
           </div>
         </div>
         <div className="want-got-container">
-          <CiderIndexWantGot ciderId={this.props.cider.id} />
+          {wantGot}
         </div>
       </article>
     );

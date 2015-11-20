@@ -30,7 +30,7 @@ var CiderIndex = React.createClass({
               return <CiderIndexItem
                 cider={cider}
                 onClick={boundClick}
-                key={cider.id} />
+                key={"C"+cider.id} />
             }.bind(this))
           }
       </div>

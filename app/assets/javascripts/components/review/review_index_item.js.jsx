@@ -1,14 +1,33 @@
 var ReviewIndexItem = React.createClass({
 
+  getInitialState: function () {
+    return {user: CurrentUserStore.currentUser()};
+  },
+
+  componentDidMount: function () {
+    CurrentUserStore.addChangeHandler(this.changed);
+  },
+
+  componentWillUnmount: function () {
+    CurrentUserStore.removeChangeHandler(this.changed);
+  },
+
   handleLike: function (e) {
     e.stopPropagation();
     ApiUtil.createLike(this.props.review.id);
   },
 
-  render: function () {
+  changed: function () {
+    this.setState({user: CurrentUserStore.currentUser()});
+  },
 
+  render: function () {
+    var likeButton;
     var updated = new Date(this.props.review.updated_at);
     var elapsedStr = this._getPostedTimeDiff(updated);
+    if (CurrentUserStore.isLoggedIn()) {
+      likeButton = (<span onClick={this.handleLike} className="review-like-button">Like this review</span>);
+    }
 
     return (
       <li className="review-index-item group">
@@ -32,7 +51,7 @@ var ReviewIndexItem = React.createClass({
           </div>
           <div className="review-footer">
             {elapsedStr}
-            <span onClick={this.handleLike} className="review-like-button">Like this review</span>
+            {likeButton}
           </div>
         </div>
       </li>
