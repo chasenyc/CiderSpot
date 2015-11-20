@@ -57,6 +57,8 @@ $(function(){
   var routes = (
       <Route path="/" component={App}>
         <IndexRoute component={CiderIndex}/>
+        <Route path="login" component={ SessionForm }/>
+        <Route path="signup" component={ UserForm }/>
         <Route path="ciders/:ciderId" component={CiderDetailView} />
       </Route>
   );
