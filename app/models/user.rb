@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :admin, inclusion: { in: [true, false]}
+  has_attached_file :image
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
 

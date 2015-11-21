@@ -37,6 +37,11 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    aws-sdk (1.66.0)
+      aws-sdk-v1 (= 1.66.0)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     babel-source (5.8.33)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -177,6 +182,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk (~> 1.6)
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

@@ -14,7 +14,13 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    byebug
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.save
+      render "show"
+    else
+      render json: @user.errors.full_messages.to_json, status: 401
+    end
   end
 
   private

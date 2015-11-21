@@ -4,7 +4,10 @@ var UserEditForm = React.createClass({
     return (
       $.extend({},
       CurrentUserStore.currentUser(),
-      {imageFile: null}
+      {
+        imageFile: null,
+        imageUrl: ""
+      }
     ));
   },
 
@@ -14,7 +17,6 @@ var UserEditForm = React.createClass({
 
   handleSubmit: function (e) {
     e.preventDefault();
-    debugger;
     var email = this.state.email;
     var birthdate = this.state.birthdate;
     var file = this.state.imageFile;
@@ -29,8 +31,22 @@ var UserEditForm = React.createClass({
 
   handleChange: function (e) {
     var obj = {};
-    obj[e.target.name] = e.target.value;
-    this.setState(obj);
+    if (e.target.name === "imageFile") {
+      var reader = new FileReader();
+      var file = e.target.files[0];
+      var that = this;
+      reader.onloadend = function() {
+        that.setState({ imageUrl: reader.result, imageFile: file });
+      }
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        this.setState({ imageUrl: "", imageFile: null });
+      }
+    } else {
+      obj[e.target.name] = e.target.value;
+      this.setState(obj);
+    }
   },
 
   render: function () {
