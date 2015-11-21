@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
 
+  before_action :ensure_current_user_is_authorized, only: [:update]
+
   def create
     @user = User.new(user_params)
     @user.admin = false
@@ -11,8 +13,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    byebug
+  end
+
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :birthdate)
+    params.require(:user).permit(:username, :email, :password, :birthdate, :image)
+  end
+
+  def ensure_current_user_is_authorized
+    return if (params[:id].to_i == current_user.id)
+    render json: "Something went wrong, cannot edit another user's information.", status: :forbidden
   end
 end

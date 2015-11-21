@@ -1,15 +1,30 @@
 var UserEditForm = React.createClass({
 
   getInitialState: function () {
-    return (CurrentUserStore.currentUser());
+    return (
+      $.extend({},
+      CurrentUserStore.currentUser(),
+      {imageFile: null}
+    ));
   },
 
   componentWillReceiveProps: function (newProps) {
     this.setState(CurrentUserStore.currentUser());
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (e) {
     e.preventDefault();
+    debugger;
+    var email = this.state.email;
+    var birthdate = this.state.birthdate;
+    var file = this.state.imageFile;
+
+    var formData = new FormData();
+    formData.append("user[email]", email);
+    formData.append("user[birthdate]", birthdate);
+    formData.append("user[image]", file);
+
+    UsersApiUtil.updateUser(formData, this.state.id);
   },
 
   handleChange: function (e) {
@@ -23,24 +38,16 @@ var UserEditForm = React.createClass({
       <div className="edit-profile-form">
         <h1>Edit your profile</h1>
         <form onChange={this.handleChange} onSubmit={ this.handleSubmit }>
-          <label>Username:
-            <input type="text"
-                   name="username"
-                   value={this.state.username} />
-          </label>
           <label>Email:
             <input type="email" name="email"
                    value={this.state.email} />
-          </label>
-          <label>Password:
-            <input type="password" name="password" />
           </label>
           <label>Birthdate:
             <input type="date" name="birthdate"
                    value={this.state.birthdate} />
           </label>
           <label>Profile photo:
-            <input type="file" name="image" />
+            <input type="file" name="imageFile" />
           </label>
           <button>Save Changes</button>
         </form>
