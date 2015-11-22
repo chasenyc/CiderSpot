@@ -1,0 +1,16 @@
+.flash-errors {
+  position: fixed;
+  display: block;
+  height: auto;
+  width: 100%;
+  z-index: 100;
+  left: 150px;
+  top: 142px;
+  margin: -100px 0 0 -150px;
+  background: grey;
+  background-color:rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+}

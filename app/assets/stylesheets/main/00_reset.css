@@ -1,0 +1,22 @@
+* {
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

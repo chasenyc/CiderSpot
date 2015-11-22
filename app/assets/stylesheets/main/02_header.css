@@ -1,0 +1,48 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e33d26;
+  font-size: 1.08em;
+  font-weight: 700;
+  color: #fff;
+  height: 42px;
+  opacity: 1;
+  -webkit-transition: background 1s, opacity 0.5s;
+}
+
+.nav.top {
+  background: #000;
+  opacity: .9;
+}
+
+.logo {
+  display: block;
+  margin: 2px auto 0 auto;
+  position: fixed;
+  z-index: 100;
+  left: calc(50% - 125px);
+  width: 250px;
+}
+
+.nav-item:hover {
+  border-bottom: 3px solid white;
+}
+
+
+.nav-item {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  display: block;
+
+}
+
+.nav-item.left {
+  float: left;
+}
+
+.nav-item.right {
+  float: right;
+}

@@ -29,9 +29,9 @@ var Header = React.createClass({
       return (
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-          <a className="user-info button" href="#/login">Log in</a>
-          <a className="user-info button" href="#/signup">Sign up</a>
-          <a className="nav-item" href="#/">All Ciders</a>
+          <a className="user-info nav-item right button" href="#/login">Log in</a>
+          <a className="user-info nav-item right button" href="#/signup">Sign up</a>
+          <a className="nav-item left" href="#/">All Ciders</a>
         </header>
       );
     }
