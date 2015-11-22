@@ -12,4 +12,8 @@ class Review < ActiveRecord::Base
     (look_rating + smell_rating + taste_rating + feel_rating + overall_rating) / 5
   end
 
+  def auth_image
+    author.image
+  end
+
 end
