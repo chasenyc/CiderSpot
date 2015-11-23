@@ -36,5 +36,8 @@ img.cider-thumb {
 }
 
 .cider-details {
+  display: block;
+  background: #fff;
   padding: 0 20px;
+  z-index: 40;
 }

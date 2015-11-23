@@ -13,8 +13,12 @@
   margin-bottom: .33em;
 }
 
+.rate-toggle-button:hover {
+  color: #e33d26;
+}
+
 .review-form > .author-thumb {
-  display: inline-block;
+  float: left;
   margin-right: 7px;
 }
 
@@ -56,10 +60,10 @@ textarea.rating-sub {
 }
 
 .review-box {
-  max-height: 200px;
-  -webkit-transition: max-height 0.8s;
-  -moz-transition: max-height 0.8s;
-  transition: max-height 0.8s;
+  max-height: 160px;
+  -webkit-transition: max-height 0.8s linear;
+  -moz-transition: max-height 0.8s linear;
+  transition: max-height 0.8s linear;
 }
 
 .review-box.hidden {

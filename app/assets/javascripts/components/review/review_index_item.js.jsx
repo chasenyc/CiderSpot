@@ -19,7 +19,7 @@ var ReviewIndexItem = React.createClass({
   },
 
   removeEditable: function (e) {
-    e.preventDefault();
+    if (e) { e.preventDefault(); }
     this.setState({editable: false});
   },
 

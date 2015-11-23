@@ -75,8 +75,7 @@ var ReviewForm = React.createClass({
     });
   },
 
-  toggleForm: function (e) {
-    e.preventDefault();
+  toggleForm: function () {
     this.setState({hidden: !this.state.hidden});
   },
 
