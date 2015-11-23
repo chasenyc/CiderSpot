@@ -5,7 +5,7 @@ var CiderDetailView = React.createClass({
     var cider = this._findCiderById(ciderId) || {} ;
     return {
       cider: cider,
-      currentUser: CurrentUserStore.currentUser()
+      currentUser: CurrentUserStore.currentUser(),
      };
 
   },
@@ -21,6 +21,10 @@ var CiderDetailView = React.createClass({
 
   componentWillUnmount: function () {
     CiderStore.removeSingleChangeListener(this.changed);
+  },
+
+  toggleHiddenReview: function () {
+    this.setState({reviewHidden: !this.state.reviewHidden});
   },
 
   changed: function () {
@@ -39,6 +43,22 @@ var CiderDetailView = React.createClass({
     return result;
   },
 
+  _findCurrentUserReview: function () {
+    if (!this.state.currentUser || !this.state.cider.reviews) { return; }
+    var userId = this.state.currentUser.id;
+    var reviews = this.state.cider.reviews;
+    var result;
+    reviews.forEach(function(el) {
+      if (parseInt(userId) === parseInt(el.author.id)) {
+        result = reviews.indexOf(el);
+      }
+    });
+    var resultingReview;
+    resultingReview = reviews[result];
+    return resultingReview;
+  },
+
+
   render: function () {
     var breweryName;
     var organic;
@@ -48,11 +68,18 @@ var CiderDetailView = React.createClass({
     } else {
       organic = "No";
     }
+    this._findCurrentUserReview();
 
-    if (CurrentUserStore.isLoggedIn()) {
-      reviewForm = (<ReviewForm ciderId={this.state.cider.id} />);
+    if (CurrentUserStore.isLoggedIn() && !this._findCurrentUserReview()) {
+      reviewForm = (
+        <div className="top-review">
+          <ReviewForm
+            ciderId={this.state.cider.id}
+            currentUser={this.props.currentUser}
+            hidden={this.state.reviewHidden} />
+        </div>
+      );
     }
-
     if (this.state.cider.brewery === undefined) { return <div></div>; };
     return (
       <div className="cider-detail">
@@ -63,8 +90,8 @@ var CiderDetailView = React.createClass({
             <h2 className="brewery-subhead">{this.state.cider.brewery.name}</h2>
             <h3 className="style-subhead">Style:&nbsp; </h3>{this.state.cider.style.name}
           </div>
-          <div className="cider-details">
           {reviewForm}
+          <div className="cider-details">
             <div className="cider-detail-ratings">
               {this.state.cider.review_count} ratings: {this.state.cider.average}
             </div>
@@ -78,7 +105,9 @@ var CiderDetailView = React.createClass({
             <div className="cider-detail-description">
               {this.state.cider.description}
             </div>
-          <ReviewIndex currentUser={this.props.currentUser} reviews={this.state.cider.reviews} />
+            <ReviewIndex
+              currentUser={this.props.currentUser} reviews={this.state.cider.reviews}
+              />
           </div>
         </article>
       </div>

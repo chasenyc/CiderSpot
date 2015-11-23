@@ -7,7 +7,7 @@
       var credentials = $(e.currentTarget).serializeJSON();
       this.outsideClick();
       SessionsApiUtil.login(credentials, function () {
-        this.history.pushState({location: this.props.location}, "/");
+
       }.bind(this));
     },
 

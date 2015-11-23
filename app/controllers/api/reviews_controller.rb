@@ -18,7 +18,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.update(review_params)
     if @review.save
-      render json: @review.to_json
+      render json: @review.cider.to_json
     else
       render json: @review.errors.full_messages.to_json, status: :forbidden
     end

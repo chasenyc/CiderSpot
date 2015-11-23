@@ -7,7 +7,7 @@ var ApiUtil = window.ApiUtil = {
     $.get('api/ciders/' + id, function (data) { ApiActions.receiveCider(data); });
   },
 
-  createReview: function (formData, id) {
+  createReview: function (formData, id, success) {
     $.ajax({
       url: 'api/ciders/' + id + '/reviews',
       type: 'POST',
@@ -16,6 +16,24 @@ var ApiUtil = window.ApiUtil = {
       data: formData,
       success: function (data) {
         ApiUtil.fetchCider(id);
+        success && success();
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
+      }
+    });
+  },
+
+  editReview: function (formData, id, ciderId, success) {
+    $.ajax({
+      url: 'api/reviews/' + id,
+      type: 'PATCH',
+      processData: false,  // tell jQuery not to process the data
+      contentType: false,   // tell jQuery not to set contentType
+      data: formData,
+      success: function (data) {
+        ApiUtil.fetchCider(ciderId);
+        success && success();
       },
       error: function (error) {
         ApiActions.receiveError(error);

@@ -1,6 +1,20 @@
 var ReviewForm = React.createClass({
 
   getInitialState: function () {
+    if (this.props.review) {
+      return {
+        look_rating: this.props.review.look_rating,
+        smell_rating: this.props.review.smell_rating,
+        taste_rating: this.props.review.taste_rating,
+        feel_rating: this.props.review.feel_rating,
+        overall_rating: this.props.review.overall_rating,
+        id: this.props.review.id,
+        content: this.props.review.content,
+        hidden: false,
+        currentUser: CurrentUserStore.currentUser(),
+        type: "PATCH"
+      };
+    }
     return {
       look_rating: 3,
       smell_rating: 3,
@@ -8,9 +22,28 @@ var ReviewForm = React.createClass({
       feel_rating: 3,
       overall_rating: 3,
       content: "",
+      id: null,
       hidden: true,
-      currentUser: CurrentUserStore.currentUser()
+      currentUser: CurrentUserStore.currentUser(),
+      type: "POST"
     };
+  },
+
+  componentWillReceiveProps: function () {
+    if (this.props.review) {
+      return {
+        look_rating: this.props.review.look_rating,
+        smell_rating: this.props.review.smell_rating,
+        taste_rating: this.props.review.taste_rating,
+        feel_rating: this.props.review.feel_rating,
+        overall_rating: this.props.review.overall_rating,
+        id: this.props.review.id,
+        content: this.props.review.content,
+        hidden: true,
+        currentUser: CurrentUserStore.currentUser(),
+        type: "PATCH"
+      };
+    }
   },
 
   handleSubmit: function (e) {
@@ -22,19 +55,22 @@ var ReviewForm = React.createClass({
     newForm.append("review[feel_rating]", this.state.feel_rating);
     newForm.append("review[overall_rating]", this.state.overall_rating);
     newForm.append("review[content]", this.state.content);
+    if (this.state.type === "POST") {
+      ApiUtil.createReview(newForm, this.props.ciderId, function () {
+        window.scroll(0, window.outerHeight);
+      });
+    }
+    else {
+      ApiUtil.editReview(newForm, this.state.id, this.props.ciderId, function () {
+        window.scroll(0, window.outerHeight);
+      });
+    }
+    if (this.props.callback) { this.props.callback(); }
     this.resetStates();
-
-    ApiUtil.createReview(newForm, this.props.ciderId);
   },
 
   resetStates: function () {
     this.setState({
-      look_rating: 3,
-      smell_rating: 3,
-      taste_rating: 3,
-      feel_rating: 3,
-      overall_rating: 3,
-      content: "",
       hidden: true
     });
   },
@@ -66,10 +102,19 @@ var ReviewForm = React.createClass({
     if (this.state.hidden === true) {
       klassName += " hidden";
     }
-    
+    var button;
+    var cancel = this.handleCancel;
+    if (this.state.type != "PATCH") {
+      button = (
+        <button onClick={this.toggleForm} className="rate-toggle-button">Review This Cider</button>
+      );
+    }
+    else {
+      cancel = this.props.callback;
+    }
     return (
       <div className="toggle-rate">
-        <button onClick={this.toggleForm} className="rate-toggle-button">Review This Cider</button>
+        {button}
         <div className={klassName}>
           <form onSubmit={this.handleSubmit} className="review-form">
             <img className="author-thumb" src={this.state.currentUser.image_url}
@@ -125,7 +170,7 @@ var ReviewForm = React.createClass({
               <div className="text-submit">
                 <textarea onChange={this.handleContent} className="rating-sub" name="review[content]" value={this.state.content}></textarea>
                 <button className="rating-button rating-sub" value="submit">Submit Rating</button>
-                <button onClick={this.handleCancel} className="cancel-button rating-sub">Cancel</button>
+                <button onClick={cancel} className="cancel-button rating-sub">Cancel</button>
               </div>
             </div>
           </form>

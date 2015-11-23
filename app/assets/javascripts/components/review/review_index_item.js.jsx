@@ -1,13 +1,26 @@
 var ReviewIndexItem = React.createClass({
 
   getInitialState: function () {
-    return {currentUser: CurrentUserStore.currentUser()};
+    return {
+      currentUser: CurrentUserStore.currentUser(),
+      editable: false
+    };
   },
 
   componentWillReceiveProps: function (newProps) {
     if (newProps.currentUser) {
       this.setState({currentUser: newProps.currentUser});
     }
+  },
+
+  handleEdit: function (e) {
+    e.stopPropagation();
+    this.setState({editable: true});
+  },
+
+  removeEditable: function (e) {
+    e.preventDefault();
+    this.setState({editable: false});
   },
 
   handleLike: function (e) {
@@ -19,12 +32,25 @@ var ReviewIndexItem = React.createClass({
     ApiUtil.destroyReview(this.props.review.id, this.props.review.cider_id);
   },
 
+
+
   render: function () {
     var likeButton;
     var editButton;
     var deleteButton;
     var updated = new Date(this.props.review.updated_at);
     var elapsedStr = this._getPostedTimeDiff(updated);
+    if (this.state.editable === true) {
+      return (
+        <li className="review-index-item group">
+          <ReviewForm
+            review={this.props.review}
+            ciderId={this.props.review.cider_id}
+            currentUser={this.state.currentUser}
+            callback={this.removeEditable} />
+        </li>
+      );
+    }
     if (CurrentUserStore.isLoggedIn()) {
       if (this.props.review.author.id === this.state.currentUser.id) {
         editButton = (
