@@ -29,7 +29,7 @@ var UsersApiUtil = {
         success && success();
       },
       error: function (error) {
-        debugger;
+        
         ApiActions.receiveError(error);
       }
     });

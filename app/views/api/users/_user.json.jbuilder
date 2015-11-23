@@ -1,1 +1,2 @@
-json.extract! user, :id, :username, :avatar_url, :email, :birthdate, :image_url, :image
+json.extract! user, :id, :username, :image_url, :email, :birthdate
+json.image_url image_path(user.image.url)

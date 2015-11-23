@@ -2,7 +2,8 @@ var App = React.createClass({
   getInitialState: function () {
     return ({
       errors: [],
-      currentUser: CurrentUserStore.currentUser()
+      currentUser: CurrentUserStore.currentUser(),
+      signUp: false
     });
   },
 
@@ -39,6 +40,10 @@ var App = React.createClass({
     }.bind(this), 6000);
   },
 
+  toggleSignUp: function () {
+    this.setState({signUp: !this.state.signUp});
+  },
+
   render: function(){
     var renderedChildren = React.Children.map(this.props.children,
       function (child) {
@@ -47,22 +52,29 @@ var App = React.createClass({
         );
       }.bind(this)
     );
+
+    var signUp;
+    if (this.state.signUp === true) {
+      signUp = (<UserForm toggleSignUp={this.toggleSignUp} />);
+    }
     if (this.state.errors.length > 0) {
       return (
         <div className="top">
           <div className="flash-errors">
             {this.state.errors[0].responseText}
           </div>
-          <Header />
+          <Header toggleSignUp={this.toggleSignUp}/>
           {renderedChildren}
+          {signUp}
         </div>
       );
     }
     return (
 
         <div className="top">
-          <Header />
+          <Header toggleSignUp={this.toggleSignUp} />
           {renderedChildren}
+          {signUp}
         </div>
     );
   }

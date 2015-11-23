@@ -66,13 +66,13 @@ var ReviewForm = React.createClass({
     if (this.state.hidden === true) {
       klassName += " hidden";
     }
-
+    
     return (
       <div className="toggle-rate">
         <button onClick={this.toggleForm} className="rate-toggle-button">Review This Cider</button>
         <div className={klassName}>
           <form onSubmit={this.handleSubmit} className="review-form">
-            <img className="author-thumb" src={this.state.currentUser.avatar_url}
+            <img className="author-thumb" src={this.state.currentUser.image_url}
             alt={this.state.currentUser.username}></img>
             <div className="review-info">
               <div className="rating-bar">

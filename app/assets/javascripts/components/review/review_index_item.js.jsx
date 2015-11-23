@@ -47,7 +47,7 @@ var ReviewIndexItem = React.createClass({
 
     return (
       <li className="review-index-item group">
-        <img className="author-thumb" src={this.props.review.author.avatar_url}
+        <img className="author-thumb" src={this.props.review.author.image_url}
           alt={this.props.review.author.username}></img>
         <div className="review-info">
           <div className="review-meta">

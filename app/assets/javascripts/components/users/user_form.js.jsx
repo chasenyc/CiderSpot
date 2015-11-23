@@ -16,25 +16,48 @@
       }
     },
 
+    formClick: function (e) {
+      e.stopPropagation();
+    },
+
+    outsideClick: function (e) {
+      this.props.toggleSignUp();
+    },
+
     render: function() {
 
       return (
-        <div className="sign-up-form">
-          <h1>Sign Up</h1>
-          <form onSubmit={ this.submit }>
-            <label>Username:
-              <input type="text" name="user[username]" />
-            </label>
-            <label>Email:
-              <input type="email" name="user[email]" />
-            </label>
-            <label>Password:
-              <input type="password" name="user[password]" />
-            </label>
+        <div>
+          <div
+            onClick={this.outsideClick}
+            className="modal-screen"></div>
+          <form
+            onClick={this.formClick}
+            className="sign-up-form"
+            onSubmit={ this.submit }>
+            <div
+              onClick={this.outsideClick}
+              className="modal-close"></div>
+            <h1 className="user-form-header">Create An Account</h1>
+            <input
+              type="text"
+              name="user[username]"
+              placeholder="username"/>
+            <input
+              type="email"
+              name="user[email]"
+              placeholder="email"/>
+            <input type="password"
+              name="user[password]"
+              placeholder="password"/>
             <label>Birthdate:
-              <input type="date" name="user[birthdate]" />
             </label>
-            <button>Join!</button>
+            <input type="date"
+              name="user[birthdate]"
+              placeholder="birthdate"/>
+            <div className="btn-holder">
+              <button className="btn large">Join!</button>
+            </div>
           </form>
         </div>
       );

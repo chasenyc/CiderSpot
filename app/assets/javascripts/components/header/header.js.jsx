@@ -30,7 +30,9 @@ var Header = React.createClass({
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
           <a className="user-info nav-item right button" href="#/login">Log in</a>
-          <a className="user-info nav-item right button" href="#/signup">Sign up</a>
+          <button
+            className="user-info nav-item right button"
+            onClick={this.props.toggleSignUp}>Sign up</button>
           <a className="nav-item left" href="#/">All Ciders</a>
         </header>
       );

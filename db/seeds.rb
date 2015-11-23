@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(username: "alex", password: "password", email: "admin@admin.com", birthdate: "1984-01-01", avatar_url: "https://avatars2.githubusercontent.com/u/10642932?v=3&s=40")
-User.create!(username: "sennacy", password: "password", email: "sennacy@sennacy.com", birthdate: "1984-01-01", avatar_url: "http://www.sennacy.com/sennacy.jpg")
-User.create!(username: "jonathan", password: "password", email: "jonathan@sennacy.com", birthdate: "1984-01-01", avatar_url: "http://www.appacademy.io/assets/site/staff/jonathan-tamboer-93545a83000b93d43013595074bc22c6.jpeg")
-User.create!(username: "lily", password: "password", email: "lily@appacademy.io", birthdate: "1984-01-01", avatar_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAANHAAAAJGY0ZTI4MTkzLWUzOGEtNDkxZC05YTE1LTgwMmJjYTFlYzY1Yg.jpg")
-User.create!(username: "tommy", password: "password", email: "tommy@appacademy.io", birthdate: "1984-01-01", avatar_url: "https://media.licdn.com/media/AAEAAQAAAAAAAAK4AAAAJGZiNTA5OGQzLTM4ODktNGYxNi1hYTQwLTRhZTlmYTE2ZmFkMw.jpg")
-User.create!(username: "cody", password: "password", email: "cody@cody.com", birthdate: "1984-01-01", avatar_url: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/900/medium/cody-pizzaia.jpg?1443627497")
-User.create!(username: "carl", password: "password", email: "carl@carl.com", birthdate: "1984-01-01", avatar_url: "https://avatars0.githubusercontent.com/u/10963001?v=3&s=460")
+User.create!(username: "alex", password: "password", email: "admin@admin.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/alex.jpg')))
+User.create!(username: "sennacy", password: "password", email: "sennacy@sennacy.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/sennacy.jpg')))
+User.create!(username: "jonathan", password: "password", email: "jonathan@sennacy.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/jonathan.jpg')))
+User.create!(username: "lily", password: "password", email: "lily@appacademy.io", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/lily.jpg')))
+User.create!(username: "tommy", password: "password", email: "tommy@appacademy.io", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/tommy.jpg')))
+User.create!(username: "cody", password: "password", email: "cody@cody.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/cody.jpg')))
+User.create!(username: "carl", password: "password", email: "carl@carl.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/carl.jpg')))
 
 
 styles = ['Dry Mead ',

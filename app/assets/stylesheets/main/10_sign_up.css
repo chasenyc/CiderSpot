@@ -1,9 +1,79 @@
-.signup-form {
-  width: 800px;
-  margin: 20px;
-  position: relative;
+
+.modal-screen {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+.modal-close {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.modal-close:after {
+  content: "X";
+  text-align: center;
+}
+.modal-close:hover {
+  color: #e33d26;
+  cursor: pointer;
+}
+
+.sign-up-form {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -220px;
+  max-width: 500px;
+  width: 380px;
+  padding: 20px;
+  background-color: #f2f3ef;
+  z-index: 1000;
+  border: 3px solid rgba(0, 0, 0, 0.075);
+  border-radius: 6px;
+  padding: 30px 20px;
+}
+
+.user-form-header {
+  padding-bottom: 20px;
 }
 
 .signup-form > label {
+  margin: auto;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+  padding: 12px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.btn-holder {
+  margin: auto;
+  text-align: center;
+}
+.btn {
+  box-sizing: border-box;
+  text-align: center;
+  background: #e33d26;
+  color: white;
+  border: 1px solid #e33d26;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 5px;
   margin: auto;
 }
