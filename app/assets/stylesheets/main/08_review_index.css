@@ -1,0 +1,69 @@
+.review-index-header {
+  margin-bottom: .33em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: .66em;
+}
+
+.review-index-item {
+  background: #fff;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.review-title {
+  font-weight: 700;
+}
+
+img.author-thumb {
+  float: left;
+  border-radius: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+.review-info {
+  margin-left: 50px;
+}
+
+.review-meta-user {
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 12px 2px 0;
+  border-right: 1px solid #ccc;
+  margin-right: 7px;
+}
+
+.review-meta-ratings {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.review-content {
+  margin-top: .33em;
+}
+
+.review-footer {
+  color: #777;
+  font-size: .8em;
+  margin-top: .33em;
+}
+
+.review-edit-button:hover {
+  color: #e33d26;
+}
+
+.review-delete-button:hover {
+  color: #e33d26;
+}
+
+.review-edit-button {
+  margin-right: 5px;
+  float: right;
+}
+
+.review-delete-button {
+  margin-right: 5px;
+  float: right;
+}

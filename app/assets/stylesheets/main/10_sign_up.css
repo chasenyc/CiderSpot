@@ -1,0 +1,9 @@
+.signup-form {
+  width: 800px;
+  margin: 20px;
+  position: relative;
+}
+
+.signup-form > label {
+  margin: auto;
+}

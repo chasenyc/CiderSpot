@@ -1,0 +1,27 @@
+.content {
+  width: 800px;
+  margin: 42px auto 20px auto;
+  padding-top: 80px;
+}
+
+.content button {
+  margin: auto;
+  font-weight: 700;
+  border: 1px solid #aaa;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: block;
+}
+
+.content button:hover {
+  cursor: pointer;
+  border: 1px solid black;
+  background: black;
+  color: white;
+  padding: 10px;
+}
+
+#content {
+  margin-top: 55px;
+}

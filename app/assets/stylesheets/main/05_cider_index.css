@@ -1,0 +1,36 @@
+.cider-index {
+  width: 1000px;
+  margin: 0 auto 20px;
+}
+
+.cider-index article {
+  background: white;
+  display: block;
+  float: left;
+  width: 226px;
+  height: 226px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.cider-index .fixed-height {
+  height: 140px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cider-index article:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.cider-index-info {
+  padding: 10px;
+  font-size: .9em;
+}
+
+.cider-index-item-name {
+  font-size: 1.42em;
+  font-weight: 700;
+}

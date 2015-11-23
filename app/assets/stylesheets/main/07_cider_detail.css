@@ -1,0 +1,40 @@
+.cider-detail {
+  background: #fff;
+  width: 800px;
+  margin: 0 auto 20px;
+}
+
+h1.cider-head {
+  text-transform: none;
+  margin-top: 24px;
+}
+
+img.cider-thumb {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.brewery-subhead {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 12px 2px 0;
+  border-right: 1px solid #ccc;
+  margin-right: 7px;
+}
+
+.cider-subhead {
+  text-align: center;
+  margin: auto;
+}
+
+.style-subhead {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.cider-details {
+  padding: 24px;
+}

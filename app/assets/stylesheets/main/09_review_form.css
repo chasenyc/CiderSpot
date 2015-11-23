@@ -1,0 +1,64 @@
+.review-form {
+  margin: 1em 0 1em 0;
+}
+
+.rate-toggle-button {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: .33em;
+}
+
+.review-form > .author-thumb {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.text-submit {
+  max-width: 700px;
+}
+
+.rating-sub {
+  display: inline-block;
+}
+
+textarea.rating-sub {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rating-bar {
+  margin-bottom: .33em;
+}
+
+.rating-button {
+  color: #e33d26;
+  float: right;
+}
+
+.cancel-button {
+  float: right;
+  margin-right: 7px;
+  border-right: 1px solid #ccc;
+  padding-right: 7px;
+}
+
+.rating-button:hover {
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+}
+
+.review-box {
+  max-height: 200px;
+  -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s;
+}
+
+.review-box.hidden {
+  max-height: 0px;
+  overflow: hidden;
+}

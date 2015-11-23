@@ -39,13 +39,13 @@ var Header = React.createClass({
       return (
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-          <div className="user-info">
+          <div className="user-info nav-item right button">
             welcome, {this.state.user.username}!
           </div>
           <button onClick={this.handleLogOut}
-                  className="user-info button">Log out
+                  className="user-info nav-item right button ">Log out
           </button>
-          <a className="nav-item" href="#/">All Ciders</a>
+          <a className="nav-item left button" href="#/">All Ciders</a>
         </header>
       );
     }

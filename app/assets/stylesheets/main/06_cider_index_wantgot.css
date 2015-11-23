@@ -1,0 +1,30 @@
+.want-got-container {
+  position: relative;
+}
+.cider-index-item-wantgot {
+  position: absolute;
+  left: 10px;
+  top: -105px;
+  width: 205px;
+  color: white;
+  font-weight: 700;
+
+}
+
+.want-button {
+  display: inline-block;
+  text-shadow: #000 0 0 10px;
+}
+
+.want-button:hover {
+  color: #ccc;
+}
+
+.got-button {
+  float: right;
+  text-shadow: #000 0 0 10px;
+}
+
+.got-button:hover {
+  color: #ccc;
+}
