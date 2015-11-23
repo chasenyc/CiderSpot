@@ -5,6 +5,7 @@
     submit: function (e) {
       e.preventDefault();
       var formData = $(e.currentTarget).serializeJSON();
+      this.outsideClick();
       UsersApiUtil.createUser(formData, function () {
         this.history.pushState(null, "/");
       }.bind(this));;
