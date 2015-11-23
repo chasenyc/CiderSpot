@@ -80,12 +80,28 @@ var ApiUtil = window.ApiUtil = {
     });
   },
 
-  createLike: function (id) {
+  createLike: function (id, ciderId) {
     $.ajax({
       url: 'api/reviews/' + id + '/likes',
       type: 'POST',
       success: function (data) {
+        ApiUtil.fetchCider(ciderId);
+      },
+      error: function (error) {
+        if (error.responseText === "[\"User has already been taken\"]") {
+          error.responseText = "You can only like a review once";
+        }
+        ApiActions.receiveError(error);
+      }
+    });
+  },
 
+  destroyLike: function (id, ciderId) {
+    $.ajax({
+      url: 'api/likes/' + id ,
+      type: 'DELETE',
+      success: function (data) {
+        ApiUtil.fetchCider(ciderId);
       },
       error: function (error) {
         if (error.responseText === "[\"User has already been taken\"]") {

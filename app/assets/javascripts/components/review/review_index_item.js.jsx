@@ -25,7 +25,12 @@ var ReviewIndexItem = React.createClass({
 
   handleLike: function (e) {
     e.stopPropagation();
-    ApiUtil.createLike(this.props.review.id);
+    ApiUtil.createLike(this.props.review.id, this.props.review.cider_id);
+  },
+
+  handleUnlike: function (e) {
+    e.stopPropagation();
+    ApiUtil.destroyLike(e.target.dataset.likeId, this.props.review.cider_id);
   },
 
   handleDelete: function (e) {
@@ -51,6 +56,9 @@ var ReviewIndexItem = React.createClass({
         </li>
       );
     }
+    var liked;
+
+
     if (CurrentUserStore.isLoggedIn()) {
       if (this.props.review.author.id === this.state.currentUser.id) {
         editButton = (
@@ -69,8 +77,16 @@ var ReviewIndexItem = React.createClass({
                 className="review-like-button">Like this review
           </button>);
       }
+      if (this.props.review) {
+        var likeId = this._includesCurrentReview();
+        if (likeId){
+          likeButton = (
+            <button onClick={this.handleUnlike} data-like-id={likeId}
+                  className="review-like-button">Unlike this review
+            </button>);
+        }
+      }
     }
-
     return (
       <li className="review-index-item group">
         <img className="author-thumb" src={this.props.review.author.image_url}
@@ -94,6 +110,7 @@ var ReviewIndexItem = React.createClass({
           <div className="review-footer">
             {elapsedStr}
             {likeButton}
+            {liked}
             {deleteButton}
             {editButton}
           </div>
@@ -123,4 +140,14 @@ var ReviewIndexItem = React.createClass({
     }
     return elapsedStr;
   },
+
+  _includesCurrentReview: function () {
+    var result = false;
+    this.state.currentUser.likes.forEach(function (like) {
+      if (like.review_id == this.props.review.id) {
+        result = like.id;
+      }
+    }.bind(this));
+    return result;
+  }
 });
