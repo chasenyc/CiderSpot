@@ -3,7 +3,8 @@ var App = React.createClass({
     return ({
       errors: [],
       currentUser: CurrentUserStore.currentUser(),
-      signUp: false
+      signUp: false,
+      logIn: false
     });
   },
 
@@ -44,6 +45,10 @@ var App = React.createClass({
     this.setState({signUp: !this.state.signUp});
   },
 
+  toggleLogIn: function () {
+    this.setState({logIn: !this.state.logIn});
+  },
+
   render: function(){
     var renderedChildren = React.Children.map(this.props.children,
       function (child) {
@@ -53,9 +58,12 @@ var App = React.createClass({
       }.bind(this)
     );
 
-    var signUp;
+    var modal;
     if (this.state.signUp === true) {
-      signUp = (<UserForm toggleSignUp={this.toggleSignUp} />);
+      modal = (<UserForm toggleSignUp={this.toggleSignUp} />);
+    }
+    if (this.state.logIn === true) {
+      modal = (<SessionForm toggleSignUp={this.toggleLogIn} />);
     }
     if (this.state.errors.length > 0) {
       return (
@@ -63,18 +71,22 @@ var App = React.createClass({
           <div className="flash-errors">
             {this.state.errors[0].responseText}
           </div>
-          <Header toggleSignUp={this.toggleSignUp}/>
+          <Header
+            toggleSignUp={this.toggleSignUp}
+            toggleLogIn={this.toggleLogIn} />
           {renderedChildren}
-          {signUp}
+          {modal}
         </div>
       );
     }
     return (
 
         <div className="top">
-          <Header toggleSignUp={this.toggleSignUp} />
+          <Header
+            toggleSignUp={this.toggleSignUp}
+            toggleLogIn={this.toggleLogIn} />
           {renderedChildren}
-          {signUp}
+          {modal}
         </div>
     );
   }

@@ -18,6 +18,8 @@
 .modal-close:after {
   content: "X";
   text-align: center;
+  top: 20px;
+  position: absolute;
 }
 .modal-close:hover {
   color: #e33d26;
@@ -25,7 +27,7 @@
 }
 
 .sign-up-form {
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 50%;
   margin-left: -220px;
@@ -40,6 +42,7 @@
 }
 
 .user-form-header {
+  margin-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -71,9 +74,9 @@ input {
   background: #e33d26;
   color: white;
   border: 1px solid #e33d26;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   padding: 10px 25px;
   border-radius: 5px;
-  margin: auto;
+  margin: 10px auto;
 }

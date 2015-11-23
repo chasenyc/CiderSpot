@@ -29,7 +29,9 @@ var Header = React.createClass({
       return (
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-          <a className="user-info nav-item right button" href="#/login">Log in</a>
+            <button
+              className="user-info nav-item right button"
+              onClick={this.props.toggleLogIn}>Log In</button>
           <button
             className="user-info nav-item right button"
             onClick={this.props.toggleSignUp}>Sign up</button>
