@@ -96,7 +96,7 @@ var ReviewIndexItem = React.createClass({
 
 
     if (CurrentUserStore.isLoggedIn()) {
-      if (this.props.review.author.id === this.state.currentUser.id) {
+      if (this.props.review.user_id === this.state.currentUser.id) {
         editButton = (
           <button onClick={this.handleEdit}
                 className="review-edit-button">Edit

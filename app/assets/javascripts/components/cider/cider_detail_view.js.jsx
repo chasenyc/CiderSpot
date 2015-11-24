@@ -49,7 +49,7 @@ var CiderDetailView = React.createClass({
     var reviews = this.state.cider.reviews;
     var result;
     reviews.forEach(function(el) {
-      if (parseInt(userId) === parseInt(el.author.id)) {
+      if (parseInt(userId) === parseInt(el.user_id)) {
         result = reviews.indexOf(el);
       }
     });
@@ -68,6 +68,7 @@ var CiderDetailView = React.createClass({
     } else {
       organic = "No";
     }
+
     this._findCurrentUserReview();
 
     if (CurrentUserStore.isLoggedIn() && !this._findCurrentUserReview()) {
