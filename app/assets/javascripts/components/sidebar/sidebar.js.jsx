@@ -1,5 +1,7 @@
 var Sidebar = React.createClass({
 
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return ({
       expanded: this.props.expanded,
@@ -12,6 +14,14 @@ var Sidebar = React.createClass({
       expanded: newProps.expanded,
       currentUser: newProps.currentUser
     });
+  },
+
+  pushWants: function() {
+    this.history.pushState(null, "wants");
+  },
+
+  pushGots: function() {
+    this.history.pushState(null, "gots");
   },
 
   render: function () {
@@ -32,22 +42,24 @@ var Sidebar = React.createClass({
         <div className="sidebar-inner">
           <h2 className="sidebar-header">Your Ciders</h2>
           <ul className="wantgot-list">
-            <li className="sidebar-list wants group">
-              <div className="sidebar-list-left">
-                Wants
-              </div>
-              <div className="sidebar-list-right">
-                {this.state.currentUser.wants.length}
-              </div>
+            <li className="sidebar-list wants group"
+                onClick={this.pushWants}>
+                <div className="sidebar-list-left">
+                  Wants
+                </div>
+                <div className="sidebar-list-right">
+                  {this.state.currentUser.wants.length}
+                </div>
             </li>
 
-            <li className="sidebar-list gots group">
-              <div className="sidebar-list-left">
-                Gots
-              </div>
-              <div className="sidebar-list-right">
-                {this.state.currentUser.gots.length}
-              </div>
+            <li className="sidebar-list gots group"
+                onClick={this.pushGots}>
+                <div className="sidebar-list-left">
+                  Gots
+                </div>
+                <div className="sidebar-list-right">
+                  {this.state.currentUser.gots.length}
+                </div>
             </li>
 
             <li className="sidebar-list reviews group">

@@ -59,7 +59,7 @@ var ApiUtil = window.ApiUtil = {
       url: 'api/ciders/' + id + '/gots',
       type: 'POST',
       success: function (data) {
-
+        SessionsApiUtil.fetchCurrentUser();
       },
       error: function (error) {
         ApiActions.receiveError(error);
@@ -72,7 +72,7 @@ var ApiUtil = window.ApiUtil = {
       url: 'api/ciders/' + id + '/wants',
       type: 'POST',
       success: function (data) {
-
+        SessionsApiUtil.fetchCurrentUser();
       },
       error: function (error) {
         ApiActions.receiveError(error);

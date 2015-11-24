@@ -36,6 +36,7 @@
 }
 
 .sidebar-list {
+  display: block;
   font-weight: 500;
   padding: 2px 0;
 }

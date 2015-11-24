@@ -13,6 +13,7 @@ $(function(){
         <Route path="editprofile" component={ UserEditForm }/>
         <Route path="ciders/:ciderId" component={CiderDetailView} />
         <Route path="wants" component={WantsIndex} />
+        <Route path="gots" component={GotsIndex} />
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
