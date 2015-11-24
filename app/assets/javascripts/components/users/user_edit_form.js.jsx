@@ -1,36 +1,49 @@
 var UserEditForm = React.createClass({
 
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return (
       $.extend({},
       CurrentUserStore.currentUser(),
       {
         imageFile: null,
-        imageUrl: ""
+        imageUrl: "",
+        changed: false
       }
     ));
   },
 
+  componentDidMount: function () {
+    CurrentUserStore.addChangeHandler(this.changed);
+  },
+
   componentWillReceiveProps: function (newProps) {
+    this._ensureLoggedIn();
     this.setState(CurrentUserStore.currentUser());
+    this.setState({changed: false})
   },
 
   handleSubmit: function (e) {
     e.preventDefault();
-    var email = this.state.email;
+    if (!this.state.changed) { return; }
+    var username = this.state.username;
     var birthdate = this.state.birthdate;
     var file = this.state.imageFile;
 
     var formData = new FormData();
-    formData.append("user[email]", email);
+    formData.append("user[username]", username);
     formData.append("user[birthdate]", birthdate);
-    formData.append("user[image]", file);
+    if (file !== null) {
+      formData.append("user[image]", file);
+    }
 
     UsersApiUtil.updateUser(formData, this.state.id);
   },
 
   handleChange: function (e) {
     var obj = {};
+    this.setState({changed: true});
     if (e.target.name === "imageFile") {
       var reader = new FileReader();
       var file = e.target.files[0];
@@ -49,25 +62,58 @@ var UserEditForm = React.createClass({
     }
   },
 
+  changed: function () {
+    this._ensureLoggedIn();
+  },
+
   render: function () {
+    var klassName = "edit-profile-button";
+    if (this.state.changed) {
+      klassName += " active";
+    }
     return (
       <div className="edit-profile-form">
-        <h1>Edit your profile</h1>
         <form onChange={this.handleChange} onSubmit={ this.handleSubmit }>
-          <label>Email:
-            <input type="email" name="email"
-                   value={this.state.email} />
-          </label>
-          <label>Birthdate:
-            <input type="date" name="birthdate"
-                   value={this.state.birthdate} />
-          </label>
-          <label>Profile photo:
-            <input type="file" name="imageFile" />
-          </label>
-          <button>Save Changes</button>
+        <h2>Edit your profile</h2>
+          <div className="control-group group">
+            <label>Username:</label>
+            <input type="text" name="username"
+                    value={this.state.username} />
+
+          </div>
+
+          <div className="control-group group">
+            <label>Birthdate:
+            </label>
+              <input type="date" name="birthdate"
+                     value={this.state.birthdate} />
+          </div>
+
+          <div className="control-group group">
+            <label>Profile photo:
+            </label>
+                <input type="file" className="upload" name="imageFile" />
+          </div>
+          <div className="control-group group">
+            <label></label>
+            <div className="form-info-notice">
+              At this time we are unable to change e-mail addresses.
+              Please contact a CiderSpot administrator if necessary.
+            </div>
+          </div>
+          <div className="edit-profile-bottom">
+            <button
+              onClick={this.handleSubmit}
+              className={klassName}>Save Changes</button>
+          </div>
         </form>
       </div>
     );
-  }
+  },
+
+  _ensureLoggedIn: function () {
+    if (!CurrentUserStore.isLoggedIn()) {
+      this.history.pushState(null, "/");
+    }
+  },
 });

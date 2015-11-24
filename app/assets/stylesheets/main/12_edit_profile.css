@@ -1,0 +1,91 @@
+.edit-profile-form {
+  background: #fff;
+  width: 800px;
+  margin: 0 auto 20px;
+  border: 1px solid #eee;
+}
+
+form {
+  width: 400px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding: 0 5px;
+  height: 30px;
+  width: 280px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.control-group label {
+  float: left;
+  width: 100px
+}
+
+.control-group input {
+  float: left;
+  margin-left: 15px;
+}
+
+.control-group .form-info-notice {
+  float: left;
+  margin-left: 15px;
+  font-size: 13px;
+  line-height: 20px;
+  width: 280px;
+  margin-bottom: 15px;
+}
+
+.edit-profile-bottom {
+  display:block;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.edit-profile-button {
+  margin: auto;
+  text-align: center;
+  padding: 5px 10px;
+  color: #B3B3B3;
+  background: #fff;
+  border: 1px solid #B3B3B3;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.edit-profile-button:hover {
+  cursor: default;
+}
+
+.edit-profile-button.active {
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: 500;
+  background: #e33d26;
+  border: 1px solid #e33d26;
+  border-radius: 5px;
+}
+
+.edit-profile-button.active:hover {
+  cursor: pointer;
+}
