@@ -14,8 +14,7 @@
 }
 
 .nav.top {
-  background: #000;
-  opacity: .9;
+  background: rgba(25, 25, 25, 0.88);
 }
 
 .logo {

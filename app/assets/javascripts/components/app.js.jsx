@@ -4,7 +4,8 @@ var App = React.createClass({
       errors: [],
       currentUser: CurrentUserStore.currentUser(),
       signUp: false,
-      logIn: false
+      logIn: false,
+      sidebar: false
     });
   },
 
@@ -49,6 +50,10 @@ var App = React.createClass({
     this.setState({logIn: !this.state.logIn});
   },
 
+  toggleSidebar: function () {
+    this.setState({sidebar: !this.state.sidebar});
+  },
+
   render: function(){
     var renderedChildren = React.Children.map(this.props.children,
       function (child) {
@@ -73,7 +78,11 @@ var App = React.createClass({
           </div>
           <Header
             toggleSignUp={this.toggleSignUp}
-            toggleLogIn={this.toggleLogIn} />
+            toggleLogIn={this.toggleLogIn}
+            toggleSidebar={this.toggleSidebar} />
+          <Sidebar
+            expanded={this.state.sidebar}
+            currentUser={this.state.currentUser} />
           {renderedChildren}
           {modal}
         </div>
@@ -84,7 +93,11 @@ var App = React.createClass({
         <div className="top">
           <Header
             toggleSignUp={this.toggleSignUp}
-            toggleLogIn={this.toggleLogIn} />
+            toggleLogIn={this.toggleLogIn}
+            toggleSidebar={this.toggleSidebar} />
+          <Sidebar
+            expanded={this.state.sidebar}
+            currentUser={this.state.currentUser} />
           {renderedChildren}
           {modal}
         </div>

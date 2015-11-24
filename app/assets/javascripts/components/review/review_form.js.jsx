@@ -115,7 +115,7 @@ var ReviewForm = React.createClass({
       <div className="toggle-rate">
         {button}
         <div className={klassName}>
-          <form onSubmit={this.handleSubmit} className="review-form">
+          <form onSubmit={this.handleSubmit} className="review-form group">
             <img className="author-thumb" src={this.state.currentUser.image_url}
             alt={this.state.currentUser.username}></img>
             <div className="review-info">

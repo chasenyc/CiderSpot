@@ -60,13 +60,16 @@ textarea.rating-sub {
 }
 
 .review-box {
-  max-height: 160px;
-  -webkit-transition: max-height 0.8s linear;
-  -moz-transition: max-height 0.8s linear;
-  transition: max-height 0.8s linear;
+  height: 100px;
+  opacity: 1;
+  overflow: hidden;
+  -webkit-transition: height 0.3s linear, opacity 0.3s;
+  -moz-transition: height 0.3s linear, opacity 0.3s;
+  transition: height 0.3s linear, opacity 0.3s;
 }
 
 .review-box.hidden {
-  max-height: 0px;
+  opacity: 0;
+  height: 0px;
   overflow: hidden;
 }

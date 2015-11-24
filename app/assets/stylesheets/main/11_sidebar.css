@@ -1,0 +1,56 @@
+#sidebar {
+  position: fixed;
+  top: 42px;
+  bottom: 0;
+  background: rgba(25, 25, 25, 0.97);
+  width: 235px;
+  padding: 10px 0 0;
+  z-index: 200;
+  letter-spacing: 0.4px;
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+          transition: transform 0.4s, opacity 0.4s;
+}
+
+#sidebar.open {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.sidebar-inner {
+  padding: 20px;
+  color: #fff;
+}
+
+.sidebar-header {
+  color: #999;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.wantgot-list {
+
+}
+
+.sidebar-list {
+  font-weight: 500;
+}
+
+.sidebar-list:hover {
+  background: #aaa;
+  cursor: pointer;
+}
+
+.sidebar-list.wants {
+  font-weight: 500;
+}
+
+.sidebar-list-left {
+  float: left;
+}
+
+.sidebar-list-right {
+  float: right;
+}

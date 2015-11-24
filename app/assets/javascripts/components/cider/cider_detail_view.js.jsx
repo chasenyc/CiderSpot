@@ -49,7 +49,7 @@ var CiderDetailView = React.createClass({
     var reviews = this.state.cider.reviews;
     var result;
     reviews.forEach(function(el) {
-      if (parseInt(userId) === parseInt(el.user_id)) {
+      if (parseInt(userId) === parseInt(el.author.id)) {
         result = reviews.indexOf(el);
       }
     });
@@ -70,7 +70,6 @@ var CiderDetailView = React.createClass({
     }
 
     this._findCurrentUserReview();
-
     if (CurrentUserStore.isLoggedIn() && !this._findCurrentUserReview()) {
       reviewForm = (
         <div className="top-review">

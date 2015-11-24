@@ -96,7 +96,7 @@ var ReviewIndexItem = React.createClass({
 
 
     if (CurrentUserStore.isLoggedIn()) {
-      if (this.props.review.user_id === this.state.currentUser.id) {
+      if (this.props.review.author.id === this.state.currentUser.id) {
         editButton = (
           <button onClick={this.handleEdit}
                 className="review-edit-button">Edit
@@ -179,7 +179,7 @@ var ReviewIndexItem = React.createClass({
 
   _includesCurrentReview: function () {
     var result = false;
-    if (CurrentUserStore.currentUser()) {
+    if (CurrentUserStore.isLoggedIn()) {
       CurrentUserStore.currentUser().likes.forEach(function (like) {
         if (like.review_id == this.props.review.id) {
           result = like.id;
