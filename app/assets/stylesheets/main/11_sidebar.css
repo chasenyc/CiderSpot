@@ -28,6 +28,7 @@
   color: #999;
   font-weight: 700;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .wantgot-list {
@@ -36,6 +37,7 @@
 
 .sidebar-list {
   font-weight: 500;
+  padding: 2px 0;
 }
 
 .sidebar-list:hover {

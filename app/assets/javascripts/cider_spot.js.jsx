@@ -12,6 +12,7 @@ $(function(){
         <Route path="signup" component={ UserForm }/>
         <Route path="editprofile" component={ UserEditForm }/>
         <Route path="ciders/:ciderId" component={CiderDetailView} />
+        <Route path="wants" component={WantsIndex} />
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);
