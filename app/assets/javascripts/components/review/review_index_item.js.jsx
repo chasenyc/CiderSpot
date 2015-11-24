@@ -1,15 +1,39 @@
 var ReviewIndexItem = React.createClass({
 
   getInitialState: function () {
+    if (CurrentUserStore.isLoggedIn()) {
+      var likeId = this._includesCurrentReview();
+      var liked;
+      if (likeId) {
+        liked = likeId;
+      } else {
+        liked = false;
+      }
+    }
     return {
       currentUser: CurrentUserStore.currentUser(),
-      editable: false
+      editable: false,
+      liked: liked
     };
   },
 
   componentWillReceiveProps: function (newProps) {
-    if (newProps.currentUser) {
-      this.setState({currentUser: newProps.currentUser});
+    var likeId = this._includesCurrentReview();
+    var liked;
+    if (likeId) {
+      liked = likeId;
+    } else {
+      liked = false;
+    }
+    if (newProps.currentUser && likeId) {
+      this.setState({
+        currentUser: newProps.currentUser,
+        liked: likeId
+      });
+    } else if (newProps.currentUser) {
+      this.setState({
+        currentUser: newProps.currentUser
+      });
     }
   },
 
@@ -20,17 +44,29 @@ var ReviewIndexItem = React.createClass({
 
   removeEditable: function (e) {
     if (e) { e.preventDefault(); }
-    this.setState({editable: false});
+    this.setState({ editable: false });
   },
 
   handleLike: function (e) {
     e.stopPropagation();
-    ApiUtil.createLike(this.props.review.id, this.props.review.cider_id);
+    ApiUtil.createLike(
+      this.props.review.id,
+      this.props.review.cider_id,
+      function (data) {
+        this.setState({ liked: data.id });
+      }.bind(this)
+    );
   },
 
   handleUnlike: function (e) {
     e.stopPropagation();
-    ApiUtil.destroyLike(e.target.dataset.likeId, this.props.review.cider_id);
+    ApiUtil.destroyLike(
+      e.target.dataset.likeId,
+      this.props.review.cider_id,
+      function () {
+        this.setState({ liked: false });
+      }.bind(this)
+    );
   },
 
   handleDelete: function (e) {
@@ -78,15 +114,15 @@ var ReviewIndexItem = React.createClass({
           </button>);
       }
       if (this.props.review) {
-        var likeId = this._includesCurrentReview();
-        if (likeId){
+        if (this.state.liked) {
           likeButton = (
-            <button onClick={this.handleUnlike} data-like-id={likeId}
+            <button onClick={this.handleUnlike} data-like-id={this.state.liked}
                   className="review-like-button">Unlike this review
             </button>);
         }
       }
     }
+
     return (
       <li className="review-index-item group">
         <img className="author-thumb" src={this.props.review.author.image_url}
@@ -143,11 +179,13 @@ var ReviewIndexItem = React.createClass({
 
   _includesCurrentReview: function () {
     var result = false;
-    this.state.currentUser.likes.forEach(function (like) {
-      if (like.review_id == this.props.review.id) {
-        result = like.id;
-      }
-    }.bind(this));
-    return result;
+    if (CurrentUserStore.currentUser()) {
+      CurrentUserStore.currentUser().likes.forEach(function (like) {
+        if (like.review_id == this.props.review.id) {
+          result = like.id;
+        }
+      }.bind(this));
+      return result;
+    }
   }
 });

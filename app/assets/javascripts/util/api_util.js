@@ -80,12 +80,13 @@ var ApiUtil = window.ApiUtil = {
     });
   },
 
-  createLike: function (id, ciderId) {
+  createLike: function (id, ciderId, success) {
     $.ajax({
       url: 'api/reviews/' + id + '/likes',
       type: 'POST',
       success: function (data) {
         ApiUtil.fetchCider(ciderId);
+        success && success(data);
       },
       error: function (error) {
         if (error.responseText === "[\"User has already been taken\"]") {
@@ -96,12 +97,13 @@ var ApiUtil = window.ApiUtil = {
     });
   },
 
-  destroyLike: function (id, ciderId) {
+  destroyLike: function (id, ciderId, success) {
     $.ajax({
       url: 'api/likes/' + id ,
       type: 'DELETE',
       success: function (data) {
-        ApiUtil.fetchCider(ciderId);
+        SessionsApiUtil.fetchCurrentUser();
+        success && success(data);
       },
       error: function (error) {
         if (error.responseText === "[\"User has already been taken\"]") {
