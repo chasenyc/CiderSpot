@@ -39,38 +39,43 @@ var Sidebar = React.createClass({
     }
     return (
       <div id="sidebar" className={klassName}>
-        <div className="sidebar-inner">
-          <h2 className="sidebar-header">Your Ciders</h2>
-          <ul className="wantgot-list">
-            <li className="sidebar-list wants group"
-                onClick={this.pushWants}>
+        <div className="sidebar-top">
+          <div className="sidebar-inner">
+            <h2 className="sidebar-header">Your Ciders</h2>
+            <ul className="wantgot-list">
+              <li className="sidebar-list wants group"
+                  onClick={this.pushWants}>
+                  <div className="sidebar-list-left">
+                    Wants
+                  </div>
+                  <div className="sidebar-list-right">
+                    {this.state.currentUser.wants.length}
+                  </div>
+              </li>
+
+              <li className="sidebar-list gots group"
+                  onClick={this.pushGots}>
+                  <div className="sidebar-list-left">
+                    Gots
+                  </div>
+                  <div className="sidebar-list-right">
+                    {this.state.currentUser.gots.length}
+                  </div>
+              </li>
+
+              <li className="sidebar-list reviews group">
                 <div className="sidebar-list-left">
-                  Wants
+                  Reviews
                 </div>
                 <div className="sidebar-list-right">
-                  {this.state.currentUser.wants.length}
+                  {this.state.currentUser.reviews.length}
                 </div>
-            </li>
-
-            <li className="sidebar-list gots group"
-                onClick={this.pushGots}>
-                <div className="sidebar-list-left">
-                  Gots
-                </div>
-                <div className="sidebar-list-right">
-                  {this.state.currentUser.gots.length}
-                </div>
-            </li>
-
-            <li className="sidebar-list reviews group">
-              <div className="sidebar-list-left">
-                Reviews
-              </div>
-              <div className="sidebar-list-right">
-                {this.state.currentUser.reviews.length}
-              </div>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="sidebar-bottom">
+          <SidebarUserInfo currentUser={this.state.currentUser} />
         </div>
       </div>
     );

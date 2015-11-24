@@ -24,6 +24,10 @@
   color: #fff;
 }
 
+.sidebar-top {
+  padding-bottom: 105px;
+}
+
 .sidebar-header {
   color: #999;
   font-weight: 700;
@@ -56,4 +60,46 @@
 
 .sidebar-list-right {
   float: right;
+}
+
+.sidebar-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.sidebar-user-info {
+  color: #666;
+}
+
+.sidebar-bottom-email {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.sidebar-bottom-email:hover {
+  color: #eee;
+  text-decoration: underline;
+}
+
+.sidebar-bottom-links {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #eee;
+}
+
+.sidebar-bottom-link {
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.sidebar-bottom-link.link {
+  border-right: 1px solid #666;
+}
+
+.sidebar-bottom-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
