@@ -9,6 +9,10 @@ var App = React.createClass({
     });
   },
 
+  componentWillReceiveProps: function () {
+
+  },
+
   componentDidMount: function () {
     window.addEventListener('scroll', this.handleScroll);
     ErrorStore.addChangeListener(this.changed);
@@ -82,14 +86,14 @@ var App = React.createClass({
             toggleSidebar={this.toggleSidebar} />
           <Sidebar
             expanded={this.state.sidebar}
-            currentUser={this.state.currentUser} />
+            currentUser={this.state.currentUser}
+            toggleLogIn={this.toggleLogIn} />
           {renderedChildren}
           {modal}
         </div>
       );
     }
     return (
-
         <div className="top">
           <Header
             toggleSignUp={this.toggleSignUp}
@@ -97,7 +101,8 @@ var App = React.createClass({
             toggleSidebar={this.toggleSidebar} />
           <Sidebar
             expanded={this.state.sidebar}
-            currentUser={this.state.currentUser} />
+            currentUser={this.state.currentUser}
+            toggleLogIn={this.toggleLogIn} />
           {renderedChildren}
           {modal}
         </div>

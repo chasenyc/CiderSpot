@@ -24,6 +24,10 @@ var Sidebar = React.createClass({
     this.history.pushState(null, "gots");
   },
 
+  pushReviewed: function() {
+    this.history.pushState(null, "reviewed");
+  },
+
   render: function () {
     var klassName = "";
     if (this.state.expanded) { klassName += "open"; }
@@ -33,6 +37,9 @@ var Sidebar = React.createClass({
         <div id="sidebar" className={klassName}>
           <div className="sidebar-inner">
             <h2 className="sidebar-header">Please log in</h2>
+          </div>
+          <div className="sidebar-bottom">
+            <SidebarLogin handleLogin={this.props.toggleLogIn} />
           </div>
         </div>
       );
@@ -63,9 +70,10 @@ var Sidebar = React.createClass({
                   </div>
               </li>
 
-              <li className="sidebar-list reviews group">
+              <li className="sidebar-list reviews group"
+                  onClick={this.pushReviewed}>
                 <div className="sidebar-list-left">
-                  Reviews
+                  Reviewed
                 </div>
                 <div className="sidebar-list-right">
                   {this.state.currentUser.reviews.length}

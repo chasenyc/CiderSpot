@@ -72,6 +72,7 @@
 
 .sidebar-user-info {
   color: #666;
+  position: relative;
 }
 
 .sidebar-bottom-email {
@@ -102,4 +103,20 @@
 .sidebar-bottom-link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.sidebar-login {
+  padding: 15px 40px;
+  border: 1px solid #666;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 5px;
+  margin: auto;
+  display: block;
+}
+
+.sidebar-login:hover {
+  background: #e33d26;
+  border: 1px solid #e33d26;
 }

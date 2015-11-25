@@ -11,8 +11,8 @@ Website to aggregate cider reviews for both cider enthusiasts and regulars alike
 - [x] Log in / Log out
 - [x] Create, read, edit and delete reviews
 - [x] Can like other reviews
-- [ ] Keep track of ciders they have had
-- [ ] Maintain a wish list
+- [x] Keep track of ciders they have had
+- [x] Maintain a wish list
 - [ ] Admins can post to blog
 - [ ] Admins can delete reviews
 

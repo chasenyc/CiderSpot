@@ -43,6 +43,14 @@ var WantsIndex = React.createClass({
       wants = this._getWantedCiders();
     }
 
+    if (wants.length < 1) {
+      return(
+        <div className="cider-index">
+          <h1>Wanted Ciders</h1>
+        </div>
+      );
+    }
+
     return (
       <div className="cider-index">
         <h1>Wanted Ciders</h1>
@@ -52,7 +60,7 @@ var WantsIndex = React.createClass({
             return <CiderIndexItem
               cider={cider}
               onClick={boundClick}
-              key={"C"+cider.id}
+              key={"CW"+cider.id}
               currentUser={this.props.currentUser} />
           }.bind(this))
         }
@@ -72,7 +80,7 @@ var WantsIndex = React.createClass({
       var ciderId = want.cider_id;
       var ciders = this.state.ciders.slice(0);
       var resultIdx = ApiUtil.findById(ciders, ciderId);
-      wantedCiders.push(ciders[resultIdx]);
+      if (ciders[resultIdx]) { wantedCiders.push(ciders[resultIdx]); }
     }.bind(this));
     return wantedCiders;
   }

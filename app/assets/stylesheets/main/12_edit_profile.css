@@ -1,11 +1,12 @@
 .edit-profile-form {
+  padding-top: 20px;
   background: #fff;
   width: 800px;
   margin: 0 auto 20px;
   border: 1px solid #eee;
 }
 
-form {
+.edit-form {
   width: 400px;
   margin: auto;
 }
@@ -18,7 +19,7 @@ label {
   font-weight: 700;
 }
 
-input {
+input.edit {
   display: block;
   margin-bottom: 12px;
   font-size: 14px;

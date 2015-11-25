@@ -3,8 +3,11 @@ var ApiUtil = window.ApiUtil = {
     $.get('api/ciders', function (data) { ApiActions.receiveAllCiders(data); });
   },
 
-  fetchCider: function (id) {
-    $.get('api/ciders/' + id, function (data) { ApiActions.receiveCider(data); });
+  fetchCider: function (id, success) {
+    $.get('api/ciders/' + id, function (data) {
+      ApiActions.receiveCider(data);
+      success && success();
+    });
   },
 
   createReview: function (formData, id, success) {
@@ -85,8 +88,8 @@ var ApiUtil = window.ApiUtil = {
       url: 'api/reviews/' + id + '/likes',
       type: 'POST',
       success: function (data) {
-        ApiUtil.fetchCider(ciderId);
-        success && success(data);
+        ApiUtil.fetchCider(ciderId, success(data));
+        SessionsApiUtil.fetchCurrentUser();
       },
       error: function (error) {
         if (error.responseText === "[\"User has already been taken\"]") {
@@ -102,8 +105,8 @@ var ApiUtil = window.ApiUtil = {
       url: 'api/likes/' + id ,
       type: 'DELETE',
       success: function (data) {
+        ApiUtil.fetchCider(ciderId, success(data));
         SessionsApiUtil.fetchCurrentUser();
-        success && success(data);
       },
       error: function (error) {
         if (error.responseText === "[\"User has already been taken\"]") {

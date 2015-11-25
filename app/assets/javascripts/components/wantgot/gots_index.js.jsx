@@ -52,7 +52,7 @@ var GotsIndex = React.createClass({
             return <CiderIndexItem
               cider={cider}
               onClick={boundClick}
-              key={"C"+cider.id}
+              key={"CG"+cider.id}
               currentUser={this.props.currentUser} />
           }.bind(this))
         }
@@ -72,7 +72,7 @@ var GotsIndex = React.createClass({
       var ciderId = got.cider_id;
       var ciders = this.state.ciders.slice(0);
       var resultIdx = ApiUtil.findById(ciders, ciderId);
-      gottenCiders.push(ciders[resultIdx]);
+      if (ciders[resultIdx]) { gottenCiders.push(ciders[resultIdx]); }
     }.bind(this));
     return gottenCiders;
   }

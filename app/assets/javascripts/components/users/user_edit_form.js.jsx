@@ -73,11 +73,11 @@ var UserEditForm = React.createClass({
     }
     return (
       <div className="edit-profile-form">
-        <form onChange={this.handleChange} onSubmit={ this.handleSubmit }>
+        <form className="edit-form" onChange={this.handleChange} onSubmit={ this.handleSubmit }>
         <h2>Edit your profile</h2>
           <div className="control-group group">
             <label>Username:</label>
-            <input type="text" name="username"
+            <input className="edit" type="text" name="username"
                     value={this.state.username} />
 
           </div>
@@ -85,14 +85,14 @@ var UserEditForm = React.createClass({
           <div className="control-group group">
             <label>Birthdate:
             </label>
-              <input type="date" name="birthdate"
+              <input className="edit" type="date" name="birthdate"
                      value={this.state.birthdate} />
           </div>
 
           <div className="control-group group">
             <label>Profile photo:
             </label>
-                <input type="file" className="upload" name="imageFile" />
+                <input type="file" className="upload edit" name="imageFile" />
           </div>
           <div className="control-group group">
             <label></label>

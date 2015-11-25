@@ -14,6 +14,7 @@ $(function(){
         <Route path="ciders/:ciderId" component={CiderDetailView} />
         <Route path="wants" component={WantsIndex} />
         <Route path="gots" component={GotsIndex} />
+        <Route path="reviewed" component={ReviewedIndex} />
       </Route>
   );
   React.render(<Router>{routes}</Router>, root);

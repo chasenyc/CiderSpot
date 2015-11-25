@@ -93,6 +93,7 @@ var ReviewIndexItem = React.createClass({
       );
     }
     var liked;
+    var likes = this.props.review.likes.length + " likes. "
 
 
     if (CurrentUserStore.isLoggedIn()) {
@@ -122,7 +123,6 @@ var ReviewIndexItem = React.createClass({
         }
       }
     }
-
     return (
       <li className="review-index-item group">
         <img className="author-thumb" src={this.props.review.author.image_url}
@@ -145,6 +145,7 @@ var ReviewIndexItem = React.createClass({
           </div>
           <div className="review-footer">
             {elapsedStr}
+            {likes}
             {likeButton}
             {liked}
             {deleteButton}
