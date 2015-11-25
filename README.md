@@ -61,7 +61,7 @@ Phase 5 will mainly be a day adding features for admin users who can both post e
 Phase six will be devoted to styling the site and tying up any loose ends.
 
 ### Bonus Features (TBD)
-- [ ] Add profile information including avatar
+- [x] Add profile information including avatar
 - [ ] Use other services to log in (Google, FB, Twitter)
 - [ ] Ability to message other users
 - [ ] Notifications on liked posts

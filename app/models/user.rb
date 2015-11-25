@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :wants, dependent: :destroy
   has_many :gots, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
 
   def self.find_by_credentials(username, password)
