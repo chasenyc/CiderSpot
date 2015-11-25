@@ -1,14 +1,16 @@
 var CiderIndex = React.createClass({
+
   getInitialState: function () {
     return {
       ciders: CiderStore.all(),
-      page: 1
+      page: 1,
+      style: 'top'
     };
   },
 
   componentDidMount: function () {
     CiderStore.addChangeListener(this.changed);
-    ApiUtil.fetchCiders();
+    ApiUtil.fetchCiders(0, this.state.style);
   },
 
   componentWillUnmount: function () {
@@ -22,7 +24,7 @@ var CiderIndex = React.createClass({
   fetchMoreCiders: function (e) {
     e.preventDefault();
     var pageNum = (this.state.page + 1);
-    ApiUtil.fetchNextCiders(pageNum, function () {
+    ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
       this.setState({page: pageNum});
     }.bind(this));
   },
@@ -31,10 +33,22 @@ var CiderIndex = React.createClass({
     this.props.history.pushState(null, "ciders/" + cider.id );
   },
 
+  handleSort: function (e) {
+    var style = e.target.value;
+    this.setState({page: 1, style: style});
+    ApiUtil.fetchCiders(1, style);
+  },
+
   render: function () {
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>
+        <select onChange={this.handleSort}>
+          <option value="top">Top-rated first</option>
+          <option value="bottom">Bottom-rated first</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
         <div className="cider-index-articles group">
           {
             this.state.ciders.map(function (cider) {

@@ -10,7 +10,6 @@ class Cider < ActiveRecord::Base
   belongs_to :style
 
   def self.top_rated
-
     subquery = Review.select(:cider_id, '(reviews.overall_rating +
           reviews.look_rating +
           reviews.smell_rating +
@@ -19,12 +18,31 @@ class Cider < ActiveRecord::Base
         ) AS total_scores')
 
     Cider.from("ciders INNER JOIN (#{subquery.to_sql})
-                      as totals on ciders.id = totals.cider_id")
-               .group('ciders.id')
-               .order('AVG(totals.total_scores) DESC')
+              as totals on ciders.id = totals.cider_id")
+         .group('ciders.id')
+         .order('AVG(totals.total_scores) DESC')
+  end
 
+  def self.bottom_rated
+    subquery = Review.select(:cider_id, '(reviews.overall_rating +
+          reviews.look_rating +
+          reviews.smell_rating +
+          reviews.feel_rating +
+          reviews.taste_rating
+        ) AS total_scores')
 
+    Cider.from("ciders INNER JOIN (#{subquery.to_sql})
+              as totals on ciders.id = totals.cider_id")
+         .group('ciders.id')
+         .order('AVG(totals.total_scores) ASC')
+  end
 
+  def self.most_recently_updated
+    result = Cider.order(updated_at: :desc)
+  end
+
+  def self.least_recently_updated
+    result = Cider.order(updated_at: :asc)
   end
 
   def average

@@ -2,7 +2,18 @@ class Api::CidersController < ApplicationController
 
   def index
     page_num = params[:page]
-    @ciders = Cider.top_rated.page(page_num).per(8)
+    case params[:style]
+      when 'top'
+        @ciders = Cider.top_rated.page(page_num).per(8)
+      when 'bottom'
+        @ciders = Cider.bottom_rated.page(page_num).per(8)
+      when 'newest'
+        @ciders = Cider.most_recently_updated.page(page_num).per(8)
+      when 'oldest'
+        @ciders = Cider.least_recently_updated.page(page_num).per(8)
+      else
+        @ciders = Cider.top_rated.page(page_num).per(8)
+    end
     render 'index'
   end
 

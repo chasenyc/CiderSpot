@@ -1,12 +1,12 @@
 var ApiUtil = window.ApiUtil = {
-  fetchCiders: function (pageNum) {
+  fetchCiders: function (pageNum, style) {
     var page = pageNum || 1;
-    $.get('api/ciders', {page: page}, function (data) { ApiActions.receiveAllCiders(data); });
+    $.get('api/ciders', {page: page, style: style}, function (data) { ApiActions.receiveAllCiders(data); });
   },
 
-  fetchNextCiders: function (pageNum, success) {
+  fetchNextCiders: function (pageNum, style, success) {
     var page = pageNum || 1;
-    $.get('api/ciders', {page: page},
+    $.get('api/ciders', {page: page, style: style},
     function (data) {
       ApiActions.receiveNextCiders(data);
       success && success();
