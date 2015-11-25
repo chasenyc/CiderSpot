@@ -43,12 +43,15 @@ var CiderIndex = React.createClass({
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>
-        <select onChange={this.handleSort}>
-          <option value="top">Top-rated first</option>
-          <option value="bottom">Bottom-rated first</option>
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-        </select>
+        <div className="cider-index-select group">
+          <select onChange={this.handleSort}>
+            <option value="top">Top-rated first</option>
+            <option value="bottom">Bottom-rated first</option>
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+          <label>Sort Results:</label>
+        </div>
         <div className="cider-index-articles group">
           {
             this.state.ciders.map(function (cider) {

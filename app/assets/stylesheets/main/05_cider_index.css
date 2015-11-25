@@ -35,6 +35,26 @@
   font-weight: 700;
 }
 
+.cider-index-select {
+  font-size: 14px;
+}
+
+.cider-index-select select {
+  float: right;
+  background: #fff;
+  padding: 10px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.cider-index-select label {
+  float: right;
+  margin-right: 5px;
+  line-height: 19px;
+  font-weight: 500;
+}
+
+
 .cider-index-load-more {
   padding-top: 20px;
   display: block;
