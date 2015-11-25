@@ -4,15 +4,12 @@ var ReviewedIndex = React.createClass({
 
     getInitialState: function () {
       return {
-        ciders: CiderStore.all(),
         currentUser: CurrentUserStore.currentUser()
       };
     },
 
     componentDidMount: function () {
-      CiderStore.addChangeListener(this.changed);
       CurrentUserStore.addChangeHandler(this.changed);
-      ApiUtil.fetchCiders();
     },
 
     componentWillReceiveProps: function () {
@@ -20,13 +17,11 @@ var ReviewedIndex = React.createClass({
     },
 
     componentWillUnmount: function () {
-      CiderStore.removeChangeListener(this.changed);
       CurrentUserStore.removeChangeHandler(this.changed);
     },
 
     changed: function () {
       this.setState({
-        ciders: CiderStore.all(),
         currentUser: CurrentUserStore.currentUser()
       });
     },
@@ -37,8 +32,7 @@ var ReviewedIndex = React.createClass({
 
     render: function () {
       var reviews = [];
-      if (Object.keys(this.state.currentUser).length > 0 &&
-          this.state.ciders.length > 0)
+      if (Object.keys(this.state.currentUser).length > 0)
       {
         reviews = this._getReviewedCiders();
       }
@@ -75,13 +69,6 @@ var ReviewedIndex = React.createClass({
     },
 
     _getReviewedCiders: function () {
-      var reviewedCiders = [];
-      this.state.currentUser.reviews.forEach(function (want) {
-        var ciderId = want.cider_id;
-        var ciders = this.state.ciders.slice(0);
-        var resultIdx = ApiUtil.findById(ciders, ciderId);
-        if (ciders[resultIdx]) { reviewedCiders.push(ciders[resultIdx]); }
-      }.bind(this));
-      return reviewedCiders;
+      return CurrentUserStore.currentUser().reviewed
     }
 });

@@ -14,6 +14,19 @@ class User < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
   has_many :wants, dependent: :destroy
+
+  has_many :wanted_ciders,
+    through: :wants,
+    source: :cider
+
+  has_many :gotten_ciders,
+    through: :gots,
+    source: :cider
+
+  has_many :reviewed_ciders,
+    through: :reviews,
+    source: :cider
+
   has_many :gots, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :posts, dependent: :destroy

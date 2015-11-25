@@ -4,15 +4,12 @@ var GotsIndex = React.createClass({
 
   getInitialState: function () {
     return {
-      ciders: CiderStore.all(),
       currentUser: CurrentUserStore.currentUser()
     };
   },
 
   componentDidMount: function () {
-    CiderStore.addChangeListener(this.changed);
     CurrentUserStore.addChangeHandler(this.changed);
-    ApiUtil.fetchCiders();
   },
 
   componentWillReceiveProps: function () {
@@ -20,13 +17,11 @@ var GotsIndex = React.createClass({
   },
 
   componentWillUnmount: function () {
-    CiderStore.removeChangeListener(this.changed);
     CurrentUserStore.removeChangeHandler(this.changed);
   },
 
   changed: function () {
     this.setState({
-      ciders: CiderStore.all(),
       currentUser: CurrentUserStore.currentUser()
     });
   },
@@ -37,8 +32,7 @@ var GotsIndex = React.createClass({
 
   render: function () {
     var gots = [];
-    if (Object.keys(this.state.currentUser).length > 0 &&
-        this.state.ciders.length > 0)
+    if (Object.keys(this.state.currentUser).length > 0)
     {
       gots = this._getGottenCiders();
     }
@@ -67,13 +61,6 @@ var GotsIndex = React.createClass({
   },
 
   _getGottenCiders: function () {
-    var gottenCiders = [];
-    this.state.currentUser.gots.forEach(function (got) {
-      var ciderId = got.cider_id;
-      var ciders = this.state.ciders.slice(0);
-      var resultIdx = ApiUtil.findById(ciders, ciderId);
-      if (ciders[resultIdx]) { gottenCiders.push(ciders[resultIdx]); }
-    }.bind(this));
-    return gottenCiders;
+    return CurrentUserStore.currentUser().gots
   }
 });

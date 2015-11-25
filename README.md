@@ -62,6 +62,7 @@ Phase six will be devoted to styling the site and tying up any loose ends.
 
 ### Bonus Features (TBD)
 - [x] Add profile information including avatar
+- [ ] Add pagination to ciders index
 - [ ] Use other services to log in (Google, FB, Twitter)
 - [ ] Ability to message other users
 - [ ] Notifications on liked posts

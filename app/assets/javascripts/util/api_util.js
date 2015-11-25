@@ -4,9 +4,13 @@ var ApiUtil = window.ApiUtil = {
     $.get('api/ciders', {page: page}, function (data) { ApiActions.receiveAllCiders(data); });
   },
 
-  fetchNextCiders: function (pageNum) {
+  fetchNextCiders: function (pageNum, success) {
     var page = pageNum || 1;
-    $.get('api/ciders', {page: page}, function (data) { ApiActions.receiveAllCiders(data); });
+    $.get('api/ciders', {page: page},
+    function (data) {
+      ApiActions.receiveNextCiders(data);
+      success && success();
+    });
   },
 
   fetchCider: function (id, success) {

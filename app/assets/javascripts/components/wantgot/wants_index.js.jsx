@@ -4,15 +4,12 @@ var WantsIndex = React.createClass({
 
   getInitialState: function () {
     return {
-      ciders: CiderStore.all(),
       currentUser: CurrentUserStore.currentUser()
     };
   },
 
   componentDidMount: function () {
-    CiderStore.addChangeListener(this.changed);
     CurrentUserStore.addChangeHandler(this.changed);
-    ApiUtil.fetchCiders();
   },
 
   componentWillReceiveProps: function () {
@@ -20,13 +17,11 @@ var WantsIndex = React.createClass({
   },
 
   componentWillUnmount: function () {
-    CiderStore.removeChangeListener(this.changed);
     CurrentUserStore.removeChangeHandler(this.changed);
   },
 
   changed: function () {
     this.setState({
-      ciders: CiderStore.all(),
       currentUser: CurrentUserStore.currentUser()
     });
   },
@@ -37,8 +32,7 @@ var WantsIndex = React.createClass({
 
   render: function () {
     var wants = [];
-    if (Object.keys(this.state.currentUser).length > 0 &&
-        this.state.ciders.length > 0)
+    if (Object.keys(this.state.currentUser).length > 0)
     {
       wants = this._getWantedCiders();
     }
@@ -56,6 +50,7 @@ var WantsIndex = React.createClass({
         <h1>Wanted Ciders</h1>
         {
           wants.map(function (cider) {
+
             var boundClick = this.handleItemClick.bind(this, cider);
             return <CiderIndexItem
               cider={cider}
@@ -75,13 +70,6 @@ var WantsIndex = React.createClass({
   },
 
   _getWantedCiders: function () {
-    var wantedCiders = [];
-    this.state.currentUser.wants.forEach(function (want) {
-      var ciderId = want.cider_id;
-      var ciders = this.state.ciders.slice(0);
-      var resultIdx = ApiUtil.findById(ciders, ciderId);
-      if (ciders[resultIdx]) { wantedCiders.push(ciders[resultIdx]); }
-    }.bind(this));
-    return wantedCiders;
+    return CurrentUserStore.currentUser().wants
   }
 });

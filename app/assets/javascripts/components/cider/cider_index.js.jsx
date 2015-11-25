@@ -1,6 +1,9 @@
 var CiderIndex = React.createClass({
   getInitialState: function () {
-    return {ciders: CiderStore.all()};
+    return {
+      ciders: CiderStore.all(),
+      page: 1
+    };
   },
 
   componentDidMount: function () {
@@ -14,6 +17,14 @@ var CiderIndex = React.createClass({
 
   changed: function () {
     this.setState({ciders: CiderStore.all()});
+  },
+
+  fetchMoreCiders: function (e) {
+    e.preventDefault();
+    var pageNum = (this.state.page + 1);
+    ApiUtil.fetchNextCiders(pageNum, function () {
+      this.setState({page: pageNum});
+    }.bind(this));
   },
 
   handleItemClick: function (cider) {
@@ -34,6 +45,9 @@ var CiderIndex = React.createClass({
                 currentUser={this.props.currentUser} />
             }.bind(this))
           }
+        <div>
+          <button onClick={this.fetchMoreCiders}>Fetch MOAR!</button>          
+        </div>
       </div>
     );
   }
