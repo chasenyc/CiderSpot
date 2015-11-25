@@ -75,6 +75,23 @@
   position: relative;
 }
 
+.sidebar-top-not-logged {
+  background: #e33d26;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 0 20px 0;
+  font-size: 14px;
+}
+
+.sidebar-top-not-logged h2 {
+  color: #fff;
+  font-size: 15px;
+}
+
+.sidebar-top-not-logged .sidebar-body {
+  padding: 0 15px;
+}
+
 .sidebar-bottom-email {
   font-size: 12px;
   margin-bottom: 10px;

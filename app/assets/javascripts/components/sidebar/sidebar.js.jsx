@@ -36,7 +36,13 @@ var Sidebar = React.createClass({
       return (
         <div id="sidebar" className={klassName}>
           <div className="sidebar-inner">
-            <h2 className="sidebar-header">Please log in</h2>
+            <div className="sidebar-top-not-logged">
+              <h2 className="sidebar-header">Welcome to Cider Spot</h2>
+              <div className="sidebar-body">
+              This is your Cider Stash where you can keep track of ciders
+              you've had, want to have and have reviewed.
+              </div>
+            </div>
           </div>
           <div className="sidebar-bottom">
             <SidebarLogin handleLogin={this.props.toggleLogIn} />

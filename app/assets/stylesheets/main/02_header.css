@@ -26,7 +26,7 @@
   width: 250px;
 }
 
-.nav-item:hover {
+.button:hover {
   border-bottom: 3px solid white;
 }
 
@@ -36,7 +36,6 @@
   letter-spacing: 1px;
   padding: 10px;
   display: block;
-
 }
 
 .nav-item.left {

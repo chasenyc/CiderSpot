@@ -38,7 +38,7 @@ var Header = React.createClass({
           <button
             className="nav-item left button"
             onClick={this.props.toggleSidebar}>>></button>
-          <a className="nav-item left" href="#/">All Ciders</a>
+          <a className="nav-item left button" href="#/">All Ciders</a>
         </header>
       );
     }
@@ -46,7 +46,7 @@ var Header = React.createClass({
       return (
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-          <div className="user-info nav-item right button">
+          <div className="user-info nav-item right">
             welcome, {this.state.user.username}!
           </div>
           <button onClick={this.handleLogOut}
