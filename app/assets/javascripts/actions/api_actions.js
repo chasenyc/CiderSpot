@@ -6,6 +6,13 @@ var ApiActions = window.ApiActions = {
     });
   },
 
+  receiveNextCiders: function(ciders){
+    AppDispatcher.dispatch({
+      actionType: CiderConstants.NEXT_CIDERS_RECEIVED,
+      ciders: ciders
+    });
+  },
+
   receiveCider: function(cider){
     AppDispatcher.dispatch({
       actionType: CiderConstants.CIDER_RECEIVED,

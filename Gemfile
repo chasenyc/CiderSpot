@@ -32,6 +32,7 @@ gem 'flux-rails-assets', '~> 2.1.0'
 gem 'aws-sdk', '~> 1.6'
 gem 'paperclip'
 gem 'figaro'
+gem 'kaminari'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

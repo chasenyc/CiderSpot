@@ -1,7 +1,9 @@
 class Api::CidersController < ApplicationController
 
   def index
-    @ciders = Cider.all
+    page_num = params[:page]
+    @ciders = Cider.page(page_num).per(50)
+    byebug
     render 'index'
   end
 

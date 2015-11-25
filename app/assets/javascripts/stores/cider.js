@@ -13,13 +13,29 @@
       _ciders = ciders;
     },
 
+    addToCiders: function (ciders) {
+      ciders.forEach(function (newCider) {
+        var found = false;
+        _ciders.forEach(function (oldCider) {
+          if (newCider.id === oldCider.id) {
+            oldCider = newCider;
+            found = true;
+          }
+        });
+
+        if (!found) {
+          _ciders.push(newCider);
+        }
+      });
+    },
+
     addCider: function (cider) {
       var idx = ApiUtil.findById(_ciders, cider.id);
       if (idx) {
         _ciders[idx] = cider;
       }
       else {
-        _ciders.push(cider);        
+        _ciders.push(cider);
       }
     },
 
@@ -51,6 +67,10 @@
       switch (payload.actionType) {
         case CiderConstants.CIDERS_RECEIVED:
           CiderStore.resetCiders(payload.ciders);
+          CiderStore.changed();
+          break;
+        case CiderConstants.NEXT_CIDERS_RECEIVED:
+          CiderStore.addToCiders(payload.ciders);
           CiderStore.changed();
           break;
         case CiderConstants.CIDER_RECEIVED:
