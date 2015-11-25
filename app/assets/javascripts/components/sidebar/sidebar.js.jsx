@@ -82,7 +82,7 @@ var Sidebar = React.createClass({
                   Reviewed
                 </div>
                 <div className="sidebar-list-right">
-                  {this.state.currentUser.reviews.length}
+                  {this.state.currentUser.reviewed.length}
                 </div>
               </li>
             </ul>

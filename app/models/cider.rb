@@ -27,56 +27,18 @@ class Cider < ActiveRecord::Base
 
   end
 
-  def test
-    Cider.find_by_sql(<<-SQL)
-      SELECT
-        ciders.*
-      FROM
-        ciders
-      INNER JOIN
-        (SELECT cider_id,
-          (
-            reviews.overall_rating +
-            reviews.look_rating +
-            reviews.smell_rating +
-            reviews.feel_rating +
-            reviews.taste_rating
-          ) AS total_scores
-        FROM
-          reviews) as totals on ciders.id = totals.cider_id
-      GROUP BY
-        ciders.id
-      ORDER BY
-        AVG(totals.total_scores) DESC
-    SQL
-  end
-
-
   def average
-    return 0 if reviews.count == 0
+    averages = reviews.group('id').select('((reviews.overall_rating +
+          reviews.look_rating +
+          reviews.smell_rating +
+          reviews.feel_rating +
+          reviews.taste_rating
+        ) / 5) AS total_scores')
+
     sum = 0
-    reviews.each { |review| sum += review.average }
-    (sum / reviews.count).round(1)
-  end
-
-  def average_look
-    reviews.average(:look_rating).to_f
-  end
-
-  def average_smell
-    reviews.average(:smell_rating).to_f
-  end
-
-  def average_taste
-    reviews.average(:taste_rating).to_f
-  end
-
-  def average_feel
-    reviews.average(:feel_rating).to_f
-  end
-
-  def average_overall
-    reviews.average(:overall_rating).to_f
+    averages.each { |avg| sum += avg.total_scores }
+    real_average = sum / averages.size
+    real_average.round(1)
   end
 
   def review_count

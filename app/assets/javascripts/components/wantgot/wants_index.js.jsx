@@ -34,7 +34,7 @@ var WantsIndex = React.createClass({
     var wants = [];
     if (Object.keys(this.state.currentUser).length > 0)
     {
-      wants = this._getWantedCiders();
+      wants = this._getWantedCiders() || [];
     }
 
     if (wants.length < 1) {

@@ -34,7 +34,7 @@ var ReviewedIndex = React.createClass({
       var reviews = [];
       if (Object.keys(this.state.currentUser).length > 0)
       {
-        reviews = this._getReviewedCiders();
+        reviews = this._getReviewedCiders() || [];
       }
 
       if (reviews.length < 1) {

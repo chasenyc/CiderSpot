@@ -34,3 +34,24 @@
   font-size: 1.42em;
   font-weight: 700;
 }
+
+.cider-index-load-more {
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+}
+
+.cider-index-load-more button {
+  margin: auto;
+  display: block;
+  padding: 10px 25px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.cider-index-load-more button:hover {
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+}

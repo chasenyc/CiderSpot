@@ -35,6 +35,7 @@ var CiderIndex = React.createClass({
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>
+        <div className="cider-index-articles group">
           {
             this.state.ciders.map(function (cider) {
               var boundClick = this.handleItemClick.bind(this, cider);
@@ -45,8 +46,9 @@ var CiderIndex = React.createClass({
                 currentUser={this.props.currentUser} />
             }.bind(this))
           }
-        <div>
-          <button onClick={this.fetchMoreCiders}>Fetch MOAR!</button>          
+        </div>
+        <div className="cider-index-load-more">
+          <button onClick={this.fetchMoreCiders}>Show More Ciders</button>
         </div>
       </div>
     );

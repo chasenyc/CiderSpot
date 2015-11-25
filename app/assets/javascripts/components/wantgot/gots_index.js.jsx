@@ -34,7 +34,7 @@ var GotsIndex = React.createClass({
     var gots = [];
     if (Object.keys(this.state.currentUser).length > 0)
     {
-      gots = this._getGottenCiders();
+      gots = this._getGottenCiders() || [];
     }
 
     return (
