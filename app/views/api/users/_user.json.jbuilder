@@ -1,4 +1,4 @@
-json.extract! user, :id, :username, :image_url, :email, :birthdate, :likes
+json.extract! user, :id, :username, :email, :birthdate, :likes
 
 json.wants do
   json.partial! 'api/ciders/indexdetail', collection: user.wanted_ciders, as: :cider
@@ -12,4 +12,4 @@ json.reviewed do
   json.partial! 'api/ciders/indexdetail', collection: user.reviewed_ciders, as: :cider
 end
 
-json.image_url image_path(user.image.url)
+json.image_url image_path(user.image.url(:thumb))

@@ -2,6 +2,12 @@ class Cider < ActiveRecord::Base
   validates :name, :description, :brewery_id, :style_id, :organic, :abv,
             presence: true
 
+  has_attached_file :image,
+                    :styles => {:medium => "300x300" },
+                    default_url: "cider_avatar.jpg"
+                    
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   has_many :reviews, dependent: :destroy
   has_many :wants, dependent: :destroy
   has_many :gots, dependent: :destroy

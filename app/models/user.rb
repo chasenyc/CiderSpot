@@ -6,7 +6,12 @@ class User < ActiveRecord::Base
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :admin, inclusion: { in: [true, false]}
-  has_attached_file :image, default_url: "avatar.jpg"
+  has_attached_file :image,
+                    :styles => {
+                      :thumb => "100x100",
+                      :medium => "300x300"
+                    },
+                    default_url: "avatar.jpg"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
