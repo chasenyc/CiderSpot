@@ -9,6 +9,49 @@ class Cider < ActiveRecord::Base
   belongs_to :brewery
   belongs_to :style
 
+  def self.top_rated
+
+    subquery = Review.select(:cider_id, '(reviews.overall_rating +
+          reviews.look_rating +
+          reviews.smell_rating +
+          reviews.feel_rating +
+          reviews.taste_rating
+        ) AS total_scores')
+
+    Cider.from("ciders INNER JOIN (#{subquery.to_sql})
+                      as totals on ciders.id = totals.cider_id")
+               .group('ciders.id')
+               .order('AVG(totals.total_scores) DESC')
+
+
+
+  end
+
+  def test
+    Cider.find_by_sql(<<-SQL)
+      SELECT
+        ciders.*
+      FROM
+        ciders
+      INNER JOIN
+        (SELECT cider_id,
+          (
+            reviews.overall_rating +
+            reviews.look_rating +
+            reviews.smell_rating +
+            reviews.feel_rating +
+            reviews.taste_rating
+          ) AS total_scores
+        FROM
+          reviews) as totals on ciders.id = totals.cider_id
+      GROUP BY
+        ciders.id
+      ORDER BY
+        AVG(totals.total_scores) DESC
+    SQL
+  end
+
+
   def average
     return 0 if reviews.count == 0
     sum = 0

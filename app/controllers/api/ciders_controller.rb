@@ -2,7 +2,7 @@ class Api::CidersController < ApplicationController
 
   def index
     page_num = params[:page]
-    @ciders = Cider.page(page_num).per(7)
+    @ciders = Cider.top_rated.page(page_num).per(7)
     render 'index'
   end
 
