@@ -49,10 +49,11 @@
 .small-search-results {
   position: absolute;
   background: #f2f2f2;
+  border: 1px solid #aaa;
   color: #000;
   text-align: left;
   left: CALC(50% - 425px);
-  width: 850px;
+  width: 848px;
   top: 60px;
   font-size: 20px;
   line-height: 34px;
