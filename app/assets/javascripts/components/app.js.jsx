@@ -6,7 +6,7 @@ var App = React.createClass({
       signUp: false,
       logIn: false,
       sidebar: false,
-      search: true
+      search: false
     });
   },
 
@@ -30,9 +30,11 @@ var App = React.createClass({
     if (window.scrollY > 50) {
       document.getElementsByClassName('nav')[0].className = 'nav top';
       document.getElementById('gear').className = 'nav-icon down user-info right gear group';
+      document.getElementById('search').className = 'nav-icon down user-info right search group';
     } else {
       document.getElementsByClassName('nav')[0].className = 'nav';
       document.getElementById('gear').className = 'nav-icon user-info right gear group';
+      document.getElementById('search').className = 'nav-icon user-info right search group';
     }
   },
 
@@ -63,6 +65,10 @@ var App = React.createClass({
 
   toggleSearch: function () {
     this.setState({search: !this.state.search});
+  },
+
+  removeSearch: function () {
+    this.setState({search: false});
   },
 
   render: function(){
@@ -104,7 +110,9 @@ var App = React.createClass({
           <Header
             toggleSignUp={this.toggleSignUp}
             toggleLogIn={this.toggleLogIn}
-            toggleSidebar={this.toggleSidebar} />
+            toggleSidebar={this.toggleSidebar}
+            toggleSearch={this.toggleSearch}
+            removeSearch={this.removeSearch} />
           <Sidebar
             expanded={this.state.sidebar}
             currentUser={this.state.currentUser}

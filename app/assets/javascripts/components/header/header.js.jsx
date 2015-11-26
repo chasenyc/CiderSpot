@@ -35,6 +35,14 @@ var Header = React.createClass({
     }.bind(this));
   },
 
+  handleSearchClick: function () {
+    this.props.toggleSearch();
+    $(document).one("click", function(e) {
+      if (e.target.dataset.refs !== 'search')
+        this.props.removeSearch();
+    }.bind(this));
+  },
+
   render: function () {
 
     if (!CurrentUserStore.isLoggedIn()) {
@@ -69,6 +77,13 @@ var Header = React.createClass({
               currentUser={this.state.user}
               toggleSidebar={this.props.toggleSidebar}
               handleLogOut={this.handleLogOut} />
+          </div>
+          <div id="search" className="nav-icon user-info right search group">
+            <img
+              data-refs="search"
+              onClick={this.handleSearchClick}
+              className="icon"
+              src={window.ImageAssets['search']}></img>
           </div>
           <button
             className="nav-item left button"

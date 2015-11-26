@@ -1,17 +1,3 @@
-.header-search {
-  display: none;
-  max-height: 0;
-  overflow: none;
-}
-
-.header-search.open {
-  display: block;
-  max-height: 100px;
-  -webkit-transition: height 0.2s linear;
-  -moz-transition: height 0.2s linear;
-  transition: height 0.2s linear;
-}
-
 .search-wrap {
   position: fixed;
   display: block;
@@ -19,13 +5,18 @@
   width: 100%;
   z-index: 100;
   left: 150px;
-  top: 142px;
+  top: -142px;
   margin: -100px 0 0 -150px;
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
   font-weight: 700;
   font-size: 24px;
   text-align: center;
+  transition: top 0.2s;
+}
+
+.header-search.open > .search-wrap {
+  top:142px;
 }
 
 .inner-search {

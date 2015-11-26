@@ -40,8 +40,9 @@ var SearchBar = React.createClass({
     return (
       <div className="search-wrap">
         <div className="inner-search">
-          <div className="search-bar">
+          <div data-refs="search" className="search-bar">
             <input
+              data-refs="search"
               className="search-input"
               type="text"
               onChange={this.handleChange}

@@ -14,16 +14,17 @@ var SearchResultsIndex = React.createClass({
     var fullResults;
     if (this.props.results.length > 0) {
       fullResults = (
-        <li>See full results for "{this.props.query}"</li>
+        <li data-refs="search">See full results for "{this.props.query}"</li>
       );
     }
 
     return (
-      <div className="small-search-results">
-        <ul className="small-search-list">
+      <div data-refs="search" className="small-search-results">
+        <ul data-refs="search" className="small-search-list">
           {
             this.props.results.map(function (result) {
               return <li
+                data-refs="search"
                 key={"S"+result.id}
                 data-path={"ciders/" + result.id}
                 onClick={this.handleClick}>
