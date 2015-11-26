@@ -1,0 +1,64 @@
+.tooltip-content {
+  display: none;
+  position: absolute;
+  margin-left: 4px;
+  background: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  text-indent: 0;
+  width: 150px;
+  left: auto;
+  right: 10px;
+  top: 77%;
+  padding: 16px 20px 23px;
+  margin-top: 17px;
+  cursor: default;
+  z-index: 510;
+}
+
+.tooltip-content:before {
+  position: absolute;
+  top: -11px;
+  width: 0;
+  height: 0;
+  content: "";
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid #ccc;
+  margin-left: 145px;
+}
+
+.tooltip-content:after {
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid #fff;
+  position: absolute;
+  top: -11px;
+  width: 0;
+  height: 0;
+  margin-left: 145px;
+  margin-top: 1px;
+  content: "";
+}
+
+.tooltip-inner li {
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #000;
+}
+
+.tooltip-inner li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.tooltip-email {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #e6e6e6;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #666;
+}

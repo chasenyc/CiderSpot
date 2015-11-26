@@ -46,6 +46,10 @@ var Header = React.createClass({
       return (
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
+          <div id="gear" className="nav-icon user-info right gear group">
+            <img className="icon" src={window.ImageAssets['gear']}></img>
+            <GearTooltip currentUser={this.state.user}/>
+          </div>
           <div className="user-info nav-item right">
             welcome, {this.state.user.username}!
           </div>

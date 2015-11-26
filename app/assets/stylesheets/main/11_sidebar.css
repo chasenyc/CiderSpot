@@ -67,7 +67,8 @@
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+  background: #1F1F1F;
 }
 
 .sidebar-user-info {
@@ -90,6 +91,11 @@
 
 .sidebar-top-not-logged .sidebar-body {
   padding: 0 15px;
+}
+
+.sidebar-user-info {
+  padding-top: 15px;
+  border-top: 1px solid #666;
 }
 
 .sidebar-bottom-email {

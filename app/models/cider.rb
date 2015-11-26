@@ -5,7 +5,7 @@ class Cider < ActiveRecord::Base
   has_attached_file :image,
                     :styles => {:medium => "300x300" },
                     default_url: "cider_avatar.jpg"
-                    
+
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :reviews, dependent: :destroy
@@ -17,11 +17,7 @@ class Cider < ActiveRecord::Base
 
   def self.top_rated
     subquery = Review.select(:cider_id, '(reviews.overall_rating +
-          reviews.look_rating +
-          reviews.smell_rating +
-          reviews.feel_rating +
-          reviews.taste_rating
-        ) AS total_scores')
+          reviews.look_rating + reviews.smell_rating + reviews.feel_rating + reviews.taste_rating) AS total_scores')
 
     Cider.from("ciders INNER JOIN (#{subquery.to_sql})
               as totals on ciders.id = totals.cider_id")
@@ -31,14 +27,10 @@ class Cider < ActiveRecord::Base
 
   def self.bottom_rated
     subquery = Review.select(:cider_id, '(reviews.overall_rating +
-          reviews.look_rating +
-          reviews.smell_rating +
-          reviews.feel_rating +
-          reviews.taste_rating
-        ) AS total_scores')
+          reviews.look_rating + reviews.smell_rating + reviews.feel_rating +
+          reviews.taste_rating) AS total_scores')
 
-    Cider.from("ciders INNER JOIN (#{subquery.to_sql})
-              as totals on ciders.id = totals.cider_id")
+    Cider.from("ciders INNER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id")
          .group('ciders.id')
          .order('AVG(totals.total_scores) ASC')
   end

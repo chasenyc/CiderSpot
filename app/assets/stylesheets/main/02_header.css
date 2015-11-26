@@ -30,6 +30,9 @@
   border-bottom: 3px solid white;
 }
 
+.gear {
+
+}
 
 .nav-item {
   text-transform: uppercase;
@@ -38,10 +41,43 @@
   display: block;
 }
 
+.nav-icon {
+  display: block;
+  height: 100%;
+}
+
+.nav-icon.right {
+  float: right;
+}
+
 .nav-item.left {
   float: left;
 }
 
 .nav-item.right {
   float: right;
+}
+
+#gear {
+  position: relative;
+}
+
+.user-info img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  padding: 5px;
+  border: 1px solid #be1e08;
+  margin-top: 6px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.user-info.down img {
+  border: 1px solid #666;
+}
+
+.user-info img:hover {
+  background: #be1e08;
+  cursor: pointer;
 }

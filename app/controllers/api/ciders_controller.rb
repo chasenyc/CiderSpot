@@ -32,7 +32,7 @@ class Api::CidersController < ApplicationController
     if @cider.save
       render 'show'
     else
-      render json: @cider.errors.full_messages
+      render json: @cider.errors.full_messages.to_json
     end
   end
 
