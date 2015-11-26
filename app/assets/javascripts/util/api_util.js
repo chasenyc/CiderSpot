@@ -156,7 +156,6 @@ var ApiUtil = window.ApiUtil = {
   findById: function (array, id) {
     var result;
     array.forEach(function(el) {
-
       if (parseInt(id) === parseInt(el.id)) {
         result = array.indexOf(el);
       }

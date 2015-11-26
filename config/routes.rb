@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:update, :destroy]
     post 'reviews/:review_id/likes', to: 'likes#create'
+    get 'search', to: 'search#index'
     resources :likes, only: [:destroy]
     resources :wants, only: [:destroy]
     resources :gots, only: [:destroy]

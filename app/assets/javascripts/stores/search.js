@@ -13,7 +13,7 @@
     },
 
     results: function () {
-      return _search_results.results;
+      return _search_results;
     },
 
     totalCount: function () {
