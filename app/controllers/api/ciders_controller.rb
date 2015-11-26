@@ -5,7 +5,7 @@ class Api::CidersController < ApplicationController
     base = Cider.with_averages.includes(:brewery, :style).page(page_num).per(8)
     case params[:style]
       when 'top'
-        @ciders = base
+        @ciders = base.top_rated
       when 'bottom'
         @ciders = base.bottom_rated
       when 'newest'
@@ -28,7 +28,7 @@ class Api::CidersController < ApplicationController
   end
 
   def update
-    @cider = Cider.find(params[:id])
+    @cider = Cider.with_averages.find(params[:id])
     @cider.update(cider_params)
     if @cider.save
       render 'show'
@@ -38,7 +38,7 @@ class Api::CidersController < ApplicationController
   end
 
   def show
-    @cider = Cider.find(params[:id])
+    @cider = Cider.with_averages.find(params[:id])
     render 'show'
   end
 
