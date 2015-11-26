@@ -57,6 +57,13 @@ class Cider < ActiveRecord::Base
     result = Cider.order(updated_at: :asc)
   end
 
+  def self.with_averages
+    self.select(<<-SQL)
+      
+
+    SQL
+  end
+
   def average
     averages = reviews.group('id').select('((reviews.overall_rating +
           reviews.look_rating +

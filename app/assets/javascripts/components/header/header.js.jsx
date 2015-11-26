@@ -38,8 +38,21 @@ var Header = React.createClass({
   handleSearchClick: function () {
     this.props.toggleSearch();
     $(document).one("click", function(e) {
-      if (e.target.dataset.refs !== 'search')
+      if (e.target.dataset.refs !== 'search') {
         this.props.removeSearch();
+      } else {
+        this.addOneMoreClick();
+      }
+    }.bind(this));
+  },
+
+  addOneMoreClick: function () {
+    $(document).one("click", function(e) {
+      if (e.target.dataset.refs !== 'search') {
+        this.props.removeSearch();
+      } else {
+        this.addOneMoreClick();
+      }
     }.bind(this));
   },
 

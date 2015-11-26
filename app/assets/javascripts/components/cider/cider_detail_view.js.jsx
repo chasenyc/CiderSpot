@@ -11,6 +11,12 @@ var CiderDetailView = React.createClass({
   },
 
   componentWillReceiveProps: function (newProps) {
+    if (newProps) {
+      var ciderId = newProps.params.ciderId;
+      ApiUtil.fetchCider(ciderId, function () {
+        this.setState({cider: this._findCiderById(ciderId)});
+      }.bind(this));
+    }
     this.setState({currentUser: newProps.currentUser});
   },
 
