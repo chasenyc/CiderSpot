@@ -28,13 +28,30 @@ var App = React.createClass({
 
   handleScroll: function (){
     if (window.scrollY > 50) {
+
       document.getElementsByClassName('nav')[0].className = 'nav top';
-      document.getElementById('gear').className = 'nav-icon down user-info right gear group';
-      document.getElementById('search').className = 'nav-icon down user-info right search group';
+
+      if (document.getElementById('gear')) {
+        document.getElementById('gear').className = 'nav-icon down user-info right gear group';
+      }
+
+      if (document.getElementById('search')) {
+        document.getElementById('search').className = 'nav-icon down user-info right search group';
+      }
+
+      document.getElementById('right-arrow').className = 'nav-icon down user-info left right-arrow group';
     } else {
+
       document.getElementsByClassName('nav')[0].className = 'nav';
-      document.getElementById('gear').className = 'nav-icon user-info right gear group';
-      document.getElementById('search').className = 'nav-icon user-info right search group';
+
+      if (document.getElementById('gear')) {
+        document.getElementById('gear').className = 'nav-icon user-info right gear group';
+      }
+
+      if (document.getElementById('search')) {
+        document.getElementById('search').className = 'nav-icon user-info right search group';
+      }
+      document.getElementById('right-arrow').className = 'nav-icon user-info left right-arrow group';
     }
   },
 

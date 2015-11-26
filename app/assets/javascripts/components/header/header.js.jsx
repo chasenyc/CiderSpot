@@ -58,52 +58,71 @@ var Header = React.createClass({
 
   render: function () {
 
-    if (!CurrentUserStore.isLoggedIn()) {
-      return (
-        <header className="nav">
-          <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-            <button
-              className="user-info nav-item right button"
-              onClick={this.props.toggleLogIn}>Log In</button>
-          <button
-            className="user-info nav-item right button"
-            onClick={this.props.toggleSignUp}>Sign up</button>
-          <button
-            className="nav-item left button"
-            onClick={this.props.toggleSidebar}>>></button>
-          <a className="nav-item left button" href="#/">All Ciders</a>
-        </header>
-      );
+    var rightArrow = (
+      <div id="right-arrow" className="nav-icon user-info left right-arrow group">
+        <img
+          data-refs="right-arrow"
+          onClick={this.props.toggleSidebar}
+          className="icon"
+          src={window.ImageAssets['right-arrow']}></img>
+      </div>
+    );
+    var allCiders = (
+      <a className="nav-item left button" href="#/">All Ciders</a>
+    );
+
+    var logo = (
+      <h1 className="logo"><a href="#/">Cider Spot</a></h1>
+    );
+
+    var rightSide = (
+      <span>
+        <button
+          className="user-info nav-item right button"
+          onClick={this.props.toggleLogIn}>Log In</button>
+        <button
+          className="user-info nav-item right button"
+          onClick={this.props.toggleSignUp}>Sign up</button>
+      </span>
+    );
+
+    if (CurrentUserStore.isLoggedIn()) {
+      rightSide = this._rightSideIcons();
     }
-    else {
-      return (
-        <header className="nav">
-          <h1 className="logo"><a href="#/">Cider Spot</a></h1>
-          <div id="gear" className="nav-icon user-info right gear group">
-            <img
-              data-refs="gear"
-              onClick={this.handleGearClick}
-              className="icon"
-              src={window.ImageAssets['gear']}></img>
-            <GearTooltip
-              expanded={this.state.toolExpanded}
-              currentUser={this.state.user}
-              toggleSidebar={this.props.toggleSidebar}
-              handleLogOut={this.handleLogOut} />
-          </div>
-          <div id="search" className="nav-icon user-info right search group">
-            <img
-              data-refs="search"
-              onClick={this.handleSearchClick}
-              className="icon"
-              src={window.ImageAssets['search']}></img>
-          </div>
-          <button
-            className="nav-item left button"
-            onClick={this.props.toggleSidebar}>>></button>
-          <a className="nav-item left button" href="#/">All Ciders</a>
-        </header>
-      );
-    }
+
+    return (
+      <header className="nav">
+        {logo}
+        {rightSide}
+        {rightArrow}
+        {allCiders}
+      </header>
+    );
+  },
+
+  _rightSideIcons: function () {
+    return (
+      <span>
+        <div id="gear" className="nav-icon user-info right gear group">
+          <img
+            data-refs="gear"
+            onClick={this.handleGearClick}
+            className="icon"
+            src={window.ImageAssets['gear']}></img>
+          <GearTooltip
+            expanded={this.state.toolExpanded}
+            currentUser={this.state.user}
+            toggleSidebar={this.props.toggleSidebar}
+            handleLogOut={this.handleLogOut} />
+        </div>
+        <div id="search" className="nav-icon user-info right search group">
+          <img
+            data-refs="search"
+            onClick={this.handleSearchClick}
+            className="icon"
+            src={window.ImageAssets['search']}></img>
+        </div>
+      </span>
+    );
   }
 });
