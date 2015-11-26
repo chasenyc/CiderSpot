@@ -13,7 +13,9 @@ class Api::GotsController < ApplicationController
   end
 
   def destroy
-
+    @got = Got.find(params[:id])
+    @got.destroy!
+    render json: @got.to_json
   end
 
   private

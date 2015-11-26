@@ -93,6 +93,32 @@ var ApiUtil = window.ApiUtil = {
     });
   },
 
+  destroyWant: function (id) {
+    $.ajax({
+      url: 'api/wants/' + id,
+      type: 'DELETE',
+      success: function (data) {
+        SessionsApiUtil.fetchCurrentUser();
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
+      }
+    });
+  },
+
+  destroyGot: function (id) {
+    $.ajax({
+      url: 'api/gots/' + id,
+      type: 'DELETE',
+      success: function (data) {
+        SessionsApiUtil.fetchCurrentUser();
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
+      }
+    });
+  },
+
   createLike: function (id, ciderId, success) {
     $.ajax({
       url: 'api/reviews/' + id + '/likes',
@@ -130,6 +156,7 @@ var ApiUtil = window.ApiUtil = {
   findById: function (array, id) {
     var result;
     array.forEach(function(el) {
+
       if (parseInt(id) === parseInt(el.id)) {
         result = array.indexOf(el);
       }

@@ -1,5 +1,8 @@
 json.extract! user, :id, :username, :email, :birthdate, :likes
 
+json.wanted user.wants
+json.gotten user.gots
+
 json.wants do
   json.partial! 'api/ciders/indexdetail', collection: user.wanted_ciders, as: :cider
 end

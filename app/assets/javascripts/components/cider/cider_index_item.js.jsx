@@ -1,7 +1,7 @@
 var CiderIndexItem = React.createClass ({
 
   getInitialState: function () {
-    return {user: CurrentUserStore.currentUser()};
+    return {currentUser: this.props.currentUser};
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -11,7 +11,11 @@ var CiderIndexItem = React.createClass ({
   render: function () {
     var wantGot;
     if (CurrentUserStore.isLoggedIn()) {
-      wantGot = (<CiderIndexWantGot ciderId={this.props.cider.id} />);
+      wantGot = (
+        <CiderIndexWantGot
+          ciderId={this.props.cider.id}
+          currentUser={this.props.currentUser} />
+      );
     }
     return (
       <article onClick={this.props.onClick} className="cider-index-item">

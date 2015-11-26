@@ -13,7 +13,9 @@ class Api::WantsController < ApplicationController
     end
 
     def destroy
-
+      @want = Want.find(params[:id])
+      @want.destroy!
+      render json: @want.to_json
     end
 
     private
