@@ -10,7 +10,7 @@
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: .33em;
+  margin-bottom: 5px;
 }
 
 .rate-toggle-button:hover {
@@ -36,7 +36,7 @@ textarea.rating-sub {
 }
 
 .rating-bar {
-  margin-bottom: .33em;
+  margin-bottom: 5px;
 }
 
 .rating-button {

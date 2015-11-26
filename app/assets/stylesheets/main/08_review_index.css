@@ -1,8 +1,8 @@
 .review-index-header {
-  margin-bottom: .33em;
+  margin-bottom: 5px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: .66em;
+  margin-top: 10px;
 }
 
 .review-index-item {
@@ -41,13 +41,13 @@ img.author-thumb {
 }
 
 .review-content {
-  margin-top: .33em;
+  margin-top: 5px;
 }
 
 .review-footer {
   color: #777;
-  font-size: .8em;
-  margin-top: .33em;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
 .review-edit-button:hover {
