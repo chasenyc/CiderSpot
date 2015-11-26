@@ -12,6 +12,7 @@ User.create!(username: "lily", password: "password", email: "lily@appacademy.io"
 User.create!(username: "tommy", password: "password", email: "tommy@appacademy.io", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/tommy.jpg')))
 User.create!(username: "cody", password: "password", email: "cody@cody.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/cody.jpg')))
 User.create!(username: "carl", password: "password", email: "carl@carl.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/carl.jpg')))
+User.create!(username: "dave", password: "password", email: "dave@hassan.com", birthdate: "1984-01-24", image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/932/medium/david-hassan.jpg?1443627638")
 
 
 styles = ['Dry Mead ',
@@ -57,7 +58,30 @@ cider_names.count.times do |i|
   end
 end
 
-
 styles.each do |style|
   Style.create!(name: style, description: "This style of cider is often described as extremely #{adjectives}")
+end
+
+User.all.each do |user|
+
+  (Random.rand(7)+1).times do
+    cider_array = (1..Cider.all.count).to_a
+    result = cider_array.sample
+    cider_array = cider_array - [result]
+    Got.create(user_id: user.id, cider_id: result)
+  end
+
+  (Random.rand(7)+1).times do
+    cider_array = (1..Cider.all.count).to_a
+    result = cider_array.sample
+    cider_array = cider_array - [result]
+    Want.create(user_id: user.id, cider_id: result)
+  end
+
+  (Random.rand(Review.all.count)+1).times do
+    review_array = (1..Review.all.count).to_a
+    result = review_array.sample
+    review_array = review_array - [result]
+    Like.create(user_id: user.id, review_id: result)
+  end
 end

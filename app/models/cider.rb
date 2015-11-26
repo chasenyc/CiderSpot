@@ -57,18 +57,13 @@ class Cider < ActiveRecord::Base
     result = Cider.order(updated_at: :asc)
   end
 
-  def average
-    averages = reviews.group('id').select('((reviews.overall_rating +
-          reviews.look_rating +
-          reviews.smell_rating +
-          reviews.feel_rating +
-          reviews.taste_rating
-        ) / 5) AS total_scores')
+  def self.with_averages
+    subquery = Review.select('reviews.cider_id AS cider_id, ((reviews.overall_rating +
+          reviews.look_rating + reviews.smell_rating + reviews.feel_rating +
+          reviews.taste_rating) / 5) AS total_scores')
 
-    sum = 0
-    averages.each { |avg| sum += avg.total_scores }
-    real_average = sum / averages.size
-    real_average.round(1)
+    Cider.select("ciders.*, AVG(totals.total_scores) AS average").joins("INNER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id")
+         .group('ciders.id')
   end
 
   def review_count
