@@ -1,4 +1,10 @@
 class Cider < ActiveRecord::Base
+  include PgSearch
+
+  pg_search_scope :search_all,
+                  :against => [:name, :description],
+                  :using => { :tsearch => {:prefix => true} }
+
   validates :name, :description, :brewery_id, :style_id, :organic, :abv,
             presence: true
 

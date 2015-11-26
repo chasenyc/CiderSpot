@@ -68,7 +68,11 @@ var App = React.createClass({
         );
       }.bind(this)
     );
-
+    var searchBar = (
+      <div className="header-search">
+        <SearchBar />
+      </div>
+    );
     var modal;
     if (this.state.signUp === true) {
       modal = (<UserForm toggleSignUp={this.toggleSignUp} />);
@@ -76,27 +80,18 @@ var App = React.createClass({
     if (this.state.logIn === true) {
       modal = (<SessionForm toggleSignUp={this.toggleLogIn} />);
     }
+    var errors;
     if (this.state.errors.length > 0) {
-      return (
-        <div className="top">
-          <div className="flash-errors">
-            {this.state.errors[0].responseText}
-          </div>
-          <Header
-            toggleSignUp={this.toggleSignUp}
-            toggleLogIn={this.toggleLogIn}
-            toggleSidebar={this.toggleSidebar} />
-          <Sidebar
-            expanded={this.state.sidebar}
-            currentUser={this.state.currentUser}
-            toggleLogIn={this.toggleLogIn} />
-          {renderedChildren}
-          {modal}
+      errors = (
+        <div className="flash-errors">
+          {this.state.errors[0].responseText}
         </div>
       );
     }
     return (
         <div className="top">
+          {searchBar}
+          {errors}
           <Header
             toggleSignUp={this.toggleSignUp}
             toggleLogIn={this.toggleLogIn}
