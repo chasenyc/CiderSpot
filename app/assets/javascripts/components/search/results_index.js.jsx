@@ -1,10 +1,20 @@
 var SearchResultsIndex = React.createClass({
 
+  mixins: [ReactRouter.History],
+
+  handleClick: function (e) {
+    e.preventDefault();
+    var path = e.currentTarget.dataset.path;
+    this.props.resetSearch();
+    this.props.toggleSearch();
+    this.history.pushState(null, path);
+  },
+
   render: function () {
     var fullResults;
     if (this.props.results.length > 0) {
       fullResults = (
-        <li>See Full Results</li>
+        <li>See full results for "{this.props.query}"</li>
       );
     }
 
@@ -13,11 +23,13 @@ var SearchResultsIndex = React.createClass({
         <ul className="small-search-list">
           {
             this.props.results.map(function (result) {
-              return <li key={"S"+result.id}>
+              return <li
+                key={"S"+result.id}
+                data-path={"ciders/" + result.id}
+                onClick={this.handleClick}>
                 {this._beginning(result.name)}
                 <b>{this._middle(result.name)}</b>
-                {this._end(result.name)} -
-                {this._beginning(result.brewery.name)}
+                {this._end(result.name)} - {this._beginning(result.brewery.name)}
                 <b>{this._middle(result.brewery.name)}</b>
                 {this._end(result.brewery.name)}
 

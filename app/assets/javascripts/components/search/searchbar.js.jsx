@@ -28,6 +28,13 @@ var SearchBar = React.createClass({
     this.setState({results: SearchResultsStore.results()});
   },
 
+  resetSearch: function () {
+    this.setState({
+      results: [],
+      query: ""
+    });
+  },
+
   render: function () {
 
     return (
@@ -39,7 +46,11 @@ var SearchBar = React.createClass({
               type="text"
               onChange={this.handleChange}
               value={this.state.query} />
-            <SearchResultsIndex query={this.state.query} results={this.state.results} />
+            <SearchResultsIndex
+              query={this.state.query}
+              results={this.state.results}
+              resetSearch={this.resetSearch}
+              toggleSearch={this.props.toggleSearch} />
           </div>
         </div>
       </div>

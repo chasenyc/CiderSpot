@@ -5,7 +5,8 @@ var App = React.createClass({
       currentUser: CurrentUserStore.currentUser(),
       signUp: false,
       logIn: false,
-      sidebar: false
+      sidebar: false,
+      search: true
     });
   },
 
@@ -60,6 +61,10 @@ var App = React.createClass({
     this.setState({sidebar: !this.state.sidebar});
   },
 
+  toggleSearch: function () {
+    this.setState({search: !this.state.search});
+  },
+
   render: function(){
     var renderedChildren = React.Children.map(this.props.children,
       function (child) {
@@ -68,9 +73,13 @@ var App = React.createClass({
         );
       }.bind(this)
     );
+    var searchKlass = "header-search";
+    if (this.state.search) {
+      searchKlass += " open"
+    }
     var searchBar = (
-      <div className="header-search">
-        <SearchBar />
+      <div className={searchKlass}>
+        <SearchBar toggleSearch={this.toggleSearch} />
       </div>
     );
     var modal;

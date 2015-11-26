@@ -9,7 +9,8 @@ class Cider < ActiveRecord::Base
                     :brewery => :name
                   },
                   :using => {
-                    :tsearch => {:prefix => true}
+                    :tsearch => {:prefix => true},
+                    :trigram => {:threshold => 0.1}
                   }
 
   validates :name, :description, :brewery_id, :style_id, :organic, :abv,

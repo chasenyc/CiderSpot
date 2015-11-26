@@ -1,3 +1,17 @@
+.header-search {
+  display: none;
+  max-height: 0;
+  overflow: none;
+}
+
+.header-search.open {
+  display: block;
+  max-height: 100px;
+  -webkit-transition: height 0.2s linear;
+  -moz-transition: height 0.2s linear;
+  transition: height 0.2s linear;
+}
+
 .search-wrap {
   position: fixed;
   display: block;
