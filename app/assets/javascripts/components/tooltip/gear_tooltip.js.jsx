@@ -1,24 +1,35 @@
 var GearTooltip = React.createClass({
 
-  render: function () {
+  mixins: [ReactRouter.History],
 
-  return (
-    <div className="tooltip-content">
-      <div className="tooltip-inner top">
-        <ul>
-          <li>Edit Profile</li>
-          <li>Your Cider Stash</li>
-        </ul>
-      </div>
-      <div className="tooltip-inner bottom">
-        <div className="tooltip-email">
-          {this.props.currentUser.email}
+  pushProfile: function () {
+    this.history.pushState(null, "editprofile");
+  },
+
+  render: function () {
+    var klassName = "tooltip-content";
+
+    if (this.props.expanded) {
+      klassName += " open";
+    }
+
+    return (
+      <div ref="tooltip" className={klassName}>
+        <div className="tooltip-inner top">
+          <ul>
+            <li onClick={this.pushProfile}>Edit Profile</li>
+            <li onClick={this.props.toggleSidebar}>Your Cider Stash</li>
+          </ul>
         </div>
-        <ul>
-          <li>Log Out</li>
-        </ul>
+        <div className="tooltip-inner bottom">
+          <div className="tooltip-email">
+            {this.props.currentUser.email}
+          </div>
+          <ul>
+            <li onClick={this.props.handleLogOut}>Log Out</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
   }
 });

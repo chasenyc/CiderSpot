@@ -16,6 +16,10 @@
   z-index: 510;
 }
 
+.tooltip-content.open {
+  display: block;
+}
+
 .tooltip-content:before {
   position: absolute;
   top: -11px;
@@ -25,7 +29,7 @@
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
   border-bottom: 11px solid #ccc;
-  margin-left: 145px;
+  margin-left: 135px;
 }
 
 .tooltip-content:after {
@@ -36,7 +40,7 @@
   top: -11px;
   width: 0;
   height: 0;
-  margin-left: 145px;
+  margin-left: 135px;
   margin-top: 1px;
   content: "";
 }

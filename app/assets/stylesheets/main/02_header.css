@@ -58,10 +58,6 @@
   float: right;
 }
 
-#gear {
-  position: relative;
-}
-
 .user-info img {
   display: block;
   width: 18px;
@@ -80,4 +76,14 @@
 .user-info img:hover {
   background: #be1e08;
   cursor: pointer;
+}
+
+.user-info.down img:hover {
+  background: #e33d26;
+}
+
+.nav-icon.gear {
+  position: relative;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0 10px;
 }

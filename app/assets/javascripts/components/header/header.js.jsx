@@ -1,7 +1,10 @@
 var Header = React.createClass({
 
   getInitialState: function () {
-    return ({user: CurrentUserStore.currentUser()});
+    return ({
+      user: CurrentUserStore.currentUser(),
+      toolExpanded: false
+    });
   },
 
   componentWillMount: function () {
@@ -24,7 +27,16 @@ var Header = React.createClass({
     SessionsApiUtil.logout();
   },
 
+  handleGearClick: function () {
+    this.setState({toolExpanded: !this.state.toolExpanded});
+    $(document).one("click", function(e) {
+      if (e.target.dataset.refs !== 'gear')
+        this.setState({toolExpanded: false});
+    }.bind(this));
+  },
+
   render: function () {
+
     if (!CurrentUserStore.isLoggedIn()) {
       return (
         <header className="nav">
@@ -47,15 +59,17 @@ var Header = React.createClass({
         <header className="nav">
           <h1 className="logo"><a href="#/">Cider Spot</a></h1>
           <div id="gear" className="nav-icon user-info right gear group">
-            <img className="icon" src={window.ImageAssets['gear']}></img>
-            <GearTooltip currentUser={this.state.user}/>
+            <img
+              data-refs="gear"
+              onClick={this.handleGearClick}
+              className="icon"
+              src={window.ImageAssets['gear']}></img>
+            <GearTooltip
+              expanded={this.state.toolExpanded}
+              currentUser={this.state.user}
+              toggleSidebar={this.props.toggleSidebar}
+              handleLogOut={this.handleLogOut} />
           </div>
-          <div className="user-info nav-item right">
-            welcome, {this.state.user.username}!
-          </div>
-          <button onClick={this.handleLogOut}
-                  className="user-info nav-item right button ">Log out
-          </button>
           <button
             className="nav-item left button"
             onClick={this.props.toggleSidebar}>>></button>
