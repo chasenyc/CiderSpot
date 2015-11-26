@@ -8,7 +8,10 @@ class Cider < ActiveRecord::Base
                   }, :associated_against => {
                     :brewery => :name
                   },
-                  :using => { :tsearch => {:prefix => true} }
+                  :using => {
+                    :tsearch => {:prefix => true},
+                    :trigram => {}
+                  }
 
   validates :name, :description, :brewery_id, :style_id, :organic, :abv,
             presence: true
