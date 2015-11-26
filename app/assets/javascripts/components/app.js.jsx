@@ -85,7 +85,7 @@ var App = React.createClass({
     }
     var searchBar = (
       <div className={searchKlass}>
-        <SearchBar toggleSearch={this.toggleSearch} />
+        <SearchBar query="" toggleSearch={this.toggleSearch} />
       </div>
     );
     var modal;

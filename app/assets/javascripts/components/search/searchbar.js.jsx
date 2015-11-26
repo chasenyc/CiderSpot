@@ -11,6 +11,10 @@ var SearchBar = React.createClass({
     SearchResultsStore.addChangeHandler(this.resultsChanged);
   },
 
+  componentWillReceiveProps: function (newProps) {
+    this.resetSearch();
+  },
+
   componentWillUnmount: function () {
     SearchResultsStore.removeChangeHandler(this.resultsChanged);
   },
@@ -39,7 +43,7 @@ var SearchBar = React.createClass({
 
     return (
       <div className="search-wrap">
-        <div className="inner-search">
+        <div data-refs="search" className="inner-search">
           <div data-refs="search" className="search-bar">
             <input
               data-refs="search"
