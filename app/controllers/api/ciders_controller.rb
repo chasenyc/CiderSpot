@@ -38,7 +38,7 @@ class Api::CidersController < ApplicationController
   end
 
   def show
-    @cider = Cider.with_averages.includes(:brewery, :style).find(params[:id])
+    @cider = Cider.with_averages.includes(:brewery, :style, reviews: [:likes, :author]).find(params[:id])
     render 'show'
   end
 

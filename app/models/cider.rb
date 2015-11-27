@@ -55,8 +55,4 @@ class Cider < ActiveRecord::Base
          .group('ciders.id')
   end
 
-  # def review_count
-  #   reviews.count
-  # end
-
 end
