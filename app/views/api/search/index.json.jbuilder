@@ -1,1 +1,1 @@
-json.partial! partial: 'api/ciders/indexdetail', collection: @search_results, as: :cider
+json.partial! partial: 'api/ciders/indexmin', collection: @search_results, as: :cider

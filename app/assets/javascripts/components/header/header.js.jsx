@@ -105,10 +105,12 @@ var Header = React.createClass({
             toggleSidebar={this.props.toggleSidebar}
             handleLogOut={this.handleLogOut} />
         </div>
-        <div id="search" className="nav-icon user-info right search group">
+        <div
+          id="search"
+          onClick={this.handleSearchClick}
+          className="nav-icon user-info right search group">
           <img
             data-refs="search"
-            onClick={this.handleSearchClick}
             className="icon"
             src={window.ImageAssets['search']}></img>
           <span className="search-description">

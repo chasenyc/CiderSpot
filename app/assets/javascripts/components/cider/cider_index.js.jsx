@@ -69,7 +69,7 @@ var CiderIndex = React.createClass({
     if (this.state.end) {
       showMoreCiders = (
         <div className="cider-index-end">
-          Fin.
+          ~ el fin ~
         </div>
       );
     }
