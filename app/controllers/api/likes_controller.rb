@@ -14,8 +14,11 @@ class Api::LikesController < ApplicationController
 
     def destroy
       @like = Like.find(params[:id])
-      @like.destroy!
-      render json: @like.to_json
+      if @like.destroy
+        render json: @like.to_json
+      else
+        render json: "Looks like we encountered a small problem, err-feature!", status: 402
+      end
     end
 
     private

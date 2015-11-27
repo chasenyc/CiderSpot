@@ -1,20 +1,20 @@
 var ReviewIndexItem = React.createClass({
 
   getInitialState: function () {
+    var liked;
     if (CurrentUserStore.isLoggedIn()) {
       var likeId = this._includesCurrentReview();
-      var liked;
       if (likeId) {
         liked = likeId;
       } else {
         liked = false;
       }
     }
-    return {
+    return ({
       currentUser: CurrentUserStore.currentUser(),
       editable: false,
       liked: liked
-    };
+    });
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -33,6 +33,10 @@ var ReviewIndexItem = React.createClass({
     } else if (newProps.currentUser) {
       this.setState({
         currentUser: newProps.currentUser
+      });
+    } else {
+      this.setState({
+        liked: likeId
       });
     }
   },
@@ -53,6 +57,7 @@ var ReviewIndexItem = React.createClass({
       this.props.review.id,
       this.props.review.cider_id,
       function (data) {
+        SessionsApiUtil.fetchCurrentUser();
         this.setState({ liked: data.id });
       }.bind(this)
     );
@@ -64,7 +69,9 @@ var ReviewIndexItem = React.createClass({
       e.target.dataset.likeId,
       this.props.review.cider_id,
       function () {
-        this.setState({ liked: false });
+        ApiUtil.fetchCider(this.props.review.cider_id);
+        this.setState({liked: false});
+        SessionsApiUtil.fetchCurrentUser();
       }.bind(this)
     );
   },

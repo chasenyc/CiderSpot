@@ -54,7 +54,7 @@ var ReviewedIndex = React.createClass({
               return <CiderIndexItem
                 cider={cider}
                 onClick={boundClick}
-                key={"CW"+cider.id}
+                key={"CRW"+cider.id}
                 currentUser={this.props.currentUser} />
             }.bind(this))
           }
