@@ -6,6 +6,7 @@ var CiderIndex = React.createClass({
       page: 1,
       style: 'top',
       load: false,
+      end: false
     };
   },
 
@@ -22,11 +23,13 @@ var CiderIndex = React.createClass({
 
   handleScroll: function () {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight &&
-         this.state.load)
+         this.state.load && !this.state.end)
     {
       var pageNum = (this.state.page + 1);
       ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
-        this.setState({page: pageNum, load: true});
+        this.setState({page: pageNum});
+      }.bind(this), function () {
+        this.setState({end: true});
       }.bind(this));
     }
   },
@@ -41,6 +44,8 @@ var CiderIndex = React.createClass({
     var pageNum = (this.state.page + 1);
     ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
       this.setState({page: pageNum, load: true});
+    }.bind(this), function () {
+      this.setState({end: true});
     }.bind(this));
   },
 
@@ -55,6 +60,20 @@ var CiderIndex = React.createClass({
   },
 
   render: function () {
+    var showMoreCiders = (
+      <div className="cider-index-load-more">
+        <button onClick={this.fetchMoreCiders}>Show More Ciders</button>
+      </div>
+    );
+
+    if (this.state.end) {
+      showMoreCiders = (
+        <div className="cider-index-end">
+          Fin.
+        </div>
+      );
+    }
+
     return (
       <div className="cider-index">
         <h1>All Ciders</h1>
@@ -79,9 +98,7 @@ var CiderIndex = React.createClass({
             }.bind(this))
           }
         </div>
-        <div className="cider-index-load-more">
-          <button onClick={this.fetchMoreCiders}>Show More Ciders</button>
-        </div>
+        {showMoreCiders}
       </div>
     );
   }

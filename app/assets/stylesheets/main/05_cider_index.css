@@ -36,7 +36,7 @@
 
   overflow:hidden;
   white-space:nowrap;
-  text-overflow:ellipsis; 
+  text-overflow:ellipsis;
 }
 
 .cider-index-select {
@@ -78,4 +78,18 @@
   cursor: pointer;
   background: #000;
   color: #fff;
+}
+
+.cider-index-end {
+  text-align: center;
+  padding: 10px 25px;
+  margin: 20px auto;
+  width: 150px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.cider-index-end:hover {
+  cursor: default;
 }

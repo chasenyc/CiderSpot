@@ -7,21 +7,67 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
-User.create!(username: "alex", password: "password", email: "admin@admin.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/alex.jpg')))
+User.create!(username: "alex", password: "password", email: "admin@admin.com", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/alex.jpg')))
 
-User.create!(username: "sennacy", password: "password", email: "sennacy@sennacy.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/sennacy.jpg')))
+User.create!(username: "sennacy", password: "password", email: "sennacy@sennacy.com", birthdate: Faker::Date.between(8.years.ago, 16.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/sennacy.jpg')))
 
-User.create!(username: "jonathan", password: "password", email: "jonathan@sennacy.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/jonathan.jpg')))
+User.create!(username: "jonathan", password: "password", email: "jonathan@sennacy.com", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/jonathan.jpg')))
 
-User.create!(username: "lily", password: "password", email: "lily@appacademy.io", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/lily.jpg')))
+User.create!(username: "lily", password: "password", email: "lily@appacademy.io", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/lily.jpg')))
 
-User.create!(username: "tommy", password: "password", email: "tommy@appacademy.io", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/tommy.jpg')))
+User.create!(username: "tommy", password: "password", email: "tommy@appacademy.io", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/tommy.jpg')))
 
-User.create!(username: "cody", password: "password", email: "cody@cody.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/cody.jpg')))
+User.create!(username: "cody", password: "password", email: "cody@cody.com", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/cody.jpg')))
 
-User.create!(username: "carl", password: "password", email: "carl@carl.com", birthdate: "1984-01-01", image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/carl.jpg')))
+User.create!(username: "carl", password: "password", email: "carl@carl.com", birthdate: Faker::Date.between(23.years.ago, 35.years.ago), image: File.open(File.join(Rails.root, '/app/assets/images/seed/users/carl.jpg')))
 
-User.create!(username: "dave", password: "password", email: "dave@hassan.com", birthdate: "1984-01-24", image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/932/medium/david-hassan.jpg?1443627638")
+User.create!(
+  username: "dave",
+  password: "password",
+  email: "dave@hassan.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/932/medium/david-hassan.jpg?1443627638"
+)
+
+User.create!(
+  username: "fred",
+  password: "password1234",
+  email: "fred@sladkey.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/910/medium/fred-sladkey.jpg?1443627805"
+)
+
+User.create!(
+  username: "jimmy",
+  password: "password1234",
+  email: "jimmy@zeng.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/902/medium/jimmy-zeng.jpg?1443627854"
+)
+
+User.create!(
+  username: "justin",
+  password: "password1234",
+  email: "justin@shulz.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/925/medium/justin-schulz.jpg?1443627879"
+)
+
+User.create!(
+  username: "michael",
+  password: "password1234",
+  email: "michael@budnik.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/913/medium/michael-budnick.jpg?1443627887"
+)
+
+User.create!(
+  username: "ben",
+  password: "password1234",
+  email: "ben@sullivan.com",
+  birthdate: Faker::Date.between(23.years.ago, 35.years.ago),
+  image: "http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/907/medium/ben-sullivan.jpg?1443629278"
+)
 
 
 styles = ['Dry Mead ',
@@ -50,6 +96,43 @@ locations = ['New York', 'Cleveland', 'Chicago', 'Backyard', 'Bathtub']
 10.times do
   Brewery.create!(name: "#{brewery_names.sample} Brewery", location: locations.sample)
 end
+
+Brewery.create!(
+  name: "Atlantic Brewing Company",
+  location: "The Atlantice Ocean"
+)
+
+Brewery.create!(
+  name: "Pipeworks Brewing Company",
+  location: "Chicago, Illinois"
+)
+
+Brewery.create!(
+  name: "Rusty Rail Brewing Company",
+  location: "Mifflinburg, Pennsylvania"
+)
+
+Brewery.create!(
+  name: "3 Floyds Brewing Co.",
+  location: "Munster, Indiana"
+)
+
+Brewery.create!(
+  name: "Tree House Brewing Company",
+  location: "Monson, Massachusetts"
+)
+
+Brewery.create!(
+  name: "Toppling Goliath Brewing Company",
+  location: "Decorah, Iowa"
+)
+
+Brewery.create!(
+  name: "Hill Farmstead Brewery",
+  location: "Greensboro Bend, Vermont"
+)
+
+
 
 cider_names = %w(Apple Banana Fire Liar Angel BadBoy Queens Maple Fruit Coal Filthy Sriracha AppAcademy ManBeard Willy Sloppy Vanilla Jerk Wild)
 cider_names.each_with_index do |name, idx|
@@ -203,8 +286,8 @@ Cider.create!(
   brewery_id: (Random.rand(Brewery.all.count) + 1),
   style_id: (Random.rand(styles.size) + 1),
   abv: "7.5",
-  organic: "N"
-  image: "https://lh6.googleusercontent.com/-jMojoEuoIX0/UkxfApN3VbI/AAAAAAAAAAQ/qagaXnHHUAo/w800-h800/See_Canyon_Hrad_Cider_%C2%A9.jpg"
+  organic: "N",
+  image: "http://seecanyonhardcider.com/About_files/shapeimage_2.png"
 )
 
 Cider.create!(
@@ -261,7 +344,7 @@ User.all.each do |user|
   (Random.rand(15)+(Cider.all.count-15)).times do
     result = review_cider_array.sample
     review_cider_array = review_cider_array - [result]
-    description = Faker::Hipster.paragraph
+    description = Faker::Hipster.paragraph(Random.rand(3)+1)
     Review.create(
       user_id: user.id,
       cider_id: result,

@@ -1,5 +1,5 @@
 json.extract! cider, :id, :name, :description, :organic,
-                     :abv, :average, :review_count
+                     :abv, :average
 
 json.brewery do
   json.partial! 'api/breweries/show', brewery: cider.brewery
