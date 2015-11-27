@@ -167,48 +167,89 @@ Cider.create!(
   image: "http://www.crispinoverice.com/assets/Uploads/Chotokkyo8.jpg"
 )
 
+Cider.create!(
+  name: "Pear Cider",
+  description: "The Inspiration for our small batch fruit ciders came from a brief stay in the Domfront area of Normandy.\r\n\r\nThis particular area of France is renowned for its Pear and Apple Brandy or Cavardos. Many of the pear varieties have no names and are picked from trees that are over 200 years old; they are part of the history and rich culture of the area.\r\nOur fruit ciders are made with our own carefully selected apple cider which is back blended with natural fruit flavours, essences and juice.\r\nOur homage to Normandy.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: '6.5',
+  organic: 'N',
+  image: "https://teepoo.files.wordpress.com/2015/09/dscf3532.jpg"
+)
 
+Cider.create!(
+  name: "Perronelle's Blush",
+  description: "This recipe reflects the joy and satisfaction Perronelle Chevallier, a renowned forager and long time Aspall matriarch, took from harvesting the blackberries in the hedgerows around the orchards at Aspall. Salmon pink in colour, Perronelle's Blush has an excellent nose comprising a floral, appley and fruit aroma. Attractive apple & blackberry flavours define a sweetish palate, with good acid balance and a long finish of soft fruit flavour, and blackberry tones that enhance the finish.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "4",
+  organic: "N",
+  image: "http://winetime.com.ua/modules/pages/files/139403890726_54701.jpg"
+)
 
+Cider.create!(
+  name: "Scrumpy Cider",
+  description: "This classic cider is crafted in the farmhouse tradition of southwestern England. Fresh pressed juices of sweet, bitter, aromatic and tart apples are blended to provide a tantalizing parade of distinctive taste experiences. Because less of the apple is filtered out, it is full of flavor, more robust, darker and cloudier than most ciders.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "7.5",
+  organic: "N",
+  image: "http://www.flippinggoodbeershop.co.uk/wp-content/uploads/Westons-Scrumpy-Cloudy-Cider-2L.jpg"
+)
 
+Cider.create!(
+  name: "See Canyon Hard Cider",
+  description: "Our hand crafted California Hard Cider is the optimal blend of apple sweetness with a crisp, slightly tart finish - just like biting into the perfect apple. See Canyon Hard Cider is a smooth and refreshing beverage that delights both cider-heads and new comers. We use only the best apples to create extraordinary aroma, flavor, and balance. 100% apples, we never add high fructose corn syrup or sugar and it’s gluten-free.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "7.5",
+  organic: "N"
+  image: "https://lh6.googleusercontent.com/-jMojoEuoIX0/UkxfApN3VbI/AAAAAAAAAAQ/qagaXnHHUAo/w800-h800/See_Canyon_Hrad_Cider_%C2%A9.jpg"
+)
 
+Cider.create!(
+  name: "Sidra De Nava",
+  description: "Sidra de Nava is a tart, lemony summer Spanish-style sidra. The Asturias region produces 80% of the Sidra in Spain, and the Asturian summer is something to behold. The skies are clear and blue, the cafés full, and Sidra reigns supreme. Every café and Sidrería pours it – either ’thrown’ from a bottle or pipa (pitcher) held high overhead or straight from the kupela (barrel). Afternoon drinking under those blue skies leads to long nights of music, dancing and of course, more Sidra. The climax of the summer is the Festival de la Sidra in the village of Nava, held each July. Virtue’s Sidra de Nava is more tart than the dry ciders of England or funky cidre from France. It’s lemony nose and bracingly tart dry finish are a happy intersection of cider, dry white wine and fresh squeezed lemonade. It’s the most refreshing of drinks, pure sunshine in a glass.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "5.2",
+  organic: "N",
+  image: "https://s3.amazonaws.com/brewerydbapi/beer/n7X4sh/upload_N3jtCZ-large.png"
+)
 
+Cider.create!(
+  name: "The Dirty Mayor",
+  description: "We offer this cider to the honorable and fully infamous mayor of the only non-town in America, Fort Ethan Allen, USA. The mayor likes his cider with a ginger nip, so in our current effort to ensure local harmony and diplomacy we offer this cider up to the mayor and his fellow citizens.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "6.9",
+  organic: "N",
+  image: "http://thegirlandherbeer.com/wp-content/uploads/2015/08/citizen-cider-dirty-mayor.png"
+)
 
+Cider.create!(
+  name: "The Early Man",
+  description: "This light bodied estate cider is a select blend of our early maturing heirloom apples, featuring McIntosh and Gravenstein - from our original orchard stock. While still a dry cider, the Early Man is crisp with a light fruitiness that preserves those last remaining notes of summer. GLUTEN FREE!",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "7.5",
+  organic: "Y",
+  image: "http://www.thetowndish.com/files/2011/05/IMG_8660.jpg"
+)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Cider.create!(
+  name: "The Full Nelson",
+  description: "This is a ‘welcome’ and a ‘hello’ to all the beer drinkers out there willing to take a chance on hard cider. Reach across the aisle and experience this bright, citrusy, easy-drinking cider. This cider is made with fresh sweet cider pressed at Happy Valley Orchard in Middlebury, Vermont and dry-hopped with Nelson Sauvin hops. We can all get along.",
+  brewery_id: (Random.rand(Brewery.all.count) + 1),
+  style_id: (Random.rand(styles.size) + 1),
+  abv: "6.9",
+  organic: "Y",
+  image: "http://thegirlandherbeer.com/wp-content/uploads/2015/08/citizen-cider-the-full-nelson.png"
+)
 
 adjectives = %w(best worst silliest loveliest tastiest smelliest odoroust ugliest fattest skinniest grossest lousiest)
 
 times = %w(day week minute year month hour second)
-
-# Cider.all.count.times do |i|
-#   User.all.count.times do |y|
-#     Review.create!(user_id: y+1, cider_id: i+1, look_rating: Random.rand(4)+1, smell_rating: Random.rand(4)+1, taste_rating: Random.rand(4)+1, feel_rating: Random.rand(4)+1, overall_rating: Random.rand(4)+1,
-#     content: "This cider is the #{adjectives.sample} cider I have had in the last #{times.sample}.")
-#   end
-# end
 
 styles.each do |style|
   Style.create!(name: style, description: "This style of cider is often described as extremely #{adjectives}")

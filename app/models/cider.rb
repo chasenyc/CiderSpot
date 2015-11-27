@@ -34,7 +34,7 @@ class Cider < ActiveRecord::Base
     subquery = Review.select(:cider_id, '(reviews.overall_rating +
           reviews.look_rating + reviews.smell_rating + reviews.feel_rating + reviews.taste_rating) AS total_scores')
 
-    Cider.order('AVG(totals.total_scores) DESC')
+    Cider.order('AVG(totals.total_scores) DESC, ciders.id')
   end
 
   def self.bottom_rated
@@ -42,15 +42,15 @@ class Cider < ActiveRecord::Base
           reviews.look_rating + reviews.smell_rating + reviews.feel_rating +
           reviews.taste_rating) AS total_scores')
 
-    Cider.order('AVG(totals.total_scores) ASC')
+    Cider.order('AVG(totals.total_scores) ASC, ciders.id')
   end
 
   def self.most_recently_updated
-    result = Cider.order(updated_at: :desc)
+    result = Cider.order(updated_at: :desc, id: :asc)
   end
 
   def self.least_recently_updated
-    result = Cider.order(updated_at: :asc)
+    result = Cider.order(updated_at: :asc, id: :asc)
   end
 
   def self.with_averages
