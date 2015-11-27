@@ -77,15 +77,25 @@ var App = React.createClass({
   },
 
   toggleSidebar: function () {
+    if (!this.state.sidebar) {
+      this.removeSearch();
+    }
     this.setState({sidebar: !this.state.sidebar});
   },
 
   toggleSearch: function () {
+    if (!this.state.search) {
+      this.removeSidebar();
+    }
     this.setState({search: !this.state.search});
   },
 
   removeSearch: function () {
     this.setState({search: false});
+  },
+
+  removeSidebar: function () {
+    this.setState({sidebar: false});
   },
 
   render: function(){
@@ -129,11 +139,13 @@ var App = React.createClass({
             toggleLogIn={this.toggleLogIn}
             toggleSidebar={this.toggleSidebar}
             toggleSearch={this.toggleSearch}
-            removeSearch={this.removeSearch} />
+            removeSearch={this.removeSearch}
+            removeSidebar={this.removeSidebar} />
           <Sidebar
             expanded={this.state.sidebar}
             currentUser={this.state.currentUser}
-            toggleLogIn={this.toggleLogIn} />
+            toggleLogIn={this.toggleLogIn}
+            removeSearch={this.removeSearch} />
           {renderedChildren}
           {modal}
         </div>
