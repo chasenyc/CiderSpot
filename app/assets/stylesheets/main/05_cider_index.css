@@ -9,7 +9,7 @@
   float: left;
   width: 226px;
   height: 226px;
-  margin: 10px;
+  margin: 11px;
   border: 1px solid #ccc;
   overflow: hidden;
 }
@@ -43,7 +43,7 @@
   float: right;
   background: #fff;
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 15px;
   font-weight: 500;
 }
 

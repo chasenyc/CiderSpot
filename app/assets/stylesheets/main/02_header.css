@@ -60,7 +60,8 @@
 }
 
 .user-info img {
-  display: block;
+  display: inline-block;
+  float: left;
   width: 18px;
   height: 18px;
   padding: 5px;
@@ -70,16 +71,28 @@
   border-radius: 5px;
 }
 
+.search-description {
+  display: inline-block;
+  font-weight: 400;
+  top: 0px;
+  font-size: 14px;
+  float: left;
+  margin: 13px 13px 0 0;
+}
+
 .user-info.down img {
   border: 1px solid #666;
 }
 
-.user-info img:hover {
-  background: #be1e08;
+.user-info:hover {
   cursor: pointer;
 }
 
-.user-info.down img:hover {
+.user-info:hover img {
+  background: #be1e08;
+}
+
+.user-info.down:hover img {
   background: #e33d26;
 }
 

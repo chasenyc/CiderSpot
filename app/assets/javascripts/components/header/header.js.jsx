@@ -111,6 +111,9 @@ var Header = React.createClass({
             onClick={this.handleSearchClick}
             className="icon"
             src={window.ImageAssets['search']}></img>
+          <span className="search-description">
+            Search our entire database
+          </span>
         </div>
       </span>
     );
