@@ -4,11 +4,12 @@
 }
 
 .cider-index article {
-  background: white;
+  position: relative;
+  background: #fff;
   display: block;
   float: left;
   width: 226px;
-  height: 226px;
+  height: 240px;
   margin: 11px;
   border: 1px solid #ccc;
   overflow: hidden;
@@ -26,17 +27,39 @@
 }
 
 .cider-index-info {
-  padding: 10px;
+  padding: 5px 10px;
   font-size: 13px;
 }
 
 .cider-index-item-name {
-  font-size: 20px;
+  font-size: 17px;
+  line-height: 20px;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+}
 
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+.cider-index-item-brewery {
+  font-size: 14px;
+  line-height: 19px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+}
+
+.cider-index-item-average {
+  color: #B3B3B3;
+  display: block;
+  padding: 10px;
+  top: 205px;
+  font-size: 12px;
+  position: absolute;
+  letter-spacing: .03em;
 }
 
 .cider-index-select {

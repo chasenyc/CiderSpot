@@ -3,12 +3,12 @@
 }
 .cider-index-item-wantgot {
   position: absolute;
-  left: 10px;
-  top: -105px;
+  left: 0px;
+  top: -35px;
   width: 205px;
   color: white;
+  font-size: 16px;
   font-weight: 700;
-
 }
 
 .want-button {

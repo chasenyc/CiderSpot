@@ -1,14 +1,18 @@
 .review-index-header {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .review-index-item {
   background: #fff;
   padding: 10px;
   border-top: 1px solid #ccc;
+}
+
+.review-index-ul>li:first-child {
+  border-top: 0;
 }
 
 .review-title {
@@ -42,6 +46,10 @@ img.author-thumb {
 
 .review-content {
   margin-top: 5px;
+  font-size: 16px;
+  line-height: 21px;
+  word-wrap: break-word;
+  white-space: pre-line;
 }
 
 .review-footer {

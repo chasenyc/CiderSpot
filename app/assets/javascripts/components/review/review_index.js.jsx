@@ -6,8 +6,8 @@ var ReviewIndex = React.createClass({
     if (this.props.currentUser) { currUser = this.props.currentUser; }
     return(
       <div className="review-index">
-        <ul>
         <h3 className="review-index-header">Reviews</h3>
+        <ul className="review-index-ul">
           {
             this.props.reviews.map(function(review) {
               return <ReviewIndexItem

@@ -38,12 +38,13 @@ var Header = React.createClass({
   },
 
   handleSearchClick: function () {
-    this.props.toggleSearch();
+
     $('#top').one("click", function(e) {
       if (e.target.dataset.refs !== 'search') {
         this.props.removeSearch();
       }
     }.bind(this));
+    this.props.toggleSearch();
   },
 
   render: function () {
@@ -107,13 +108,16 @@ var Header = React.createClass({
         </div>
         <div
           id="search"
+          data-refs="search"
           onClick={this.handleSearchClick}
           className="nav-icon user-info right search group">
           <img
             data-refs="search"
             className="icon"
             src={window.ImageAssets['search']}></img>
-          <span className="search-description">
+          <span
+            data-refs="search"
+            className="search-description">
             Search our entire database
           </span>
         </div>

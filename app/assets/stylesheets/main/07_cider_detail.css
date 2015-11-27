@@ -41,3 +41,33 @@ img.cider-thumb {
   padding: 0 20px;
   z-index: 40;
 }
+
+.cider-detail-description {
+  margin-bottom: 20px;
+  line-height: 22px;
+  letter-spacing: .01em;
+}
+
+.cider-detail-stats {
+  display: block;
+  border-top: 3px solid black;
+  border-bottom: 1px solid #aaa;
+  margin: 10px 0;
+  padding: 10px 0;
+  font-weight: 300;
+}
+
+.cider-detail-ratings {
+  float: right;
+}
+
+.cider-detail-abv {
+  float: left;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.cider-detail-organic {
+  float: left;
+}

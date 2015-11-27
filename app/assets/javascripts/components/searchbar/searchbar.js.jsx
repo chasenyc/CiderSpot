@@ -50,6 +50,7 @@ var SearchBar = React.createClass({
               className="search-input"
               type="text"
               onChange={this.handleChange}
+              placeholder="search our tens of ciders..."
               value={this.state.query} />
             <SearchResultsIndex
               query={this.state.query}
