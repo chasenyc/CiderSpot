@@ -36,7 +36,6 @@ var SearchResultsIndex = React.createClass({
               </li>;
             }.bind(this))
           }
-          {fullResults}
         </ul>
       </div>
     );
