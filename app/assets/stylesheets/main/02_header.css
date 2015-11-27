@@ -18,6 +18,8 @@
 }
 
 .logo {
+  font-weight: 700;
+  text-transform: capitalize;
   display: block;
   margin: 2px auto 0 auto;
   position: fixed;

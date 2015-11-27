@@ -33,6 +33,10 @@
 .cider-index-item-name {
   font-size: 20px;
   font-weight: 700;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis; 
 }
 
 .cider-index-select {
