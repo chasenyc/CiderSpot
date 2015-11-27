@@ -6,7 +6,7 @@ var App = React.createClass({
       signUp: false,
       logIn: false,
       sidebar: false,
-      search: false
+      search: false,
     });
   },
 
@@ -121,7 +121,7 @@ var App = React.createClass({
       );
     }
     return (
-        <div className="top">
+        <div id="top" className="top">
           {searchBar}
           {errors}
           <Header

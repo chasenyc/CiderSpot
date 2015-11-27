@@ -4,17 +4,31 @@ var CiderIndex = React.createClass({
     return {
       ciders: CiderStore.all(),
       page: 1,
-      style: 'top'
+      style: 'top',
+      load: false,
     };
   },
 
   componentDidMount: function () {
+    window.addEventListener('scroll', this.handleScroll);
     CiderStore.addChangeListener(this.changed);
     ApiUtil.fetchCiders(0, this.state.style);
   },
 
   componentWillUnmount: function () {
+    window.removeEventListener('scroll', this.handleScroll);
     CiderStore.removeChangeListener(this.changed);
+  },
+
+  handleScroll: function () {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight &&
+         this.state.load)
+    {
+      var pageNum = (this.state.page + 1);
+      ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
+        this.setState({page: pageNum, load: true});
+      }.bind(this));
+    }
   },
 
   changed: function () {
@@ -23,9 +37,10 @@ var CiderIndex = React.createClass({
 
   fetchMoreCiders: function (e) {
     e.preventDefault();
+
     var pageNum = (this.state.page + 1);
     ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
-      this.setState({page: pageNum});
+      this.setState({page: pageNum, load: true});
     }.bind(this));
   },
 

@@ -34,6 +34,9 @@ gem 'paperclip'
 gem 'figaro'
 gem 'kaminari'
 gem 'pg_search'
+
+gem 'faker', github: 'stympy/faker'
+gem 'factory_girl_rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

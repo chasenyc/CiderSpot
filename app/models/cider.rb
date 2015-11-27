@@ -1,5 +1,6 @@
 class Cider < ActiveRecord::Base
   include PgSearch
+  paginates_per 8
 
   pg_search_scope :search_all,
                   :against => {
@@ -41,9 +42,7 @@ class Cider < ActiveRecord::Base
           reviews.look_rating + reviews.smell_rating + reviews.feel_rating +
           reviews.taste_rating) AS total_scores')
 
-    Cider.from("ciders INNER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id")
-         .group('ciders.id')
-         .order('AVG(totals.total_scores) ASC')
+    Cider.order('AVG(totals.total_scores) ASC')
   end
 
   def self.most_recently_updated
@@ -64,6 +63,7 @@ class Cider < ActiveRecord::Base
   end
 
   def average
+    return 0 if reviews.size == 0
     averages = reviews.group('id').select('((reviews.overall_rating +
           reviews.look_rating +
           reviews.smell_rating +

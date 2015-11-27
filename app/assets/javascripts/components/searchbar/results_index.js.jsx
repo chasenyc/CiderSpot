@@ -3,7 +3,6 @@ var SearchResultsIndex = React.createClass({
   mixins: [ReactRouter.History],
 
   handleClick: function (e) {
-    e.preventDefault();
     var path = e.currentTarget.dataset.path;
     this.props.resetSearch();
     this.props.toggleSearch();

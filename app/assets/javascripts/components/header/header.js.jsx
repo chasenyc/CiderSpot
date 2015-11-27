@@ -1,5 +1,7 @@
 var Header = React.createClass({
 
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return ({
       user: CurrentUserStore.currentUser(),
@@ -37,21 +39,9 @@ var Header = React.createClass({
 
   handleSearchClick: function () {
     this.props.toggleSearch();
-    $(document).one("click", function(e) {
+    $('#top').one("click", function(e) {
       if (e.target.dataset.refs !== 'search') {
         this.props.removeSearch();
-      } else {
-        this.addOneMoreClick();
-      }
-    }.bind(this));
-  },
-
-  addOneMoreClick: function () {
-    $(document).one("click", function(e) {
-      if (e.target.dataset.refs !== 'search') {
-        this.props.removeSearch();
-      } else {
-        this.addOneMoreClick();
       }
     }.bind(this));
   },

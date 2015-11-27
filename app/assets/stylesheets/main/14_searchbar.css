@@ -20,7 +20,7 @@
 }
 
 .inner-search {
-  width: 1510px;
+  max-width: 100%;
   margin: auto;
   min-height: 60px;
   padding-top: 30px;
@@ -29,6 +29,7 @@
 .search-bar {
   max-width: 850px;
   margin: 0 auto;
+  position: relative;
 }
 
 .search-input {
@@ -44,17 +45,17 @@
   padding: 15px;
   text-align: left;
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .small-search-results {
+  width: 848px;
   position: absolute;
   background: #f2f2f2;
   border: 1px solid #aaa;
   color: #000;
   text-align: left;
   left: CALC(50% - 425px);
-  width: 848px;
-  top: 60px;
   font-size: 20px;
   line-height: 34px;
 }
