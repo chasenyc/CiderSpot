@@ -28,7 +28,7 @@ class Api::CidersController < ApplicationController
   end
 
   def update
-    @cider = Cider.with_averages.find(params[:id])
+    @cider = Cider.find(params[:id])
     @cider.update(cider_params)
     if @cider.save
       render 'show'
@@ -38,7 +38,7 @@ class Api::CidersController < ApplicationController
   end
 
   def show
-    @cider = Cider.with_averages.find(params[:id])
+    @cider = Cider.with_averages.includes(:brewery, :style).find(params[:id])
     render 'show'
   end
 
