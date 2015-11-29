@@ -193,6 +193,7 @@ var ReviewIndexItem = React.createClass({
           result = like.id;
         }
       }.bind(this));
+      
       return result;
     }
   },
