@@ -122,7 +122,7 @@ var ReviewIndexItem = React.createClass({
           </button>);
       }
       if (this.props.review) {
-        if (this._likedCurrentReview()) {
+        if (this.state.liked) {
           likeButton = (
             <button
               onClick={this.handleUnlike}
@@ -197,17 +197,8 @@ var ReviewIndexItem = React.createClass({
       }.bind(this));
 
       return result;
-      
+
     }
   },
-
-  _likedCurrentReview: function () {
-    var found = false;
-    var currId = this.props.currentUser.id;
-    this.props.review.likes.forEach(function (like) {
-      if (like.user_id === currId) { found = true; }
-    });
-    return found;
-  }
 
 });
