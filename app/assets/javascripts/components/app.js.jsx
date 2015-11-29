@@ -108,7 +108,7 @@ var App = React.createClass({
     );
     var searchKlass = "header-search";
     if (this.state.search) {
-      searchKlass += " open"
+      searchKlass += " open";
     }
     var searchBar = (
       <div className={searchKlass}>
