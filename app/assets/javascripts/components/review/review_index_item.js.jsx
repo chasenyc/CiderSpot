@@ -204,8 +204,6 @@ var ReviewIndexItem = React.createClass({
       if (like.user_id === currId) { found = true; }
     });
     return found;
-
-    console.log(found);
   }
 
 });
