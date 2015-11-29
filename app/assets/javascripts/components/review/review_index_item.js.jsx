@@ -100,7 +100,7 @@ var ReviewIndexItem = React.createClass({
       );
     }
     var liked;
-    var likes = this.props.review.likes.length + " likes. "
+    var likes = this.props.review.likes.length + " likes. ";
 
 
     if (CurrentUserStore.isLoggedIn()) {
@@ -122,11 +122,13 @@ var ReviewIndexItem = React.createClass({
           </button>);
       }
       if (this.props.review) {
-        if (this.state.liked) {
+        if (this._likedCurrentReview()) {
           likeButton = (
-            <button onClick={this.handleUnlike} data-like-id={this.state.liked}
-                  className="review-like-button">Unlike this review
-            </button>);
+            <button
+              onClick={this.handleUnlike}
+              data-like-id={this.state.liked}
+              className="review-like-button">Unlike this review</button>
+          );
         }
       }
     }
@@ -193,8 +195,19 @@ var ReviewIndexItem = React.createClass({
           result = like.id;
         }
       }.bind(this));
+
       return result;
       
     }
+  },
+
+  _likedCurrentReview: function () {
+    var found = false;
+    var currId = this.props.currentUser.id;
+    this.props.review.likes.forEach(function (like) {
+      if (like.user_id === currId) { found = true; }
+    });
+    return found;
   }
+
 });
