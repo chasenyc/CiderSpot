@@ -99,7 +99,7 @@ var ReviewIndexItem = React.createClass({
         </li>
       );
     }
-    var liked;
+    var liked = this._isReviewLiked();
     var likes = this.props.review.likes.length + " likes. ";
 
 
@@ -122,7 +122,7 @@ var ReviewIndexItem = React.createClass({
           </button>);
       }
       if (this.props.review) {
-        if (this.state.liked) {
+        if (liked) {
           likeButton = (
             <button
               onClick={this.handleUnlike}
