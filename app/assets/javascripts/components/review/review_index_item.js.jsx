@@ -187,6 +187,15 @@ var ReviewIndexItem = React.createClass({
     return elapsedStr;
   },
 
+  _isReviewLiked: function () {
+    var found = false;
+    var currId = this.props.currentUser.id;
+    this.props.review.likes.forEach(function (like) {
+      if (like.user_id === currId) { found = true; }
+    });
+    return found;
+  },
+
   _includesCurrentReview: function () {
     var result = false;
     if (CurrentUserStore.isLoggedIn()) {
