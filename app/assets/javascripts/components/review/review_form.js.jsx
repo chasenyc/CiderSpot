@@ -167,8 +167,14 @@ var ReviewForm = React.createClass({
                 </label>
               </div>
               <div className="text-submit">
-                <textarea onChange={this.handleContent} className="rating-sub" name="review[content]" value={this.state.content}></textarea>
-                <button className="rating-button rating-sub" value="submit">Submit Rating</button>
+                <textarea
+                  onChange={this.handleContent}
+                  className="rating-sub"
+                  name="review[content]"
+                  value={this.state.content}></textarea>
+                <button
+                  className="rating-button rating-sub"
+                  value="submit">Submit Rating</button>
                 <button onClick={cancel} className="cancel-button rating-sub">Cancel</button>
               </div>
             </div>
