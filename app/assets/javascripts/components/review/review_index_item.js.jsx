@@ -100,8 +100,11 @@ var ReviewIndexItem = React.createClass({
       );
     }
     var liked = this._isReviewLiked();
-    var likes = this.props.review.likes.length + " likes. ";
 
+    var likes;
+    if (this.props.review.likes.length > 0) {
+      likes = this.props.review.likes.length + " likes. ";
+    }
 
     if (CurrentUserStore.isLoggedIn()) {
       if (this.props.review.author.id === this.state.currentUser.id) {
