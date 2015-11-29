@@ -194,6 +194,7 @@ var ReviewIndexItem = React.createClass({
         }
       }.bind(this));
       return result;
+      
     }
   }
 });
