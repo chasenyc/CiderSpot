@@ -100,7 +100,7 @@ var ReviewIndexItem = React.createClass({
       );
     }
     var liked;
-    var likes = this.props.review.likes.length + " likes. "
+    var likes = this.props.review.likes.length + " likes. ";
 
 
     if (CurrentUserStore.isLoggedIn()) {
@@ -124,9 +124,11 @@ var ReviewIndexItem = React.createClass({
       if (this.props.review) {
         if (this._likedCurrentReview()) {
           likeButton = (
-            <button onClick={this.handleUnlike} data-like-id={this.state.liked}
-                  className="review-like-button">Unlike this review
-            </button>);
+            <button
+              onClick={this.handleUnlike}
+              data-like-id={this.state.liked}
+              className="review-like-button">Unlike this review</button>
+          );
         }
       }
     }
@@ -193,7 +195,7 @@ var ReviewIndexItem = React.createClass({
           result = like.id;
         }
       }.bind(this));
-      
+
       return result;
     }
   },
