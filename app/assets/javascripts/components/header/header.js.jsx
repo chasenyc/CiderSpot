@@ -14,10 +14,12 @@ var Header = React.createClass({
   },
 
   componentDidMount: function () {
+    $('#top').on("click", this.toggleSearch);
     CurrentUserStore.addChangeHandler(this.changed);
   },
 
   componentWillUnmount: function () {
+    $('#top').off("click", this.toggleSearch);
     CurrentUserStore.removeChangeHandler(this.changed);
   },
 
@@ -37,14 +39,10 @@ var Header = React.createClass({
     }.bind(this));
   },
 
-  handleSearchClick: function () {
-
-    $('#top').one("click", function(e) {
-      if (e.target.dataset.refs !== 'search') {
-        this.props.removeSearch();
-      }
-    }.bind(this));
-    this.props.toggleSearch();
+  toggleSearch: function (e) {
+    if (e.target.dataset.refs !== 'search') {
+      this.props.removeSearch();
+    }
   },
 
   render: function () {
@@ -109,7 +107,7 @@ var Header = React.createClass({
         <div
           id="search"
           data-refs="search"
-          onClick={this.handleSearchClick}
+          onClick={this.props.toggleSearch}
           className="nav-icon user-info right search group">
           <img
             data-refs="search"
