@@ -15,6 +15,7 @@ var UserEditForm = React.createClass({
   },
 
   componentDidMount: function () {
+    ga('send', 'pageview', '/edit-profile');
     CurrentUserStore.addChangeHandler(this.changed);
   },
 

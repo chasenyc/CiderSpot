@@ -9,6 +9,7 @@ var GotsIndex = React.createClass({
   },
 
   componentDidMount: function () {
+    ga('send', 'pageview', '/gots-index');
     CurrentUserStore.addChangeHandler(this.changed);
   },
 

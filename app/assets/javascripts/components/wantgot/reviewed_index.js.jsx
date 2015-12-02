@@ -9,6 +9,7 @@ var ReviewedIndex = React.createClass({
     },
 
     componentDidMount: function () {
+      ga('send', 'pageview', '/reviewed-index');
       CurrentUserStore.addChangeHandler(this.changed);
     },
 

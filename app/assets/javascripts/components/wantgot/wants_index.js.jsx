@@ -9,6 +9,7 @@ var WantsIndex = React.createClass({
   },
 
   componentDidMount: function () {
+    ga('send', 'pageview', '/wants-index');
     CurrentUserStore.addChangeHandler(this.changed);
   },
 
