@@ -37,7 +37,6 @@ module CiderSpotApp
       compress_javascript: true,
       css_compressor: Sass,
       enabled: true,
-      javascript_compressor: uglifier,
       preserve_line_breaks: false,
       remove_comments: true,
       remove_form_attributes: false,
