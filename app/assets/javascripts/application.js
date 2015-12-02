@@ -15,6 +15,7 @@
 //= require jquery.serializeJSON
 //= require react
 //= require react_router
+//= require react-google-analytics
 //= require flux
 //= require eventemitter
 //= require components
