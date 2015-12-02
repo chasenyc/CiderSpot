@@ -89,6 +89,7 @@ GEM
       railties (>= 3.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    htmlcompressor (0.3.0)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -213,6 +214,7 @@ DEPENDENCIES
   faker!
   figaro
   flux-rails-assets (~> 2.1.0)
+  htmlcompressor
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

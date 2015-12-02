@@ -37,6 +37,7 @@ gem 'kaminari'
 gem 'pg_search'
 gem 'rack'
 gem 'rack-zippy'
+gem 'htmlcompressor'
 
 gem 'faker', github: 'stympy/faker'
 gem 'factory_girl_rails'
