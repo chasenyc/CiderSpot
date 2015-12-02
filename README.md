@@ -12,11 +12,10 @@ Website to aggregate cider reviews for both cider enthusiasts and regulars alike
 - [x] Create, read, edit and delete reviews
 - [x] Can like other reviews
 - [x] Keep track of ciders they have had
-- [x] Maintain a wish list
-- [ ] Admins can post to blog
-- [ ] Admins can delete reviews
+- [x] Maintain a wants list
+- [x] Maintain a gotten list
+- [x] Add search including cider's associations.
 
-* (Potentially) Utilize brewery DB for database, alternatively use own database.
 
 ## Design Docs
 * [View Wireframes][view]
@@ -62,10 +61,8 @@ Phase six will be devoted to styling the site and tying up any loose ends.
 
 ### Bonus Features (TBD)
 - [x] Add profile information including avatar
-- [ ] Add pagination to ciders index
+- [x] Add pagination to ciders index
 - [ ] Use other services to log in (Google, FB, Twitter)
-- [ ] Ability to message other users
-- [ ] Notifications on liked posts
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
