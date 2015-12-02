@@ -1,5 +1,7 @@
 var CiderDetailView = React.createClass({
 
+  mixins: [Analytics],
+
   getInitialState: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
@@ -21,7 +23,7 @@ var CiderDetailView = React.createClass({
   },
 
   componentDidMount: function () {
-    ga('send', 'pageview', '/cider-detail');
+
     CiderStore.addSingleChangeListener(this.changed);
     ApiUtil.fetchCider(this.props.params.ciderId);
   },

@@ -4,11 +4,24 @@
 
     submit: function (e) {
       e.preventDefault();
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'SignUp',
+        eventAction: 'signUp',
+        eventLabel: 'User Submit Sign Up'
+      });
       var formData = $(e.currentTarget).serializeJSON();
       this.outsideClick();
-      UsersApiUtil.createUser(formData, function () {
+      UsersApiUtil.createUser(formData);
+    },
 
-      }.bind(this));;
+    componentDidMount: function () {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'SignUp',
+        eventAction: 'loadSignUp',
+        eventLabel: 'Clicked Sign Up'
+      });
     },
 
     componentWillMount: function () {

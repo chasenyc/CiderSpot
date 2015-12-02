@@ -1,5 +1,7 @@
 var CiderIndex = React.createClass({
 
+  mixins: [Analytics],
+
   getInitialState: function () {
     return {
       ciders: CiderStore.all(),
@@ -11,7 +13,6 @@ var CiderIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    ga('send', 'pageview', '/cider-index');
     window.addEventListener('scroll', this.handleScroll);
     CiderStore.addChangeListener(this.changed);
     ApiUtil.fetchCiders(0, this.state.style);

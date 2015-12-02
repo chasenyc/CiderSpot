@@ -4,6 +4,12 @@
 
     submit: function (e) {
       e.preventDefault();
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Login',
+        eventAction: 'attemptLogin',
+        eventLabel: 'Click Log In'
+      });
       var credentials = $(e.currentTarget).serializeJSON();
       this.outsideClick();
       SessionsApiUtil.login(credentials, function () {
@@ -27,6 +33,12 @@
 
     fillDemo: function (e) {
       e.preventDefault();
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Login',
+        eventAction: 'fillDemo',
+        eventLabel: 'Fill Demo Info'
+      });
       e.target.parentElement.parentElement.username.value = "sennacy";
       e.target.parentElement.parentElement.password.value = "password";
     },
