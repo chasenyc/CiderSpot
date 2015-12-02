@@ -31,6 +31,6 @@ module CiderSpotApp
         :secret_access_key => ENV["s3_secret_access_key"]
       }
     }
-    config.middleware.use Rack::Deflater
+    config.middleware.use Rack::Deflater 
   end
 end
