@@ -4,7 +4,7 @@ var App = React.createClass({
       errors: [],
       currentUser: CurrentUserStore.currentUser(),
       signUp: false,
-      logIn: false,
+      logIn: true,
       sidebar: false,
       search: false,
     });
