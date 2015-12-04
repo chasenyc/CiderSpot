@@ -66,6 +66,10 @@ var UserEditForm = React.createClass({
     this._ensureLoggedIn();
   },
 
+  handleUploadClick: function () {
+    document.getElementById("upfile").click();
+  },
+
   render: function () {
     var klassName = "edit-profile-button";
     if (this.state.changed) {
@@ -92,7 +96,14 @@ var UserEditForm = React.createClass({
           <div className="control-group group">
             <label>Profile photo:
             </label>
-                <input type="file" className="upload edit" name="imageFile" />
+                <div
+                  onClick={this.handleUploadClick}
+                  className="upload-btn">Choose File</div>
+                <input
+                  id="upfile"
+                  type="file"
+                  className="upload edit"
+                  name="imageFile" />
           </div>
           <div className="control-group group">
             <label></label>
