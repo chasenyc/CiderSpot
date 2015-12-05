@@ -1,71 +1,38 @@
-# CiderSpot
+# Cider Spot
 [CiderSpot](http://www.ciderspot.com)
 
-## Minimum Viable Product
+Cider Spot is a web application built with Ruby on Rails, PostgreSQL, React.js, and JQuery, and is a cider review aggregator with social elements inspired by [BeerAdvocate](http://www.beeradvocate.com/).
 
-CiderSpot is a web application inspired by [BeerAdvocate](http://www.beeradvocate.com/) built using Ruby on Rails and React.js. CiderSpot allows users to:
+### Main Functionality:
 
-Website to aggregate cider reviews for both cider enthusiasts and regulars alike. While the main content and driver of traffic to the site is its crowdsourced reviews there will also be a main page with blog/news posts.
+* Search for ciders by name or brewery name
+* Filter results by most recently updated or average review
+* Submit, edit and delete reviews
+* Maintain a Cider Stash with ciders you want to try, have already tried and one's you've reviewed
+* Like other people's reviews of ciders
+* Edit user profile and upload an avatar
 
-- [x] Create an account
-- [x] Log in / Log out
-- [x] Create, read, edit and delete reviews
-- [x] Can like other reviews
-- [x] Keep track of ciders they have had
-- [x] Maintain a wants list
-- [x] Maintain a gotten list
-- [x] Add search including cider's associations.
+### Additional Features:
+* Hand-rolled authentication via Rails
+* Server side searching and pagination
+* Integration with AWS for cloud storage of all uploaded assets
+* Hand-crafted error handler designed in React with Flux architecture to notify user of any issues in a pleasant non-intrusive or experience inhibiting manner
+* Modular model-level filtering to maintain active record for chaining of filters, eg:
+```
+def self.with_averages
+  subquery = Review.select('reviews.cider_id AS cider_id, ((reviews.overall_rating +
+    reviews.look_rating +
+    reviews.smell_rating +
+    reviews.feel_rating +
+    reviews.taste_rating) / 5) AS total_scores')
 
+  Cider.select("ciders.*, ROUND(CAST(AVG(totals.total_scores) AS numeric), 1) AS average, COUNT(totals.total_scores) as review_count").joins("INNER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id").group('ciders.id')
+end
+```
 
-## Design Docs
-* [View Wireframes][view]
-* [DB schema][schema]
+### Future Features:
+If I have some free time I would really like to continue to add to the social aspect of the site, my main features to come will be:
 
-[view]: ./docs/views.md
-[schema]: ./docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Cider and Review Model, Cider Seed Data and JSON API (2 days)
-
-In Phase 1, I will begin by implementing the user signup and authentication process (using BCrypt). There will be a basic landing page after signing up which will have container for the application's root react component. Before working on the front end I will be setting up a JSON API for the reviews and the ciders themselves.
-
-[Details][phase-one]
-
-### Phase 2: Flux Architecture and Cider CRUD (2 days)
-
-Phase 2 is focused on setting up Flux, the React Router, and the React view structure for the main application. After the basic flux structure has been set up, a Cider store will be implemented and a set of actions corresponding to the CRUD functionality needed. Once that is done I will create the react views Ciders `Index`, `IndexItem` and `IndexDetailView`. At the end of Phase 2 Ciders can be viewed and sorted. I will be using basic CSS styling at the phase in the project to ensure the overall design
-
-[Details][phase-two]
-
-### Phase 3: Reviews with Flux and CRUD (1.5 days)
-
-Phase 3 is composed of implementing more FLUX, a Review Store, Actions and more views. The `ReviewIndex` and  `ReviewForm` React views will be created in this phase. At the end of phase three a user will be able to review a cider, edit their review, delete their review. Ciders will display an index of reviews
-
-[Details][phase-three]
-
-### Phase 4: Implement Wants, Gots and Likes (1.5 days)
-
-Phase 4 will be a day to committed to implementing Wants, Gots and Likes, all three of these are joining tables between users and ciders and users and reviews respectively. I will be implementing the models, JSON APIs, Actions, Stores and necessary views. By the end of phase four users will be able to like reviews and put ciders in their wants/gots or delete them from them respectively.
-
-[Details][phase-four]
-
-### Phase 5: Posts and Admin (1 day)
-
-Phase 5 will mainly be a day adding features for admin users who can both post entries that will reside on the front page and secondly can delete reviews.
-
-[Details][phase-five]
-
-### Phase 6: Styling Cleanup and Seeding (1 day)
-Phase six will be devoted to styling the site and tying up any loose ends.
-
-### Bonus Features (TBD)
-- [x] Add profile information including avatar
-- [x] Add pagination to ciders index
-- [ ] Use other services to log in (Google, FB, Twitter)
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+- [ ] Friend other users
+- [ ] Ability to message other users
+- [ ] Let users add ciders
