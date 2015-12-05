@@ -1,6 +1,6 @@
 var ReviewedIndex = React.createClass({
 
-    mixins: [ReactRouter.History],
+    mixins: [ReactRouter.History, Analytics],
 
     getInitialState: function () {
       return {

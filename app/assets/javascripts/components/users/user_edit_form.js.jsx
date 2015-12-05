@@ -1,6 +1,6 @@
 var UserEditForm = React.createClass({
 
-  mixins: [ReactRouter.History],
+  mixins: [ReactRouter.History, Analytics],
 
   getInitialState: function () {
     return (
@@ -21,7 +21,7 @@ var UserEditForm = React.createClass({
   componentWillReceiveProps: function (newProps) {
     this._ensureLoggedIn();
     this.setState(CurrentUserStore.currentUser());
-    this.setState({changed: false})
+    this.setState({changed: false});
   },
 
   handleSubmit: function (e) {
