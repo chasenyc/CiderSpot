@@ -68,9 +68,11 @@ var Header = React.createClass({
       <span>
         <button
           className="user-info nav-item right button"
+          id="login"
           onClick={this.props.toggleLogIn}>Log In</button>
         <button
           className="user-info nav-item right button"
+          id="signup"
           onClick={this.props.toggleSignUp}>Sign up</button>
       </span>
     );
