@@ -7,6 +7,7 @@ var App = React.createClass({
       logIn: false,
       sidebar: false,
       search: false,
+      breweries: []
     });
   },
 
@@ -18,12 +19,14 @@ var App = React.createClass({
     window.addEventListener('scroll', this.handleScroll);
     ErrorStore.addChangeListener(this.changed);
     CurrentUserStore.addChangeHandler(this.userChanged);
+    BreweryStore.addChangeListener(this.breweriesChanged);
   },
 
   componentWillUnmount: function () {
     window.removeEventListener('scroll', this.handleScroll);
     ErrorStore.removeChangeListener(this.changed);
     CurrentUserStore.removeChangeHandler(this.userChanged);
+    BreweryStore.removeChangeListener(this.breweriesChanged);
   },
 
   handleScroll: function (){
@@ -68,6 +71,10 @@ var App = React.createClass({
     }.bind(this), 6000);
   },
 
+  breweriesChanged: function () {
+    this.setState({breweries: BreweryStore.all()});
+  },
+
   toggleSignUp: function () {
     this.setState({signUp: !this.state.signUp});
   },
@@ -102,7 +109,7 @@ var App = React.createClass({
     var renderedChildren = React.Children.map(this.props.children,
       function (child) {
         return React.cloneElement(
-        child, { currentUser: this.state.currentUser }
+        child, Object.assign({}, this.state, this.props)
         );
       }.bind(this)
     );

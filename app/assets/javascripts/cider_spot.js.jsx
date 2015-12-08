@@ -11,6 +11,7 @@ $(function(){
         <Route path="login" component={ SessionForm }/>
         <Route path="signup" component={ UserForm }/>
         <Route path="editprofile" component={ UserEditForm }/>
+        <Route path="newcider" component={ CiderCreateForm }/>
         <Route path="ciders/:ciderId" component={CiderDetailView} />
         <Route path="wants" component={WantsIndex} />
         <Route path="gots" component={GotsIndex} />

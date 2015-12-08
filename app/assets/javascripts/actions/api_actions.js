@@ -25,5 +25,12 @@ var ApiActions = window.ApiActions = {
       actionType: CiderConstants.ERROR_RECEIVED,
       error: error
     });
+  },
+
+  receiveBreweries: function (breweries) {
+    AppDispatcher.dispatch({
+      actionType: CiderConstants.BREWERIES_RECEIVED,
+      breweries: breweries
+    });
   }
 };
