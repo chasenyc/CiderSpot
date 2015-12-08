@@ -5,3 +5,15 @@
   margin: 0 auto 20px;
   border: 1px solid #eee;
 }
+
+.edit.create-cider {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  padding: 0 5px;
+  height: 30px;
+  width: 280px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

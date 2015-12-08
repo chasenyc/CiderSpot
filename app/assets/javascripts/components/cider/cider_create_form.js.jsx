@@ -11,11 +11,10 @@ var CiderCreateForm = React.createClass({
   },
 
   componentDidMount: function () {
-    console.log("AHA");
+    BreweryUtil.fetchBreweries();
   },
 
   render: function () {
-    debugger;
     return (
       <div className="cider-create-form">
         <form
@@ -35,8 +34,7 @@ var CiderCreateForm = React.createClass({
           </div>
           <div className="control-group group">
             <label>Brewery:</label>
-
-
+            {this._renderBrewerySelect()}
           </div>
         </form>
       </div>
@@ -45,14 +43,17 @@ var CiderCreateForm = React.createClass({
 
   _renderBrewerySelect: function () {
 
-
     return (
       <select
-        className="edit"
+        className="edit create-cider"
         name="brewery_id"
-        value={this.state.brewery_id}>
+        value="null">
+        <option value="null">Please select a brewery</option>
         {
-
+          this.props.breweries.map(function(brewery) {
+            return <option
+              key={brewery.id} value={brewery.id}>{brewery.name}</option>
+          })
         }
       </select>
     );

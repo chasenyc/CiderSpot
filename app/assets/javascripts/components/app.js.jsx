@@ -20,6 +20,7 @@ var App = React.createClass({
     ErrorStore.addChangeListener(this.changed);
     CurrentUserStore.addChangeHandler(this.userChanged);
     BreweryStore.addChangeListener(this.breweriesChanged);
+    BreweryUtil.fetchBreweries();
   },
 
   componentWillUnmount: function () {

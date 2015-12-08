@@ -62,7 +62,7 @@ h2 {
   width: 100px
 }
 
-.control-group input {
+.control-group input, select {
   float: left;
   margin-left: 15px;
 }

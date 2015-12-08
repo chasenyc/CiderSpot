@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :gots, only: [:create]
       resources :reviews, only: [:create]
     end
+    resources :breweries, only: [:index]
     resources :reviews, only: [:update, :destroy]
     post 'reviews/:review_id/likes', to: 'likes#create'
     get 'search', to: 'search#index'
