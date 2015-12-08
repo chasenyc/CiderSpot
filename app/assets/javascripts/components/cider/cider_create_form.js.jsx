@@ -6,7 +6,9 @@ var CiderCreateForm = React.createClass({
     return ({
       name: '',
       description: '',
-      brewery_id: 1,
+      brewery_id: "null",
+      abv: '',
+      organic: 'N'
     });
   },
 
@@ -36,6 +38,23 @@ var CiderCreateForm = React.createClass({
             <label>Brewery:</label>
             {this._renderBrewerySelect()}
           </div>
+
+          <div className="control-group group">
+            <label title="Alcohol by Volume">ABV:</label>
+            <input className="edit" type="text" name="abv"
+                    value={this.state.abv} />
+          </div>
+
+          <div className="control-group group">
+            <label>Organic:</label>
+            <select
+              className="edit create-cider"
+              name="organic"
+              value={this.state.organic}>
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+            </select>
+          </div>
         </form>
       </div>
     );
@@ -47,7 +66,7 @@ var CiderCreateForm = React.createClass({
       <select
         className="edit create-cider"
         name="brewery_id"
-        value="null">
+        value={this.state.brewery_id}>
         <option value="null">Please select a brewery</option>
         {
           this.props.breweries.map(function(brewery) {
