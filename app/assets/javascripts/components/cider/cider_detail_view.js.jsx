@@ -19,11 +19,9 @@ var CiderDetailView = React.createClass({
         this.setState({cider: this._findCiderById(ciderId)});
       }.bind(this));
     }
-    this.setState({currentUser: newProps.currentUser});
   },
 
   componentDidMount: function () {
-
     CiderStore.addSingleChangeListener(this.changed);
     ApiUtil.fetchCider(this.props.params.ciderId);
   },
