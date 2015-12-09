@@ -165,4 +165,31 @@ var ApiUtil = window.ApiUtil = {
     });
     return result;
   },
+
+  fetchStyles: function() {
+    $.ajax({
+      url: 'api/styles',
+      success: function(data) {
+        ApiActions.receiveStyles(data);
+      }
+    });
+  },
+
+  createCider: function(formData, success) {
+    $.ajax({
+      url: 'api/ciders',
+      type: 'POST',
+      dataType: 'json',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (currentCider) {
+        ApiActions.receiveCider(currentCider);
+        success && success();
+      },
+      error: function (error) {
+        ApiActions.receiveError(error);
+      }
+    });
+  }
 };

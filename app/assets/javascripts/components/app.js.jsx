@@ -7,7 +7,8 @@ var App = React.createClass({
       logIn: false,
       sidebar: false,
       search: false,
-      breweries: []
+      breweries: [],
+      styles: []
     });
   },
 
@@ -20,7 +21,9 @@ var App = React.createClass({
     ErrorStore.addChangeListener(this.changed);
     CurrentUserStore.addChangeHandler(this.userChanged);
     BreweryStore.addChangeListener(this.breweriesChanged);
+    StyleStore.addChangeListener(this.stylesChanged);
     BreweryUtil.fetchBreweries();
+    ApiUtil.fetchStyles();
   },
 
   componentWillUnmount: function () {
@@ -28,6 +31,7 @@ var App = React.createClass({
     ErrorStore.removeChangeListener(this.changed);
     CurrentUserStore.removeChangeHandler(this.userChanged);
     BreweryStore.removeChangeListener(this.breweriesChanged);
+    StyleStore.removeChangeListener(this.stylesChanged);
   },
 
   handleScroll: function (){
@@ -70,6 +74,10 @@ var App = React.createClass({
     window.setTimeout(function () {
       this.setState({errors: []});
     }.bind(this), 6000);
+  },
+
+  stylesChanged: function() {
+    this.setState({styles: StyleStore.all()});
   },
 
   breweriesChanged: function () {

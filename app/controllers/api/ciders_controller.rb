@@ -44,6 +44,6 @@ class Api::CidersController < ApplicationController
 
   private
   def cider_params
-    params.require(:cider).permit(:name, :description, :brewery_id, :style, :organic, :abv)
+    params.require(:cider).permit(:name, :description, :brewery_id, :style_id, :organic, :abv, :image)
   end
 end
