@@ -185,7 +185,7 @@ var ApiUtil = window.ApiUtil = {
       contentType: false,
       success: function (currentCider) {
         ApiActions.receiveCider(currentCider);
-        success && success();
+        success && success(currentCider);
       },
       error: function (error) {
         ApiActions.receiveError(error);

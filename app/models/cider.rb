@@ -14,8 +14,9 @@ class Cider < ActiveRecord::Base
                     :trigram => {:threshold => 0.1}
                   }
 
-  validates :name, :description, :brewery_id, :style_id, :organic, :abv,
-            presence: true
+  validates :name, :description, :brewery_id, :style_id, :organic, :abv, presence: true
+
+  validates :name, uniqueness: true
 
   has_attached_file :image,
                     :styles => {:medium => "300x300" },

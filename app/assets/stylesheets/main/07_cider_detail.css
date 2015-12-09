@@ -48,6 +48,10 @@ img.cider-thumb {
   letter-spacing: .01em;
 }
 
+.cider-detail-article {
+  padding-bottom: 10px;
+}
+
 .cider-detail-stats {
   display: block;
   border-top: 3px solid black;

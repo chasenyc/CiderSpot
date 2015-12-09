@@ -24,7 +24,8 @@ var CiderCreateForm = React.createClass({
   },
 
   showNewCider: function (cider) {
-    debugger;
+    var url = "ciders/" + cider.id;
+    this.history.pushState(null, url);
   },
 
   handleSubmit: function(e) {
@@ -49,7 +50,7 @@ var CiderCreateForm = React.createClass({
       formData.append("cider[image]", file);
     }
 
-    ApiUtil.createCider(formData);
+    ApiUtil.createCider(formData, this.showNewCider);
   },
 
   render: function () {

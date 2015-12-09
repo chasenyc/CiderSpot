@@ -92,7 +92,7 @@ var CiderDetailView = React.createClass({
     if (this.state.cider.brewery === undefined) { return <div></div>; };
     return (
       <div className="cider-detail">
-        <article>
+        <article className="cider-detail-article">
           <img className="cider-thumb" src={this.state.cider.image_url}></img>
           <h1 className="cider-head">{this.state.cider.name}</h1>
           <div className="cider-subhead">
