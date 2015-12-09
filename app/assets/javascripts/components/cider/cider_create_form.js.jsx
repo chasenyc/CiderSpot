@@ -136,7 +136,7 @@ var CiderCreateForm = React.createClass({
         value={this.state.brewery_id}
         onChange={this._onChange}
       >
-        <option value="null">Please select a brewery</option>
+        <option disabled value="null">Please select a brewery</option>
         {
           this.props.breweries.map(function(brewery) {
             return <option
@@ -156,7 +156,7 @@ var CiderCreateForm = React.createClass({
         value={this.state.style_id}
         onChange={this._onChange}
       >
-        <option value="null">Please select a style</option>
+        <option disabled value="null">Please select a style</option>
         {
           this.props.styles.map(function(style) {
             return <option
