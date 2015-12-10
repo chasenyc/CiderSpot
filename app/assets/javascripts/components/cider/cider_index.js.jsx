@@ -57,6 +57,12 @@ var CiderIndex = React.createClass({
 
   handleSort: function (e) {
     var style = e.target.value;
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Sort',
+      eventAction: 'Change Sort',
+      eventLabel: style
+    });
     this.setState({page: 1, style: style, end: false});
     ApiUtil.fetchCiders(1, style);
   },
