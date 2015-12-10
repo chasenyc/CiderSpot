@@ -66,12 +66,6 @@ var Header = React.createClass({
   },
 
   toggleSearch: function (e) {
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Header',
-      eventAction: 'Search',
-      eventLabel: 'Toggle Search'
-    });
     if (e.target.dataset.refs !== 'search') {
       this.props.removeSearch();
     }
@@ -93,7 +87,7 @@ var Header = React.createClass({
       <div id="right-arrow" className="nav-icon user-info left right-arrow group">
         <img
           data-refs="right-arrow"
-          onClick={}
+          onClick={this.toggleSidebar}
           className="icon"
           src={window.ImageAssets['right-arrow']}></img>
       </div>

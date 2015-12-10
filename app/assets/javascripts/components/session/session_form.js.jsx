@@ -8,7 +8,7 @@
         hitType: 'event',
         eventCategory: 'Login',
         eventAction: 'attemptLogin',
-        eventLabel: 'Click Log In'
+        eventLabel: e.target.username.value
       });
       var credentials = $(e.currentTarget).serializeJSON();
       this.outsideClick();

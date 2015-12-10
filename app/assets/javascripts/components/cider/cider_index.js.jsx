@@ -42,8 +42,13 @@ var CiderIndex = React.createClass({
 
   fetchMoreCiders: function (e) {
     e.preventDefault();
-
     var pageNum = (this.state.page + 1);
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Show More',
+      eventAction: 'Fetch More Ciders',
+      eventLabel: "Page " + pageNum
+    });
     ApiUtil.fetchNextCiders(pageNum, this.state.style, function () {
       this.setState({page: pageNum, load: true});
     }.bind(this), function () {
