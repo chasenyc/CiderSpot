@@ -31,6 +31,14 @@ var Header = React.createClass({
     SessionsApiUtil.logout();
   },
 
+  handleCreate: function () {
+    if (CurrentUserStore.isLoggedIn()) {
+      this.history.pushState(null, 'newcider');
+    } else {
+      this.props.toggleLogIn();
+    }
+  },
+
   handleGearClick: function () {
     this.setState({toolExpanded: !this.state.toolExpanded});
     $(document).one("click", function(e) {
@@ -87,6 +95,7 @@ var Header = React.createClass({
         {rightSide}
         {rightArrow}
         {allCiders}
+        {this._addCiderButton()}
       </header>
     );
   },
@@ -123,5 +132,15 @@ var Header = React.createClass({
         </div>
       </span>
     );
+  },
+
+  _addCiderButton: function () {
+    return (
+      <div>
+        <button onClick={this.handleCreate} className="nav-item left button">
+          Add Cider
+        </button>
+      </div>
+    )
   }
 });

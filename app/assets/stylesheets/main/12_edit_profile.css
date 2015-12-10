@@ -62,9 +62,21 @@ h2 {
   width: 100px
 }
 
-.control-group > input, > select {
+.control-group > input {
   float: left;
   margin-left: 15px;
+}
+
+.control-group > select {
+  float: left;
+  margin-left: 15px;
+}
+
+.control-group > span {
+  float: left;
+  margin-top: 5px;
+  margin-left: 15px;
+  font-weight: 300;
 }
 
 .control-group .form-info-notice {

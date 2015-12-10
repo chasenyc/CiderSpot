@@ -11,7 +11,8 @@ var CiderCreateForm = React.createClass({
       organic: 'N',
       style_id: "null",
       imageFile: null,
-      imageUrl: ""
+      imageUrl: "",
+      fileName: "none selected."
     });
   },
 
@@ -108,13 +109,13 @@ var CiderCreateForm = React.createClass({
                   type="file"
                   className="upload edit"
                   name="imageFile" />
+                <span>{this.state.fileName}</span>
           </div>
 
           <div className="control-group group">
             <label></label>
             <div className="form-info-notice">
-              At this time we are unable to change e-mail addresses.
-              Please contact a CiderSpot administrator if necessary.
+              If you do not have an image, do not worry, a default image will be provided. If you have an issue with a cider sharing a name of a currently available cider please contact an administrator.
             </div>
           </div>
           <div className="edit-profile-bottom">
@@ -173,8 +174,9 @@ var CiderCreateForm = React.createClass({
       var reader = new FileReader();
       var file = e.target.files[0];
       var that = this;
+      var fileName = e.target.files[0].name;
       reader.onloadend = function() {
-        that.setState({ imageUrl: reader.result, imageFile: file });
+        that.setState({ fileName: fileName, imageUrl: reader.result, imageFile: file });
       }
       if (file) {
         reader.readAsDataURL(file);

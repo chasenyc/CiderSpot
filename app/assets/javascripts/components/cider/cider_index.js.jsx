@@ -95,7 +95,7 @@ var CiderIndex = React.createClass({
               return <CiderIndexItem
                 cider={cider}
                 onClick={boundClick}
-                key={"C"+cider.id}
+                key={"cid"+cider.id}
                 currentUser={this.props.currentUser} />
             }.bind(this))
           }
