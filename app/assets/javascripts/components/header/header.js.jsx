@@ -34,12 +34,30 @@ var Header = React.createClass({
   handleCreate: function () {
     if (CurrentUserStore.isLoggedIn()) {
       this.history.pushState(null, 'newcider');
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Header',
+        eventAction: 'Add Cider',
+        eventLabel: 'Go To Add Cider'
+      });
     } else {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Header',
+        eventAction: 'Add Cider',
+        eventLabel: 'User Prompted to Log In'
+      });
       this.props.toggleLogIn();
     }
   },
 
   handleGearClick: function () {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Header',
+      eventAction: 'Gear Click',
+      eventLabel: 'Toggle Gear Click'
+    });
     this.setState({toolExpanded: !this.state.toolExpanded});
     $(document).one("click", function(e) {
       if (e.target.dataset.refs !== 'gear')
@@ -48,9 +66,25 @@ var Header = React.createClass({
   },
 
   toggleSearch: function (e) {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Header',
+      eventAction: 'Search',
+      eventLabel: 'Toggle Search'
+    });
     if (e.target.dataset.refs !== 'search') {
       this.props.removeSearch();
     }
+  },
+
+  toggleSidebar: function () {
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Header',
+      eventAction: 'Sidebar',
+      eventLabel: 'Toggle Sidebar'
+    });
+    this.props.toggleSidebar();
   },
 
   render: function () {
@@ -59,7 +93,7 @@ var Header = React.createClass({
       <div id="right-arrow" className="nav-icon user-info left right-arrow group">
         <img
           data-refs="right-arrow"
-          onClick={this.props.toggleSidebar}
+          onClick={}
           className="icon"
           src={window.ImageAssets['right-arrow']}></img>
       </div>

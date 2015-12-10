@@ -26,6 +26,12 @@ var CiderCreateForm = React.createClass({
 
   showNewCider: function (cider) {
     var url = "ciders/" + cider.id;
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Create Cider',
+      eventAction: 'Submit Successful',
+      eventLabel: cider.name
+    });
     this.history.pushState(null, url);
   },
 
@@ -50,7 +56,12 @@ var CiderCreateForm = React.createClass({
     if (file !== null) {
       formData.append("cider[image]", file);
     }
-
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Create Cider',
+      eventAction: 'Click Submit',
+      eventLabel: name
+    });
     ApiUtil.createCider(formData, this.showNewCider);
   },
 
