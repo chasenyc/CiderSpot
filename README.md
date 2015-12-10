@@ -26,7 +26,7 @@ def self.with_averages
     reviews.feel_rating +
     reviews.taste_rating) / 5) AS total_scores')
 
-  Cider.select("ciders.*, ROUND(CAST(AVG(totals.total_scores) AS numeric), 1) AS average, COUNT(totals.total_scores) as review_count").joins("INNER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id").group('ciders.id')
+  Cider.select("ciders.*, ROUND(CAST(AVG(totals.total_scores) AS numeric), 1) AS average, COUNT(totals.total_scores) as review_count").joins("LEFT OUTER JOIN (#{subquery.to_sql}) as totals on ciders.id = totals.cider_id").group('ciders.id')
 end
 ```
 
