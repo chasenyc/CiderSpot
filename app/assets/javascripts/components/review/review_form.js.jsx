@@ -65,6 +65,12 @@ var ReviewForm = React.createClass({
         window.scroll(0, window.outerHeight);
       });
     }
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Review',
+      eventAction: 'Submit Cider Review',
+      eventLabel: this.props.ciderId
+    });
     if (this.props.callback) { this.props.callback(); }
     this.resetStates();
   },
