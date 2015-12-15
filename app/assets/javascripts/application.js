@@ -18,5 +18,6 @@
 //= require flux
 //= require eventemitter
 //= require_tree ./util
+//= require_tree ./hoc
 //= require components
 //= require_tree .

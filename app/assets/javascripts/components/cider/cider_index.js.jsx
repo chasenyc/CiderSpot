@@ -116,3 +116,5 @@ var CiderIndex = React.createClass({
     );
   }
 });
+
+CiderIndex = integrateAnalytics(CiderIndex);
