@@ -51,7 +51,7 @@ var Header = React.createClass({
     }
   },
 
-  handleGearClick: function () {
+  handleGearClick: function (e) {
     ga('send', {
       hitType: 'event',
       eventCategory: 'Header',

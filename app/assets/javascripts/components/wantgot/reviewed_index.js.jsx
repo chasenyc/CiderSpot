@@ -1,6 +1,6 @@
 var ReviewedIndex = React.createClass({
 
-    mixins: [ReactRouter.History, Analytics],
+    mixins: [ReactRouter.History],
 
     getInitialState: function () {
       return {
@@ -73,3 +73,5 @@ var ReviewedIndex = React.createClass({
       return CurrentUserStore.currentUser().reviewed
     }
 });
+
+ReviewedIndex = integrateAnalytics(ReviewedIndex);

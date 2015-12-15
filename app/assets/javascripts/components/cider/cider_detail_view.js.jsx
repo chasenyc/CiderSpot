@@ -1,7 +1,5 @@
 var CiderDetailView = React.createClass({
 
-  mixins: [Analytics],
-
   getInitialState: function () {
     var ciderId = this.props.params.ciderId;
     var cider = this._findCiderById(ciderId) || {} ;
@@ -125,3 +123,5 @@ var CiderDetailView = React.createClass({
     );
   }
 });
+
+CiderDetailView = integrateAnalytics(CiderDetailView);

@@ -1,6 +1,6 @@
 var UserEditForm = React.createClass({
 
-  mixins: [ReactRouter.History, Analytics],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return (
@@ -128,3 +128,5 @@ var UserEditForm = React.createClass({
     }
   },
 });
+
+UserEditForm = integrateAnalytics(UserEditForm);

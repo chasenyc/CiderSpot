@@ -1,7 +1,5 @@
 var CiderIndex = React.createClass({
 
-  mixins: [Analytics],
-
   getInitialState: function () {
     return {
       ciders: CiderStore.all(),

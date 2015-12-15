@@ -1,6 +1,6 @@
 var WantsIndex = React.createClass({
 
-  mixins: [ReactRouter.History, Analytics],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return {
@@ -74,3 +74,5 @@ var WantsIndex = React.createClass({
     return CurrentUserStore.currentUser().wants
   }
 });
+
+WantsIndex = integrateAnalytics(WantsIndex);

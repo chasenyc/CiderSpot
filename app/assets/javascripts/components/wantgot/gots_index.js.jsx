@@ -1,6 +1,6 @@
 var GotsIndex = React.createClass({
 
-  mixins: [ReactRouter.History, Analytics],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return {
@@ -65,3 +65,5 @@ var GotsIndex = React.createClass({
     return CurrentUserStore.currentUser().gots
   }
 });
+
+GotsIndex = integrateAnalytics(GotsIndex);

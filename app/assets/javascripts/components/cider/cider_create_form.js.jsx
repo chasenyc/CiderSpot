@@ -1,6 +1,6 @@
 var CiderCreateForm = React.createClass({
 
-  mixins: [ReactRouter.History, Analytics],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return ({
@@ -201,3 +201,5 @@ var CiderCreateForm = React.createClass({
   }
 
 });
+
+CiderCreateForm = integrateAnalytics(CiderCreateForm);
