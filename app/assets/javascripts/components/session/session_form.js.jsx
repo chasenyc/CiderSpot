@@ -41,6 +41,7 @@
       });
       e.target.parentElement.parentElement.username.value = "sennacy";
       e.target.parentElement.parentElement.password.value = "password";
+      $("#login-btn")[0].click();
     },
 
     render: function() {
@@ -66,7 +67,7 @@
               name="password"
               placeholder="password"/>
             <div className="btn-holder">
-              <button className="btn large">Log In</button>
+              <button id="login-btn" className="btn large">Log In</button>
             </div>
             <div className="btn-holder">
               <button onClick={this.fillDemo} className="btn large">Demo Account</button>
