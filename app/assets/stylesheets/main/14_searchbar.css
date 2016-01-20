@@ -74,3 +74,22 @@
   color: #fff;
   cursor: pointer;
 }
+
+@media screen and (max-width: 580px) {
+  .small-search-results {
+    width: 100%;
+    left: 0;
+  }
+
+  .small-search-results li {
+    padding-left: 1%;
+    width: 98%;
+    box-sizing: border-box;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+  }
+}

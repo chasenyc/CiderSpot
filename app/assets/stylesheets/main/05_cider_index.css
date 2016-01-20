@@ -118,18 +118,18 @@
 }
 
 @media screen and (max-width: 580px) {
-    .cider-index {
-      width: 100%;
-    }
-    .cider-index-articles {
-      width: 100%;
-      height: 80%;
-      box-sizing: border-box;
-    }
-    .cider-index article {
-      width: 96%;
-      margin: 2%;
-      box-sizing: border-box;
-    }
-
+  .cider-index {
+    width: 100%;
   }
+  .cider-index-articles {
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+  }
+  .cider-index article {
+    width: 96%;
+    margin: 2%;
+    box-sizing: border-box;
+  }
+
+}

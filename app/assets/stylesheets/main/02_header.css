@@ -122,3 +122,24 @@
   left: -10px;
   border: 1px solid #e33d26;
 }
+
+@media screen and (max-width: 580px) {
+  .logo {
+    display: none;
+  }
+
+  .search-description {
+    display: none;
+  }
+
+  #gear {
+    margin-right: -12px;
+  }
+
+  .nav-item.left {
+    float: left;
+    width: 30%;
+    padding: 10px 0px;
+    margin: 0px 3px;
+  }
+}
