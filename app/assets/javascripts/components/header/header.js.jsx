@@ -163,6 +163,7 @@ var Header = React.createClass({
   },
 
   _addCiderButton: function () {
+    if (!CurrentUserStore.isLoggedIn()) { return; }
     return (
       <div>
         <button onClick={this.handleCreate} className="nav-item left button">
