@@ -25,3 +25,11 @@
 #content {
   margin-top: 55px;
 }
+
+@media screen and (max-width: 580px) {
+  .content {
+    width: 100%;
+    margin: 42px auto 20px auto;
+    padding-top: 80px;
+  }
+}

@@ -132,4 +132,20 @@
     box-sizing: border-box;
   }
 
+  .cider-index-select {
+    width: 100%;
+    margin-top: 2%;
+  }
+
+  .cider-index-select label {
+    float: left;
+    margin-left: 4%;
+    margin-right: 0;
+  }
+
+  .cider-index-select select {
+    width: 60%;
+    margin-right: 4%;
+  }
+
 }
