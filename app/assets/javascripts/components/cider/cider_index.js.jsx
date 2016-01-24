@@ -73,13 +73,14 @@ var CiderIndex = React.createClass({
   render: function () {
     var showMoreCiders = (
       <div className="cider-index-load-more">
-        <button onClick={this.fetchMoreCiders}>Show More Ciders</button>
+        <button className="more-button"
+          onClick={this.fetchMoreCiders}>Show More Ciders</button>
       </div>
     );
 
     if (this.state.end) {
       showMoreCiders = (
-        <div className="cider-index-end">
+        <div className="cider-index-end more-button">
           ~ el fin ~
         </div>
       );

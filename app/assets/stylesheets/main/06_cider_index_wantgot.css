@@ -28,3 +28,8 @@
 .got-button:hover {
   color: #ccc;
 }
+@media screen and (max-width: 580px) {
+  .cider-index-item-wantgot {
+    display: none;
+  }
+}

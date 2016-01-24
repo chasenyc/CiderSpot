@@ -75,3 +75,15 @@ img.cider-thumb {
 .cider-detail-organic {
   float: left;
 }
+
+@media screen and (max-width: 580px) {
+  .cider-detail {
+    width: 96%;
+  }
+
+  .brewery-subhead {
+    display: block;
+    border-right: 0;
+  }
+
+}

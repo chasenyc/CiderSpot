@@ -148,4 +148,13 @@
     margin-right: 4%;
   }
 
+  .cider-index-load-more {
+    padding-top: 10px;
+  }
+
+  .more-button {
+    width: 96%;
+    text-align: center;
+  }
+
 }
