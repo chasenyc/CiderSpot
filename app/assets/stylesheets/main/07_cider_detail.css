@@ -86,4 +86,16 @@ img.cider-thumb {
     border-right: 0;
   }
 
+  .cider-detail-ratings {
+    float: none;
+  }
+
+  .cider-detail-abv {
+    float: none;
+    border-right: 0;
+  }
+
+  .cider-detail-organic {
+    float: none;
+  }
 }

@@ -17,6 +17,10 @@ var CiderDetailView = React.createClass({
     }
   },
 
+  componentDidUpdate: function () {
+    window.scrollTo(0, 0);
+  },
+
   componentDidMount: function () {
     CiderStore.addSingleChangeListener(this.changed);
     ApiUtil.fetchCider(this.props.params.ciderId);
