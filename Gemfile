@@ -39,7 +39,6 @@ gem 'rack'
 gem 'htmlcompressor'
 
 gem 'faker', github: 'stympy/faker'
-gem 'factory_girl_rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -53,6 +52,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :development do
