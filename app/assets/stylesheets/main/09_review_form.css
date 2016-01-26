@@ -73,3 +73,49 @@ textarea.rating-sub {
   height: 0px;
   overflow: hidden;
 }
+
+@media screen and (max-width: 580px) {
+  .review-box {
+    height: inherit;
+  }
+
+  .cancel-button {
+    float: left;
+    margin: 8px 8px 0 8px;
+    border-right: 0;
+  }
+
+  .rating-button {
+    float: right;
+    margin: 8px 8px 0 8px;
+  }
+
+  textarea.rating-sub {
+    width: 100%;
+    box-sizing: border-box;
+    height: 150px;
+  }
+
+  .rating-sub select {
+    margin: 0 5px;
+    border: 1px solid #ccc;
+  }
+
+  .review-like-button {
+    margin: 5px 0 0px 0;
+  }
+
+  .top-review {
+    padding: 10px 0 5px 0;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  .review-form {
+    width: 90%
+  }
+}

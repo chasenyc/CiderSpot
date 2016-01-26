@@ -75,3 +75,32 @@ img.author-thumb {
   margin-right: 5px;
   float: right;
 }
+
+@media screen and (max-width: 580px) {
+  .review-index-item {
+    padding: 10px;
+  }
+
+  .review-meta-user {
+    padding: 0;
+    border-right: 0;
+    margin-right: 0;
+  }
+
+  .review-meta-ratings {
+    display: inline-block;
+    font-weight: 300;
+    margin: 5px 0 0 0;
+    line-height: 150%;
+  }
+
+  .review-edit-button {
+    margin-top: 5px;
+    float: left;
+  }
+
+  .review-delete-button {
+    margin-top: 5px;
+    float: right;
+  }
+}

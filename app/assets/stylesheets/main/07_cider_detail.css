@@ -98,4 +98,10 @@ img.cider-thumb {
   .cider-detail-organic {
     float: none;
   }
+
+  .cider-detail-description {
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 2px solid #000;
+  }
 }
