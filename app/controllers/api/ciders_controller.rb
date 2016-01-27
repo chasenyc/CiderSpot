@@ -2,7 +2,7 @@ class Api::CidersController < ApplicationController
 
   def index
     page_num = params[:page]
-    base = Cider.with_averages.includes(:brewery, :style).page(page_num)
+    base = Cider.includes(:brewery, :style).page(page_num)
     case params[:filter]
       when 'top'
         @ciders = base.top_rated

@@ -10,10 +10,7 @@ describe User do
   end
 
   describe "uniqueness" do
-    subject { User.new(
-      username: "something", email: "something@some.com",
-      birthdate: "1/1/2001", password: "123456789")
-    }
+    subject { build(:user) }
     it { should validate_uniqueness_of :username }
     it { should validate_uniqueness_of :email }
     it { should validate_uniqueness_of :session_token }

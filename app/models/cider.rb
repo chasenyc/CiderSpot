@@ -32,19 +32,19 @@ class Cider < ActiveRecord::Base
   belongs_to :style
 
   def self.top_rated
-    Cider.order('AVG(totals.total_scores) DESC NULLS LAST, ciders.id')
+    Cider.with_averages.order('AVG(totals.total_scores) DESC NULLS LAST, ciders.id')
   end
 
   def self.bottom_rated
-    Cider.order('AVG(totals.total_scores) ASC , ciders.id')
+    Cider.with_averages.order('AVG(totals.total_scores) ASC , ciders.id')
   end
 
   def self.most_recently_updated
-    result = Cider.order(updated_at: :desc, id: :asc)
+    result = Cider.with_averages.order(updated_at: :desc, id: :asc)
   end
 
   def self.least_recently_updated
-    result = Cider.order(updated_at: :asc, id: :asc)
+    result = Cider.with_averages.order(updated_at: :asc, id: :asc)
   end
 
   def self.with_averages
