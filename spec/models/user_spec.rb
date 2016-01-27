@@ -38,7 +38,7 @@ describe User do
   end
 
   describe "after_initialize" do
-    it 'should call ensure_session_token' do
+    it 'should call #ensure_session_token' do
       user = User.allocate
       expect(user).to receive(:ensure_session_token)
       user.send(:initialize)
@@ -103,5 +103,46 @@ describe User do
       expect(@user.password).not_to eq(@user.password_digest)
     end
   end
+
+  describe "#reset_session_token" do
+    before(:each) do
+      @user = build(:user)
+    end
+
+    it "changes the session_token" do
+      old_token = @user.session_token
+      @user.reset_session_token!
+      expect(@user.session_token).not_to eq(old_token)
+    end
+
+    it "returns the new session token" do
+      token = @user.reset_session_token!
+      expect(@user.session_token).to eq(token)
+    end
+
+    it "persists changes to the database" do
+      expect(@user).to receive(:save!)
+      @user.reset_session_token!
+    end
+  end
+
+  describe "#ensure_session_token" do
+    before(:each) do
+      @user = build(:user)
+    end
+
+    it "generates token if no token exists" do
+      @user.session_token = nil
+      @user.ensure_session_token
+      expect(@user.session_token).not_to eq(nil)
+    end
+
+    it "does not generate another session_token if one already exists" do
+      token = @user.session_token
+      @user.ensure_session_token
+      expect(@user.session_token).to eq(token)
+    end
+  end
+
 
 end
