@@ -66,7 +66,8 @@ var Header = React.createClass({
   },
 
   toggleSearch: function (e) {
-    if (e.target.dataset.refs !== 'search') {
+    if (e.target.dataset.refs !== 'search' &&
+        e.target.parentNode.dataset.refs !== 'search') {
       this.props.removeSearch();
     }
   },
